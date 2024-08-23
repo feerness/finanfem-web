@@ -1,0 +1,128 @@
+.body-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center; /* Centra el contenido principal horizontalmente */
+  }
+  
+  .orden-div {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Define un ancho máximo para que el contenido se centre correctamente */
+    justify-content: flex-start; /* Alinea el contenido desde la izquierda */
+  }
+  
+  .lateral {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    margin-right: 20px; /* Margen a la derecha del lateral */
+    max-height: 88vh;
+    overflow-y: auto;
+    flex-shrink: 0; /* Evita que el lateral se encoja */
+  }
+  
+  .lateral a {
+    text-decoration: none; /* Quita la línea de los enlaces */
+    color: black; /* Asegura que el color del texto sea el deseado */
+    display: block;
+    margin-bottom: 10px;
+    transition: text-decoration 0.3s; /* Añade una transición suave para cuando se agregue la línea */
+  }
+  
+  .lateral a:hover {
+    text-decoration: underline; /* Añade la línea cuando el cursor pasa por encima */
+  }
+  
+  .container2 {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    flex-grow: 1; /* Permite que el contenedor crezca ocupando el espacio disponible */
+  }
+  
+  .titulo1,
+  .titulo2 {
+    display: flex;
+    color: #333;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .titulo1 h2,
+  .titulo2 h2 {
+    margin: 0;
+  }
+  
+  .titulo1 p,
+  .titulo2 p {
+    margin: 0;
+    color: #777;
+  }
+  
+  .cuerpo1,
+  .cuerpo2 {
+    margin-bottom: 20px;
+  }
+  
+  .cuerpo1 h3,
+  .cuerpo2 h3 {
+    color: #333;
+    margin-top: 20px;
+  }
+  
+  .cuerpo1 p,
+  .cuerpo2 p,
+  .cuerpo1 ul,
+  .cuerpo2 ul {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 1024px) {
+    .orden-div {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .lateral {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+      max-height: none;
+    }
+  
+    .container2 {
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .titulo1,
+    .titulo2 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .titulo1 p,
+    .titulo2 p {
+      margin-top: 10px;
+    }
+  }
+  

@@ -1,0 +1,124 @@
+/* Contenedor principal que usa Flexbox para organizar el saludo y el formulario */
+.caja {
+  display: flex;
+  justify-content: space-between; /* Espacia los elementos a la izquierda y derecha */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  width: 100%;
+  border: 1px solid #695c6d54;
+  background-color: #f9f9f9;
+  margin: auto;
+}
+
+/* Estilo para el componente Saludo */
+.saludo {
+  flex: 1; /* Permite que el saludo ocupe una parte flexible del contenedor */
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  margin-right: 20px; /* Espacio entre el saludo y el formulario */
+}
+
+/* Estilo para el formulario de registro */
+.register-form {
+  font-family: Arial, sans-serif;
+  background-color: #b496cc;
+  /* margin: 0;
+  padding: 0; */
+} 
+
+.caja {
+  display: flex;
+  width: 1000px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.saludo {
+  background-color: #c8c3cf;
+  color: #fff;
+  padding: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.saludo p {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.saludo h2 {
+color:#000
+}
+
+.form-container {
+  background-color: #b496cc;
+  padding: 40px;
+  width: 50%;
+  position: relative;
+  border-radius: 20px;
+}
+
+.form-container h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  /* color: #fff; */
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000;
+}
+
+.register-form button {
+  width: 130px;
+  padding: 30px;
+  border-radius: 20px;
+  border: none;
+  background-color: #b04a8f;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  top: 0.1px;
+  left: 360px;
+  bottom: 40px;
+}
+
+.register-form button:hover {
+  background-color: #a04888;
+}
+
+/* Estilo para los campos del formulario */
+.register-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para el botón de enviar */
+.register-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo para el contenedor del formulario con el título */
+.form-container {
+  flex: 2; /* Permite que el contenedor del formulario ocupe una parte flexible del contenedor */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre el título y el formulario */
+}

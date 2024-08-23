@@ -1,0 +1,107 @@
+:root {
+    font-size: 16px;
+    --primary-color: #994d96;
+    --secondary-color: #ffffff;
+    --accent-color: #8d54a3;
+    --background-color: #f2f2f2;
+    }
+  
+  .containerf {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem;
+  }
+  
+  .ContenedorMujer {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-mujer {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 10;
+  }
+  
+  .brand-logo {
+    max-width: 8rem;
+  }
+  
+  .containerQS {
+    flex: 1 1 50%;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    margin-left: 2rem;
+  }
+  
+  .titulo p {
+    font-size: 2rem;
+    color: #3c3c3b;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .texto-informativo p {
+    font-size: 1rem;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .boton {
+    margin-top: 2rem;
+  }
+  
+  .botoncito {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .botoncito:hover {
+    background-color: var(--accent-color);
+  }
+  
+  @media (max-width: 768px) {
+    .containerf {
+      flex-direction: column;
+      margin: 1rem;
+      padding: 1rem;
+    }
+  
+    .containerQS {
+      margin-left: 0;
+      padding: 1rem;
+    }
+  
+    .titulo p {
+      font-size: 1.5rem;
+    }
+  
+    .texto-informativo p {
+      font-size: 0.875rem;
+    }
+  
+    .botoncito {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.875rem;
+    }
+  }
+  

@@ -1,0 +1,114 @@
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 30px;
+  }
+  
+  button {
+    background-color: #7e4eab;
+    border-color: #7e4eab;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #4e3670;
+  }
+  
+  .newsItem {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+  }
+  
+  .newsItem:last-child {
+    border-bottom: none;
+  }
+  
+  .newsImage {
+    flex: 1;
+    max-width: 320px;
+  }
+  
+  .newsImage img {
+    max-width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .newsImage:hover img {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  .newsContent {
+    flex: 2;
+    margin-left: 20px;
+  }
+  
+  .newsContent .info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  
+  .newsContent .info h5 {
+    margin: 0px;
+    font-weight: 400;
+  }
+  
+  .newsContent h2 {
+    font-size: 18px;
+    color: #7130cb;
+    margin-top: 0;
+    max-height: 52px;
+    overflow: hidden;
+  }
+  
+  .newsContent p {
+    color: #777;
+    margin: 0px 0px 12px;
+    font-size: 12px;
+    max-height: 400px;
+    overflow: hidden;
+    text-justify: newspaper;
+  }
+  
+  .newsContent a {
+    background-color: #7e4eab;
+    border-color: #7e4eab;
+    padding: 6px 6px;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  .newsContent a:hover {
+    background-color: #4e3670;
+  }
+  
+  #loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  #loadMoreButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

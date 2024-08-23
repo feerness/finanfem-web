@@ -1,0 +1,36 @@
+.saludo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .saludo-container h1 {
+    font-size: 52px;
+    color: #343a40;
+    margin-bottom: 15px;
+  }
+  
+  .saludo-container p {
+    font-size: 18px;
+    color: #495057;
+  }
+  
+  .saludo-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .saludo-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,70 @@
+:root {
+  font-size: 16px; /* Tamaño base para las unidades rem */
+}
+
+.containerh {
+  display: flex;
+  background-color: #4e3670;
+  padding: 1.25rem; 
+  height: 7rem; 
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.textos {
+  display: flex;
+  gap: 0.625rem; 
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+  animation: carrusel 25s linear infinite;
+}
+
+.textos p {
+  font-size: 1rem; 
+  color: #ffffff;
+  margin: 0.1875rem 0 0 3.125rem; 
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+@keyframes carrusel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33%);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .textos p {
+    font-size: 0.875rem; 
+  }
+
+  .containerh {
+    height: 3.75rem; 
+  }
+
+  .textos {
+    gap: 0.9375rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .textos p {
+    font-size: 0.75rem; 
+  }
+
+  .containerh {
+    height: 3.125rem;
+  }
+
+  .textos {
+    gap: 1.25rem;
+  }
+}
