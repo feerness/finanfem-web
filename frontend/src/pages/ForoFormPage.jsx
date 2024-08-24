@@ -73,7 +73,7 @@ export function ForoFormPage() {
           autoFocus
         />
         {errors.title && (
-          <p className="text-red-500 text-xs italic">Please enter a title.</p>
+          <p className="">Please enter a title.</p>
         )}
 
         <Label htmlFor="description">Description</Label>

@@ -30,12 +30,12 @@ function Register() {
   }, [isAuthenticated]);
 
   return (
-    <div className="h-[calc(100vh-100px)] flex items-center justify-center">
+    <div className="">
       <Card>
         {registerErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1 className="text-3xl font-bold">Register</h1>
+        <h1 className="">Register</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Label htmlFor="username">Username:</Label>
           <Input
@@ -46,7 +46,7 @@ function Register() {
             autoFocus
           />
           {errors.username?.message && (
-            <p className="text-red-500">{errors.username?.message}</p>
+            <p className="">{errors.username?.message}</p>
           )}
 
           <Label htmlFor="email">Email:</Label>
@@ -56,7 +56,7 @@ function Register() {
             {...register("email")}
           />
           {errors.email?.message && (
-            <p className="text-red-500">{errors.email?.message}</p>
+            <p className="">{errors.email?.message}</p>
           )}
 
           <Label htmlFor="password">Password:</Label>
@@ -67,7 +67,7 @@ function Register() {
             {...register("password")}
           />
           {errors.password?.message && (
-            <p className="text-red-500">{errors.password?.message}</p>
+            <p className="">{errors.password?.message}</p>
           )}
 
           <Label htmlFor="confirmPassword">Confirm Password:</Label>
@@ -78,12 +78,12 @@ function Register() {
             {...register("confirmPassword")}
           />
           {errors.confirmPassword?.message && (
-            <p className="text-red-500">{errors.confirmPassword?.message}</p>
+            <p className="">{errors.confirmPassword?.message}</p>
           )}
           <Button>Submit</Button>
         </form>
         <p>
-          Already Have an Account?  <Link className="text-pink-200" to="/login">Login</Link>
+          Already Have an Account?  <Link className="" to="/login">Login</Link>
         </p>
       </Card>
     </div>

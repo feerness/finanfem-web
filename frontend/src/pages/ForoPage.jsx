@@ -18,20 +18,20 @@ export function ForoPage() {
   return (
     <>
       {foro.length === 0 && (
-        <div className="flex justify-center items-center p-10">
+        <div className="">
           <div>
-            <ImFileEmpty className="text-6xl text-gray-400 m-auto my-2" />
-            <h1 className="font-bold text-xl">
+            <ImFileEmpty className="" />
+            <h1 className="">
               No post yet, please add a new post
             </h1>
-            <div className="nav-item text-white flex justify-center items-center p-10">
+            <div className="">
               <ButtonLink to="/add-post">Añadir Post</ButtonLink>
             </div>
           </div>
         </div>
       )}
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div className="">
         {foro.map((foroItem) => (
           <ForoCard 
           foro={{

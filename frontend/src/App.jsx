@@ -24,7 +24,7 @@ function App() {
     <AuthProvider>
       <ForoProvider>
         <BrowserRouter>
-          <main className="container content-container mx-auto px-10 md:px-0">
+          <main className="">
             <Navigationbar />
             <Routes>
               <Route path="/" element={<HomePage />} />

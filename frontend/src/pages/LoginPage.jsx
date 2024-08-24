@@ -30,12 +30,12 @@ export function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div className="h-[calc(100vh-100px)] flex items-center justify-center">
+    <div className="">
       <Card>
         {loginErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
-        <h1 className="text-2xl font-bold">Login</h1>
+        <h1>Login</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Label htmlFor="email">Email:</Label>
@@ -60,8 +60,8 @@ export function LoginPage() {
           <Button>Login</Button>
         </form>
 
-        <p className="flex gap-x-2 justify-between">
-          Dont have an account? <Link to="/register" className="text-pink-200">Sign up</Link>
+        <p className="">
+          Dont have an account? <Link to="/register" className="">Sign up</Link>
         </p>
       </Card>
     </div>
