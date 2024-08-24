@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
+import { Navigationbar } from "./components/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "./routes";
 import HomePage from "./pages/HomePage";
@@ -18,14 +18,14 @@ import VideosCliente from "./components/Recursos/Videos";
 import Noticias from "./pages/Noticias";
 import ReportesCliente from "./components/Consultoria/Reportes";
 import Terminos from "./components/Consultoria/Terminos";
-
+import './App.css'
 function App() {
   return (
     <AuthProvider>
       <ForoProvider>
         <BrowserRouter>
           <main className="container content-container mx-auto px-10 md:px-0">
-            <Navbar />
+            <Navigationbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
