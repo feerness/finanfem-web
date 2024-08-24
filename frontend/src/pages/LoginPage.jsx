@@ -1,14 +1,10 @@
+import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {Button} from "../components/ui/Button";
-import {Card} from "../components/ui/Card";
-import {Input} from "../components/ui/Input";
-import {Label} from "../components/ui/Label";
-import {Message} from "../components/ui/Message";
 import { loginSchema } from "../schemas/auth";
+import "./Login.css"; // Asegúrate de importar tu archivo CSS aquí
 
 export function LoginPage() {
   const {
@@ -30,41 +26,44 @@ export function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div className="h-[calc(100vh-100px)] flex items-center justify-center">
-      <Card>
-        {loginErrors.map((error, i) => (
-          <Message message={error} key={i} />
-        ))}
-        <h1 className="text-2xl font-bold">Login</h1>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="email">Email:</Label>
-          <Input
-            label="Write your email"
-            type="email"
-            name="email"
-            placeholder="youremail@domain.tld"
-            {...register("email", { required: true })}
-          />
-          <p>{errors.email?.message}</p>
-
-          <Label htmlFor="password">Password:</Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Write your password"
-            {...register("password", { required: true, minLength: 6 })}
-          />
-          <p>{errors.password?.message}</p>
-
-          <Button>Login</Button>
-        </form>
-
-        <p className="flex gap-x-2 justify-between">
-          Dont have an account? <Link to="/register" className="text-pink-200">Sign up</Link>
+    <main className="login">
+      <h1 className="loginTitle">Inicia sesión</h1>
+      {loginErrors.map((error, i) => (
+        <p key={i} className="errorMessage">
+          {error}
         </p>
-      </Card>
-    </div>
+      ))}
+
+      <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          required
+          placeholder="youremail@domain.tld"
+          {...register("email", { required: true })}
+        />
+        <p>{errors.email?.message}</p>
+
+        <label htmlFor="password">Contraseña</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          placeholder="Escribe tu contraseña"
+          {...register("password", { required: true, minLength: 6 })}
+        />
+        <p>{errors.password?.message}</p>
+
+        <button className="loginBtn">INICIA SESIÓN</button>
+        <p>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
+        </p>
+      </form>
+    </main>
   );
 }
+
 export default LoginPage;
