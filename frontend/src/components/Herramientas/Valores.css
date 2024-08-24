@@ -1,84 +1,71 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Contenedor principal */
+.carrusel {
+  overflow: hidden;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.contenedor {
+  display: flex;
+  animation: carrusel 30s linear infinite;
+}
+
+.contenedor .indicador {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.contenedor .indicador:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para el título del indicador */
+.contenedor .indicador h5 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: large;
+}
+
+/* Contenedor de valor */
+.contenedor .indicador .valor-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Espacio entre el signo y el valor */
+}
+
+/* Estilo para el valor del indicador */
+.contenedor .indicador .valor,
+.contenedor .indicador .signo {
+  font-size: 1.5em;
+  color: #d663be;
+}
+
+/* Estilo para la fecha del indicador */
+.contenedor .indicador .fecha {
+  font-size: 0.9em;
+  color: #888;
+}
+
+@keyframes carrusel {
+  0% {
+    transform: translateX(0);
   }
-  
-  /* Estilo para el body */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #ffffff;
+  100% {
+    transform: translateX(-100%);
   }
-  
-  /* Contenedor principal */
-  .carrusel {
-    overflow: hidden;
-    width: 100%;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-  }
-  
-  .contenedor {
-    display: flex;
-    animation: carrusel 30s linear infinite;
-  }
-  
-  .contenedor .indicador {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
-  }
-  
-  .contenedor .indicador:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Estilo para el título del indicador */
-  .contenedor .indicador h5 {
-    margin-bottom: 10px;
-    color: #333;
-    font-size: large;
-  }
-  
-  /* Contenedor de valor */
-  .contenedor .indicador .valor-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px; /* Espacio entre el signo y el valor */
-  }
-  
-  /* Estilo para el valor del indicador */
-  .contenedor .indicador .valor,
-  .contenedor .indicador .signo {
-    font-size: 1.5em;
-    color: #d663be;
-  }
-  
-  /* Estilo para la fecha del indicador */
-  .contenedor .indicador .fecha {
-    font-size: 0.9em;
-    color: #888;
-  }
-  
-  @keyframes carrusel {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
+}
