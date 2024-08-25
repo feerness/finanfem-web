@@ -3,9 +3,9 @@ import ApiFunction from "./apiFunction";
 
 const Indicadores = () => {
   return (
-    <section className="content py-5">
+    <section className="api-content py-5">
       {" "}
-      {/*Esto crea conflicto con ./consultoria/reportes.css*/}
+      {/*Hacer css de api*/}
       <div className="container">
         <h2>Indicadores Financieros</h2>
         {ApiFunction()}
