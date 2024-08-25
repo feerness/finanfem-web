@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { useForo } from "../context/foroContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import "./PostCard.css"; // Importa el archivo CSS
 
 export function ForoCard({ foro }) {
   const { deleteForo } = useForo();
   const { user } = useAuth();
-  
+
   const handleDelete = async () => {
     try {
       await deleteForo(foro._id);
@@ -14,16 +15,15 @@ export function ForoCard({ foro }) {
       console.error("Error al eliminar el foro:", error);
     }
   };
-  
+
   const isOwner = user?.id === foro.user?._id || user?.id === foro.user;
 
-
   return (
-    <div className="bg-purple-600 max-w-md w-full p-10 rounded-md">
-      <header className="flex justify-between">
-        <h1 className="text-2xl font-bold">{foro.title}</h1>
+    <div className="foro-card">
+      <header className="foro-card-header">
+        <h1 className="foro-card-title">{foro.title}</h1>
         {isOwner && (
-          <div className="flex gap-x-2 items-center">
+          <div className="foro-card-buttons">
             <button onClick={handleDelete} className="btn btn-danger">
               Eliminar
             </button>
@@ -33,11 +33,23 @@ export function ForoCard({ foro }) {
           </div>
         )}
       </header>
-      <p className="text-slate-300">{foro.description}</p>
-      <p>{new Date(foro.date).toLocaleDateString()}</p>
+      <p className="foro-card-description">{foro.description}</p>
+      <p className="foro-card-date">
+        {new Date(foro.date).toLocaleDateString()}
+      </p>
     </div>
   );
 }
+
+ForoCard.propTypes = {
+  foro: PropTypes.shape({
+    user: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 // ForoCard.propTypes = {
 //   foro: PropTypes.shape({
@@ -48,12 +60,3 @@ export function ForoCard({ foro }) {
 //     user: PropTypes.string.isRequired, // Asegúrate de que `user` esté definido en `foro`
 //   }).isRequired,
 // };
-ForoCard.propTypes = {
-  foro: PropTypes.shape({
-    user: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    _id: PropTypes.string.isRequired,
-  }).isRequired,
-};

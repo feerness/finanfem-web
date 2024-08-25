@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export function Message({ message }) {
   return (
@@ -9,6 +9,5 @@ export function Message({ message }) {
 }
 
 Message.propTypes = {
-  message: PropTypes.string.isRequired,  // Add this line to validate the message prop
+  message: PropTypes.string.isRequired, // Add this line to validate the message prop
 };
-

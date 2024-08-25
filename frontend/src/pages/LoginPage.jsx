@@ -1,14 +1,10 @@
+import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {Button} from "../components/ui/Button";
-import {Card} from "../components/ui/Card";
-import {Input} from "../components/ui/Input";
-import {Label} from "../components/ui/Label";
-import {Message} from "../components/ui/Message";
 import { loginSchema } from "../schemas/auth";
+import "./Login.css"; // Asegúrate de importar tu archivo CSS aquí
 
 export function LoginPage() {
   const {
@@ -18,7 +14,7 @@ export function LoginPage() {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const { signin, errors: loginErrors, isAuthenticated } = useAuth();
+  const { signin, errors: loginErrors = [], isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = (data) => signin(data);
@@ -27,44 +23,70 @@ export function LoginPage() {
     if (isAuthenticated) {
       navigate("/LandingPageClient");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   return (
+<<<<<<< HEAD
     <div className="">
       <Card>
         {loginErrors.map((error, i) => (
           <Message message={error} key={i} />
         ))}
         <h1 className="">Login</h1>
+=======
+    <main className="login">
+      <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="loginTitle">Inicia sesión</h1>
+>>>>>>> master
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Label htmlFor="email">Email:</Label>
-          <Input
-            label="Write your email"
-            type="email"
-            name="email"
-            placeholder="youremail@domain.tld"
-            {...register("email", { required: true })}
-          />
-          <p>{errors.email?.message}</p>
+        {/* Usa la clase "error-message" para los mensajes de error */}
+        {loginErrors.map(
+          (error, i) =>
+            error && ( // Verifica que el error no esté vacío antes de renderizarlo
+              <p key={i} className="error-message">
+                {error}
+              </p>
+            )
+        )}
 
-          <Label htmlFor="password">Password:</Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Write your password"
-            {...register("password", { required: true, minLength: 6 })}
-          />
-          <p>{errors.password?.message}</p>
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          required
+          placeholder="youremail@domain.tld"
+          {...register("email", { required: true })}
+        />
+        {errors.email?.message && (
+          <p className="error-message">{errors.email?.message}</p>
+        )}
 
-          <Button>Login</Button>
-        </form>
+        <label htmlFor="password">Contraseña</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          placeholder="Escribe tu contraseña"
+          {...register("password", { required: true, minLength: 6 })}
+        />
+        {errors.password?.message && (
+          <p className="error-message">{errors.password?.message}</p>
+        )}
 
+<<<<<<< HEAD
         <p className="">
           ¿Ya tienes una cuenta? <Link to="/register" className="">Sign up</Link>
+=======
+        <button className="loginBtn">INICIA SESIÓN</button>
+        <p>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
+>>>>>>> master
         </p>
-      </Card>
-    </div>
+      </form>
+    </main>
   );
 }
+
 export default LoginPage;

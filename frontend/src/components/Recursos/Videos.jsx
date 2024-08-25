@@ -1,76 +1,89 @@
-import ReactPlayer from 'react-player';
-import PropTypes from 'prop-types';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactPlayer from "react-player";
+import PropTypes from "prop-types";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./RecursosCliente.css";
 
 const VideoCard = ({ title, description, videoUrl }) => {
   return (
-    <div className="col-12 col-sm-6 col-md-4 mb-4">
-      <div className="card h-100">
+    <div className="card1">
+      {" "}
+      {/* Usando la clase 'card1' para consistencia */}
+      <div className="card1-img-container">
         <ReactPlayer
           url={videoUrl}
           width="100%"
-          height="315px"
+          height="200px" /* Ajusta la altura para que coincida con las imágenes */
           controls={true}
+          className="card1-img-top" /* Usamos la clase de imagen para mantener la consistencia */
         />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
-        </div>
+      </div>
+      <div className="card1-body">
+        <h5 className="card1-title">{title}</h5>
+        <p className="card1-text">{description}</p>
       </div>
     </div>
   );
 };
 
 VideoCard.propTypes = {
-    title: PropTypes.node.isrequired,
-    description: PropTypes.node.isrequired,
-    videoUrl: PropTypes.isrequired,
-}
+  title: PropTypes.node.isrequired,
+  description: PropTypes.node.isrequired,
+  videoUrl: PropTypes.isrequired,
+};
 
 const VideosCliente = () => {
   const videos = [
     {
-      title: 'La Manera Más Fácil para Entender las Finanzas',
-      description: 'Explora los conceptos clave de la economía y las finanzas en este completo diccionario.',
-      videoUrl: 'https://www.youtube.com/watch?v=dUiZ5is-Chw',
+      title: "La Manera Más Fácil para Entender las Finanzas",
+      description:
+        "Explora los conceptos clave de la economía y las finanzas en este completo diccionario.",
+      videoUrl: "https://www.youtube.com/watch?v=dUiZ5is-Chw",
     },
     {
-      title: 'CONTABILIDAD DEL HOGAR EN EXCEL FÁCIL Y PRÁCTICO | PLANTILLA DESCARGABLE GRATIS:',
-      description: 'Descubre las mejores plataformas de trading y cómo utilizarlas para maximizar tus inversiones.',
-      videoUrl: 'https://www.youtube.com/watch?v=QKH_RylEMEU',
+      title:
+        "CONTABILIDAD DEL HOGAR EN EXCEL FÁCIL Y PRÁCTICO | PLANTILLA DESCARGABLE GRATIS:",
+      description:
+        "Descubre las mejores plataformas de trading y cómo utilizarlas para maximizar tus inversiones.",
+      videoUrl: "https://www.youtube.com/watch?v=QKH_RylEMEU",
     },
     {
-      title: 'Pequeños LADRONES que te roban el DINERO - Gastos Hormiga',
-      description: 'Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.',
-      videoUrl: 'https://www.youtube.com/watch?v=5tL96a8FZU4',
+      title: "Pequeños LADRONES que te roban el DINERO - Gastos Hormiga",
+      description:
+        "Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.",
+      videoUrl: "https://www.youtube.com/watch?v=5tL96a8FZU4",
     },
     {
-      title: 'Aprende a gestionar MEJOR tu dinero con LA REGLA 50/30/20',
-      description: 'Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.',
-      videoUrl: 'https://www.youtube.com/watch?v=_bgUUswBttU',
+      title: "Aprende a gestionar MEJOR tu dinero con LA REGLA 50/30/20",
+      description:
+        "Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.",
+      videoUrl: "https://www.youtube.com/watch?v=_bgUUswBttU",
     },
     {
-      title: 'Finanzas en pareja:',
-      description: 'Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.',
-      videoUrl: 'https://www.youtube.com/watch?v=g8TUvldg8L4',
+      title: "Finanzas en pareja:",
+      description:
+        "Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.",
+      videoUrl: "https://www.youtube.com/watch?v=g8TUvldg8L4",
     },
     {
-      title: 'Pequeños LADRONES que te roban el DINERO - Gastos Hormiga',
-      description: 'Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.',
-      videoUrl: 'https://www.youtube.com/watch?v=29iU2NA0rDQ',
+      title: "Pequeños LADRONES que te roban el DINERO - Gastos Hormiga",
+      description:
+        "Accede a recursos educativos sobre finanzas proporcionados por la Comisión para el Mercado Financiero de Chile.",
+      videoUrl: "https://www.youtube.com/watch?v=29iU2NA0rDQ",
     },
   ];
 
   return (
-    <section className="content py-5">
-      <div className="container">
-        <div className="header">
+    <section className="article-content">
+      {" "}
+      {/* Usando la clase 'article-content' */}
+      <div className="container1">
+        <div className="header1">
           <h2>Videos</h2>
         </div>
-        <div className="info-header">
+        <div className="info-header1">
           <p>Encuentra videos sobre finanzas y empoderamiento económico.</p>
         </div>
-        <div className="row">
+        <div className="d-flex1">
           {videos.map((video, index) => (
             <VideoCard
               key={index}
