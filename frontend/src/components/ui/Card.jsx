@@ -1,11 +1,8 @@
 import PropTypes from "prop-types";
+import "./UI.css"; // Importa el archivo CSS
 
 export function Card({ children }) {
-  return (
-    <div className="bg-purple-900 max-w-md w-full p-10 rounded-md">
-      {children}
-    </div>
-  );
+  return <div className="card">{children}</div>;
 }
 
 Card.propTypes = {

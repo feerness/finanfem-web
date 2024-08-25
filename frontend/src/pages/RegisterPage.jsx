@@ -7,7 +7,7 @@ import { registerSchema } from "../schemas/auth";
 import "./Register.css"; // Asegúrate de importar tu archivo CSS aquí
 
 function Register() {
-  const { signup, errors: registerErrors, isAuthenticated } = useAuth();
+  const { signup, errors: registerErrors = [], isAuthenticated } = useAuth();
   const {
     register,
     handleSubmit,
@@ -23,16 +23,19 @@ function Register() {
 
   useEffect(() => {
     if (isAuthenticated) navigate("/LandingPageClient");
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   return (
     <main className="register">
       <h1 className="registerTitle">Crea una cuenta</h1>
+
+      {/* Mostrar los errores generales */}
       {registerErrors.map((error, i) => (
-        <p key={i} className="errorMessage">
+        <p key={i} className="error-message">
           {error}
         </p>
       ))}
+
       <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="username">Nombre de usuario</label>
         <input
@@ -44,7 +47,7 @@ function Register() {
           autoFocus
         />
         {errors.username?.message && (
-          <p className="errorMessage">{errors.username?.message}</p>
+          <p className="error-message">{errors.username?.message}</p>
         )}
 
         <label htmlFor="email">Email</label>
@@ -56,7 +59,7 @@ function Register() {
           {...register("email")}
         />
         {errors.email?.message && (
-          <p className="errorMessage">{errors.email?.message}</p>
+          <p className="error-message">{errors.email?.message}</p>
         )}
 
         <label htmlFor="password">Contraseña</label>
@@ -68,7 +71,7 @@ function Register() {
           {...register("password")}
         />
         {errors.password?.message && (
-          <p className="errorMessage">{errors.password?.message}</p>
+          <p className="error-message">{errors.password?.message}</p>
         )}
 
         <label htmlFor="confirmPassword">Confirmar Contraseña</label>
@@ -80,8 +83,9 @@ function Register() {
           {...register("confirmPassword")}
         />
         {errors.confirmPassword?.message && (
-          <p className="errorMessage">{errors.confirmPassword?.message}</p>
+          <p className="error-message">{errors.confirmPassword?.message}</p>
         )}
+
         <button className="registerBtn">REGISTRAR</button>
 
         <p>

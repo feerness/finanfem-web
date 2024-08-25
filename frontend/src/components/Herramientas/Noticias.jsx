@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./Noticias";
+import "./Noticias.css";
 
 const NewsComponent = () => {
   const API_KEY = "3312930d4a09464495940e0413773fe4";

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./Button.css";
+import "./UI.css";
 
 export const ButtonLink = ({ to, children }) => (
   <Link to={to} className="replyBtn">

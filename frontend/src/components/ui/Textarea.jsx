@@ -1,15 +1,16 @@
 import { forwardRef } from "react";
+import "./UI.css"; // Importa el archivo CSS
 
 export const Textarea = forwardRef((props, ref, rows = 2) => {
   return (
     <textarea
       {...props}
       ref={ref}
-      className="w-full bg-purple-700 text-white px-4 py-2 rounded-md"
+      className="custom-textarea" // Usa la clase CSS
       rows={rows}
     />
   );
 });
 
-Textarea.displayName = "Input";
+Textarea.displayName = "Textarea";
 export default Textarea;

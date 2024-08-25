@@ -1,11 +1,12 @@
 import { forwardRef } from "react";
+import "./UI.css"; // Importa el archivo CSS global
 
 export const Input = forwardRef((props, ref) => {
   return (
     <input
       {...props}
       ref={ref}
-      className="w-full bg-purple-200 text-white px-4 py-2 rounded-md"
+      className="input-custom" // Usa la clase de CSS global
     />
   );
 });

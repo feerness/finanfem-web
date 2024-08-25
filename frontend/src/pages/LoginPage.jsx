@@ -14,7 +14,7 @@ export function LoginPage() {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const { signin, errors: loginErrors, isAuthenticated } = useAuth();
+  const { signin, errors: loginErrors = [], isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const onSubmit = (data) => signin(data);
@@ -23,16 +23,21 @@ export function LoginPage() {
     if (isAuthenticated) {
       navigate("/LandingPageClient");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
 
   return (
     <main className="login">
       <h1 className="loginTitle">Inicia sesión</h1>
-      {loginErrors.map((error, i) => (
-        <p key={i} className="errorMessage">
-          {error}
-        </p>
-      ))}
+
+      {/* Usa la clase "error-message" para los mensajes de error */}
+      {loginErrors.map(
+        (error, i) =>
+          error && ( // Verifica que el error no esté vacío antes de renderizarlo
+            <p key={i} className="error-message">
+              {error}
+            </p>
+          )
+      )}
 
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="email">Email</label>
@@ -44,7 +49,9 @@ export function LoginPage() {
           placeholder="youremail@domain.tld"
           {...register("email", { required: true })}
         />
-        <p>{errors.email?.message}</p>
+        {errors.email?.message && (
+          <p className="error-message">{errors.email?.message}</p>
+        )}
 
         <label htmlFor="password">Contraseña</label>
         <input
@@ -55,7 +62,9 @@ export function LoginPage() {
           placeholder="Escribe tu contraseña"
           {...register("password", { required: true, minLength: 6 })}
         />
-        <p>{errors.password?.message}</p>
+        {errors.password?.message && (
+          <p className="error-message">{errors.password?.message}</p>
+        )}
 
         <button className="loginBtn">INICIA SESIÓN</button>
         <p>

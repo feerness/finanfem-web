@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "./Button.css";
+import "./UI.css";
 
 export function Button({ onClick, children }) {
   return (

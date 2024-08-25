@@ -1,4 +1,3 @@
-/* Register.css */
 .register {
   display: flex;
   flex-direction: column;
@@ -75,4 +74,13 @@
 
 .register p a:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  color: #f56565; /* Rojo para indicar error (bg-red-500 equivalente) */
+  background-color: #fee2e2; /* Fondo rojo claro */
+  padding: 8px 12px; /* Espaciado interno */
+  font-size: 14px; /* Tamaño de la fuente */
+  border-radius: 4px; /* Bordes redondeados */
+  margin-bottom: 8px; /* Espaciado inferior */
 }
