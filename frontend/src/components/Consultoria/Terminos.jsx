@@ -2,9 +2,9 @@ import "./Terminos.css";
 
 const Terminos = () => {
   return (
-    <div className="body-container">
-      <div className="orden-div">
-        <div className="lateral">
+    <div className="body-container3">
+      <div className="orden-div3">
+        <div className="lateral3">
           <a href="#terminos-uso">
             <h4>Términos de Uso de FinanFem</h4>
           </a>
@@ -55,12 +55,12 @@ const Terminos = () => {
           </a>
         </div>
 
-        <div className="container2">
-          <div className="titulo1" id="terminos-uso">
+        <div className="container23">
+          <div className="titulo13" id="terminos-uso">
             <h2>Términos de Uso de FinanFem</h2>
             <p>8 de Julio del 2024</p>
           </div>
-          <div className="cuerpo1">
+          <div className="cuerpo13">
             <h3 id="objeto-foro">Objeto del Foro</h3>
             <p>
               El objeto de la página FinanFem.com es establecer un foro en el
@@ -122,7 +122,7 @@ const Terminos = () => {
               esta web, infringiendo estas condiciones generales y/o la
               legalidad vigente. El Usuario deberá abstenerse de:
             </p>
-            <ul>
+            <ul className="ul3">
               <li>
                 Hacer un uso no autorizado o fraudulento del website y/o de los
                 Contenidos con fines o efectos ilícitos.
@@ -178,13 +178,13 @@ const Terminos = () => {
             </p>
           </div>
 
-          <div className="titulo2" id="normas-convivencia">
+          <div className="titulo23" id="normas-convivencia">
             <h2>Normas de Convivencia de FinanFem</h2>
             <p>8 de Julio del 2024</p>
           </div>
-          <div className="cuerpo2">
+          <div className="cuerpo23">
             <h3 id="respeto-amabilidad">Respeto y Amabilidad</h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Todos los miembros del foro deben tratarse con respeto y
                 cortesía.
@@ -199,7 +199,7 @@ const Terminos = () => {
               </li>
             </ul>
             <h3 id="contenido-apropiado">Contenido Apropiado</h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 No se permite la publicación de contenido ofensivo, obsceno,
                 ilegal o que incite al odio.
@@ -210,7 +210,7 @@ const Terminos = () => {
               </li>
             </ul>
             <h3 id="publicacion-mensajes">Publicación de Mensajes</h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Publica tus mensajes en el subforo adecuado y asegúrate de que
                 el título sea claro y descriptivo.
@@ -226,7 +226,7 @@ const Terminos = () => {
             <h3 id="derechos-autor">
               Derechos de Autor y Propiedad Intelectual
             </h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Respeta los derechos de autor. No publiques contenido que no te
                 pertenezca sin el permiso adecuado.
@@ -237,7 +237,7 @@ const Terminos = () => {
               </li>
             </ul>
             <h3 id="moderacion">Moderación</h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Los moderadores tienen la autoridad para editar, mover o
                 eliminar mensajes que no cumplan con estas normas.
@@ -250,7 +250,7 @@ const Terminos = () => {
             <h3 id="consecuencias-infracciones">
               Consecuencias de Infracciones
             </h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Las violaciones a estas normas pueden resultar en advertencias,
                 suspensión temporal o expulsión definitiva del foro.
@@ -261,7 +261,7 @@ const Terminos = () => {
               </li>
             </ul>
             <h3 id="cambios-normas">Cambios en las Normas</h3>
-            <ul>
+            <ul className="ul3">
               <li>
                 Nos reservamos el derecho de modificar estas normas en cualquier
                 momento. Los cambios serán comunicados oportunamente.

@@ -27,19 +27,19 @@ export function LoginPage() {
 
   return (
     <main className="login">
-      <h1 className="loginTitle">Inicia sesión</h1>
-
-      {/* Usa la clase "error-message" para los mensajes de error */}
-      {loginErrors.map(
-        (error, i) =>
-          error && ( // Verifica que el error no esté vacío antes de renderizarlo
-            <p key={i} className="error-message">
-              {error}
-            </p>
-          )
-      )}
-
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="loginTitle">Inicia sesión</h1>
+
+        {/* Usa la clase "error-message" para los mensajes de error */}
+        {loginErrors.map(
+          (error, i) =>
+            error && ( // Verifica que el error no esté vacío antes de renderizarlo
+              <p key={i} className="error-message">
+                {error}
+              </p>
+            )
+        )}
+
         <label htmlFor="email">Email</label>
         <input
           type="text"

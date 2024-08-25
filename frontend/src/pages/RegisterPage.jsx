@@ -27,16 +27,16 @@ function Register() {
 
   return (
     <main className="register">
-      <h1 className="registerTitle">Crea una cuenta</h1>
-
-      {/* Mostrar los errores generales */}
-      {registerErrors.map((error, i) => (
-        <p key={i} className="error-message">
-          {error}
-        </p>
-      ))}
-
       <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
+        <h1 className="registerTitle">Crea una cuenta</h1>
+
+        {/* Mostrar los errores generales */}
+        {registerErrors.map((error, i) => (
+          <p key={i} className="error-message">
+            {error}
+          </p>
+        ))}
+
         <label htmlFor="username">Nombre de usuario</label>
         <input
           type="text"

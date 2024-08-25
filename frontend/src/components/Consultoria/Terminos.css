@@ -1,45 +1,59 @@
-.orden-div {
+.body-container3 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.orden-div3 {
   display: flex;
   width: 100%;
-  max-width: 1200px; /* Define un ancho máximo para que el contenido se centre correctamente */
-  justify-content: flex-start; /* Alinea el contenido desde la izquierda */
+  max-width: 1200px;
+  justify-content: flex-start;
 }
 
-.lateral {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 280px;
-  margin-right: 20px; /* Margen a la derecha del lateral */
-  max-height: 88vh;
-  overflow-y: auto;
-  flex-shrink: 0; /* Evita que el lateral se encoja */
-}
-
-.lateral a {
-  text-decoration: none; /* Quita la línea de los enlaces */
-  color: black; /* Asegura que el color del texto sea el deseado */
-  display: block;
-  margin-bottom: 10px;
-  transition: text-decoration 0.3s; /* Añade una transición suave para cuando se agregue la línea */
-}
-
-.lateral a:hover {
-  text-decoration: underline; /* Añade la línea cuando el cursor pasa por encima */
-}
-
-.container2 {
+.lateral3 {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  flex-grow: 1; /* Permite que el contenedor crezca ocupando el espacio disponible */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  margin-right: 20px;
+  max-height: 88vh;
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
-.titulo1,
-.titulo2 {
+.lateral3 a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.lateral3 a:hover {
+  color: #674188;
+  text-decoration: underline;
+}
+
+.lateral3 h4 {
+  color: #674188;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.container23 {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  flex-grow: 1;
+}
+
+.titulo13,
+.titulo23 {
   display: flex;
   color: #333;
   justify-content: space-between;
@@ -49,69 +63,76 @@
   margin-bottom: 20px;
 }
 
-.titulo1 h2,
-.titulo2 h2 {
+.titulo13 h2,
+.titulo23 h2 {
   margin: 0;
+  font-size: 1.8rem;
+  color: #333;
 }
 
-.titulo1 p,
-.titulo2 p {
+.titulo13 p,
+.titulo23 p {
   margin: 0;
   color: #777;
 }
 
-.cuerpo1,
-.cuerpo2 {
+.cuerpo13,
+.cuerpo23 {
   margin-bottom: 20px;
 }
 
-.cuerpo1 h3,
-.cuerpo2 h3 {
-  color: #333;
+.cuerpo13 h3,
+.cuerpo23 h3 {
+  color: #7e4eab;
   margin-top: 20px;
+  font-size: 1.5rem;
 }
 
-.cuerpo1 p,
-.cuerpo2 p,
-.cuerpo1 ul,
-.cuerpo2 ul {
+.cuerpo13 p,
+.cuerpo23 p,
+.cuerpo13 ul,
+.cuerpo23 ul {
   color: #555;
   line-height: 1.6;
 }
 
-ul {
+ul3 {
   padding-left: 20px;
+}
+
+ul3 li {
+  margin-bottom: 10px;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-  .orden-div {
+  .orden-div3 {
     flex-direction: column;
     align-items: center;
   }
 
-  .lateral {
+  .lateral3 {
     width: 100%;
     margin-right: 0;
     margin-bottom: 20px;
     max-height: none;
   }
 
-  .container2 {
+  .container23 {
     margin-left: 0;
     max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .titulo1,
-  .titulo2 {
+  .titulo13,
+  .titulo23 {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .titulo1 p,
-  .titulo2 p {
+  .titulo13 p,
+  .titulo23 p {
     margin-top: 10px;
   }
 }

@@ -1,77 +1,52 @@
+import { useEffect, useState } from "react";
 import "./Valores.css";
 
 const Valores = () => {
-  const apiUrl = "https://mindicador.cl/api";
+  const [indicadores, setIndicadores] = useState([]);
 
-  // Función que se encarga de manejar cada indicador
-  function miIndicador(valores) {
-    const { nombre, valor, fecha } = valores;
-    const container = document.querySelector(".contenedor");
+  useEffect(() => {
+    const apiUrl = "https://mindicador.cl/api";
 
-    const nomb = document.createElement("h5");
-    nomb.textContent = nombre;
+    const fetchValores = async () => {
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
 
-    const valorContainer = document.createElement("div");
-    valorContainer.classList.add("valor-container");
+        const valoresArray = [];
 
-    const val = document.createElement("h5");
-    val.textContent = valor;
-    val.classList.add("valor");
-
-    const text = document.createElement("h5");
-    text.textContent = "$";
-    text.classList.add("signo");
-
-    // Simplificar la fecha
-    const date = new Date(fecha);
-    const simplifiedDate = date.toLocaleDateString("es-ES");
-
-    const fec = document.createElement("h5");
-    fec.textContent = simplifiedDate;
-    fec.classList.add("fecha");
-
-    const indicador = document.createElement("div");
-    indicador.classList.add("indicador");
-
-    indicador.appendChild(nomb);
-
-    // Añadir el valor y la imagen al contenedor de valor
-    valorContainer.appendChild(text);
-    valorContainer.appendChild(val);
-
-    indicador.appendChild(valorContainer);
-    indicador.appendChild(fec);
-
-    container.appendChild(indicador);
-  }
-
-  async function tenerValores(url) {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-  
-      // Aquí recorremos las propiedades del objeto de datos
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          const indicador = data[key];
-          // Verificamos que el indicador tenga la propiedad 'valor'
-          if (indicador && indicador.valor !== undefined) {
-            miIndicador(indicador);
+        for (const key in data) {
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            const indicador = data[key];
+            if (indicador && indicador.valor !== undefined) {
+              valoresArray.push(indicador);
+            }
           }
         }
+        setIndicadores(valoresArray);
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
+    };
 
-  // Llamamos a la función principal
-  tenerValores(apiUrl);
+    fetchValores();
+  }, []);
 
   return (
-    <div className="carrusel">
-      <div className="contenedor"></div>
+    <div className="carrusel4">
+      <div className="contenedor4">
+        {indicadores.map((valores, index) => (
+          <div className="indicador4" key={index}>
+            <h5>{valores.nombre}</h5>
+            <div className="valor-container4">
+              <h5 className="signo4">$</h5>
+              <h5 className="valor4">{valores.valor}</h5>
+            </div>
+            <h5 className="fecha4">
+              {new Date(valores.fecha).toLocaleDateString("es-ES")}
+            </h5>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
