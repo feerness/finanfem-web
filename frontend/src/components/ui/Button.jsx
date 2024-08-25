@@ -1,11 +1,9 @@
 import PropTypes from "prop-types";
+import "./Button.css";
 
 export function Button({ onClick, children }) {
   return (
-    <button
-      className="bg-pink-500 px-4 py-1 rounded-md my-2 disabled:bg-pink-300"
-      onClick={onClick}
-    >
+    <button className="replyBtn" onClick={onClick}>
       {children}
     </button>
   );

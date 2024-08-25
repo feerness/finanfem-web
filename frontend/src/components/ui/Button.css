@@ -1,0 +1,14 @@
+.replyBtn {
+  align-self: flex-end;
+  padding: 8px 16px;
+  background-color: #674188;
+  color: #fffbf5;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.replyBtn:hover {
+  background-color: #5b376e;
+}
