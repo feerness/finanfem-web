@@ -6,8 +6,6 @@ import "./RecursosCliente.css";
 const VideoCard = ({ title, description, videoUrl }) => {
   return (
     <div className="card1">
-      {" "}
-      {/* Usando la clase 'card1' para consistencia */}
       <div className="card1-img-container">
         <ReactPlayer
           url={videoUrl}
@@ -26,9 +24,9 @@ const VideoCard = ({ title, description, videoUrl }) => {
 };
 
 VideoCard.propTypes = {
-  title: PropTypes.node.isrequired,
-  description: PropTypes.node.isrequired,
-  videoUrl: PropTypes.isrequired,
+  title: PropTypes.string.isRequired, // Cambiado a string
+  description: PropTypes.string.isRequired, // Cambiado a string
+  videoUrl: PropTypes.string.isRequired, // Cambiado a string
 };
 
 const VideosCliente = () => {
@@ -74,8 +72,6 @@ const VideosCliente = () => {
 
   return (
     <section className="article-content">
-      {" "}
-      {/* Usando la clase 'article-content' */}
       <div className="container1">
         <div className="header1">
           <h2>Videos</h2>

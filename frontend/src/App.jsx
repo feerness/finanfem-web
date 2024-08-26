@@ -18,13 +18,16 @@ import VideosCliente from "./components/Recursos/Videos";
 import Noticias from "./pages/Noticias";
 import ReportesCliente from "./components/Consultoria/Reportes";
 import Terminos from "./components/Consultoria/Terminos";
-import './App.css'
+import { ForoDetailPage } from "./pages/ForoDetails"; // Asegúrate de que el nombre sea correcto
+import { ForoEditPage } from "./pages/ForoEditPage";
+import "./App.css";
+
 function App() {
   return (
     <AuthProvider>
       <ForoProvider>
         <BrowserRouter>
-          <main className="">
+          <main>
             <Navigationbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -33,19 +36,24 @@ function App() {
               <Route element={<ProtectedRoute />}>
                 <Route path="/foro" element={<ForoPage />} />
                 <Route path="/add-post" element={<ForoFormPage />} />
-                <Route path="/foro/:id" element={<ForoFormPage />} />
-                <Route path="/LandingPageClient" element={<LandingPageClient/>}/>
-                <Route path="/Profile" element={<Profile/>} />
-                <Route path="/Recursos" element={<Recursos/>} />
-                <Route path="/Articulos" element={<ArticulosCliente/>} />
-                <Route path="/Pdf" element={<PdfCliente/>} />
-                <Route path="/Videos" element={<VideosCliente/>} />
-                <Route path="/Noticias" element={<Noticias/>} />
-                <Route path="/Reportes" element={<ReportesCliente/>} />
-                <Route path="/Terminos" element={<Terminos/>} />
+                <Route path="/foro/:id" element={<ForoDetailPage />} />{" "}
+                {/* Ruta para ver y editar la publicación */}
+                <Route path="/foro/edit/:id" element={<ForoEditPage />} />
+                <Route
+                  path="/LandingPageClient"
+                  element={<LandingPageClient />}
+                />
+                <Route path="/Profile" element={<Profile />} />
+                <Route path="/Recursos" element={<Recursos />} />
+                <Route path="/Articulos" element={<ArticulosCliente />} />
+                <Route path="/Pdf" element={<PdfCliente />} />
+                <Route path="/Videos" element={<VideosCliente />} />
+                <Route path="/Noticias" element={<Noticias />} />
+                <Route path="/Reportes" element={<ReportesCliente />} />
+                <Route path="/Terminos" element={<Terminos />} />
               </Route>
             </Routes>
-            <MyFooter/>
+            <MyFooter />
           </main>
         </BrowserRouter>
       </ForoProvider>
