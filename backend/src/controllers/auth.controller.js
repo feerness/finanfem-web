@@ -117,22 +117,32 @@ export const logout = async (req, res) => {
 export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    if (!user) return res.status(404).json({ message: "User not found" });
 
     res.status(200).json(user);
   } catch (error) {
-    res.status(400).json({ message: 'Error fetching profile', error });
+    res.status(400).json({ message: "Error fetching profile", error });
   }
 };
 
 export const updateProfile = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    console.log("Cuerpo de la solicitud:", req.body);
+    console.log("Archivo subido:", req.file);
 
-    res.status(200).json(user);
+    const { username, description } = req.body;
+    const photo = req.file ? req.file.filename : req.user.photo;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user.id,
+      { username, description, photo },
+      { new: true }
+    );
+
+    res.json(updatedUser);
   } catch (error) {
-    res.status(400).json({ message: 'Error updating profile', error });
+    console.error("Error al actualizar el perfil:", error);
+    res.status(500).json({ message: "Error al actualizar el perfil" });
   }
 };
 
@@ -142,16 +152,16 @@ export const getUserComments = async (req, res) => {
     const comments = await Post.find({ author: userId });
     res.status(200).json(comments);
   } catch (error) {
-    res.status(400).json({ message: 'Error loading comments', error});
+    res.status(400).json({ message: "Error loading comments", error });
   }
 };
 
 export const getUserPosts = async (req, res) => {
   try {
     const userId = req.params.userId;
-    const posts = await Comment.find({ author: userId});
+    const posts = await Comment.find({ author: userId });
     res.status(200).json(posts);
   } catch (error) {
-    res.status(400).json({ message: 'Error loading posts', error});
+    res.status(400).json({ message: "Error loading posts", error });
   }
 };

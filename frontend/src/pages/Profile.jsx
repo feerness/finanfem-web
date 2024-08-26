@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
-import {
-  getProfile,
-  updateProfile,
-  getUserComments,
-  getUserPosts,
-} from "../api/auth";
-import "./Profile.css"; // Asegúrate de importar el CSS aquí
+import { getUserComments, getUserPosts } from "../api/auth";
+import "./Profile.css";
 
 export function ProfilePage() {
-  const { user, setUser } = useAuth();
+  const { user, setUser, getProfile, updateProfile } = useAuth();
   const { register, handleSubmit, setValue } = useForm();
   const [activity, setActivity] = useState({ posts: [], comments: [] });
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -20,7 +15,6 @@ export function ProfilePage() {
       getProfile()
         .then((profile) => {
           setValue("username", profile.username);
-          setValue("photo", profile.photo);
           setValue("description", profile.description);
           setUser(profile);
           setProfileLoaded(true);
@@ -51,11 +45,18 @@ export function ProfilePage() {
           console.error("Error al obtener los comentarios del usuario:", error);
         });
     }
-  }, [user, setValue, setUser, profileLoaded]);
+  }, [user, setValue, setUser, profileLoaded, getProfile]);
 
   const onSubmit = async (data) => {
     try {
-      const updatedUser = await updateProfile(data);
+      const formData = new FormData();
+      formData.append("username", data.username);
+      formData.append("description", data.description);
+      if (data.photo && data.photo.length > 0) {
+        formData.append("photo", data.photo[0]); // Asegúrate de que el archivo se esté adjuntando
+      }
+
+      const updatedUser = await updateProfile(formData);
       setUser(updatedUser);
     } catch (error) {
       console.error("Error al actualizar el perfil:", error);

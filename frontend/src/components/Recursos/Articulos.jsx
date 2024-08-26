@@ -23,11 +23,12 @@ const ArticleCard = ({ title, image, description, link }) => {
     </div>
   );
 };
+
 ArticleCard.propTypes = {
-  title: PropTypes.node.isrequired,
-  description: PropTypes.node.isrequired,
-  image: PropTypes.isrequired,
-  link: PropTypes.isrequired,
+  title: PropTypes.string.isRequired, // Aquí se cambia a string
+  description: PropTypes.string.isRequired, // Aquí se cambia a string
+  image: PropTypes.string.isRequired, // Aquí se cambia a string
+  link: PropTypes.string.isRequired, // Aquí se cambia a string
 };
 
 const ArticulosCliente = () => {

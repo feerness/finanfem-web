@@ -1,57 +1,68 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForo } from "../context/foroContext";
 import { ForoCard } from "../components/PostCard";
 import { ButtonLink } from "../components/ui/ButtonLink";
-
-
 import { ImFileEmpty } from "react-icons/im";
+import { getCommentsCountRequest } from "../api/foro.js";
+import "./Foro.css"; // Asegúrate de importar el CSS
 
 export function ForoPage() {
-  const { foro, getForo} = useForo();
+  const { foro, getForo } = useForo();
+  const [forosWithComments, setForosWithComments] = useState([]);
 
   useEffect(() => {
-    getForo();
-  }, []);
+    const fetchForos = async () => {
+      await getForo();
+    };
 
-  
+    fetchForos();
+  }, [getForo]);
+
+  useEffect(() => {
+    const fetchCommentsCounts = async () => {
+      try {
+        const forosWithCounts = await Promise.all(
+          foro.map(async (foroItem) => {
+            const result = await getCommentsCountRequest(foroItem._id);
+            return { ...foroItem, commentsCount: result.count };
+          })
+        );
+        setForosWithComments(forosWithCounts);
+      } catch (error) {
+        console.error("Error al obtener el contador de comentarios:", error);
+      }
+    };
+
+    if (foro.length > 0) {
+      fetchCommentsCounts();
+    }
+  }, [foro]);
 
   return (
-    <>
-      {foro.length === 0 && (
-        <div className="flex justify-center items-center p-10">
-          <div>
-            <ImFileEmpty className="text-6xl text-gray-400 m-auto my-2" />
-            <h1 className="font-bold text-xl">
-              No post yet, please add a new post
+    <div className="foro-container1">
+      {forosWithComments.length === 0 ? (
+        <div className="foro-empty">
+          <div className="foro-empty-content">
+            <ImFileEmpty className="foro-empty-icon" />
+            <h1 className="foro-empty-title">
+              No hay publicaciones aún, por favor añade una nueva
             </h1>
-            <div className="nav-item text-white flex justify-center items-center p-10">
+            <div className="foro-empty-button">
               <ButtonLink to="/add-post">Añadir Post</ButtonLink>
             </div>
           </div>
         </div>
-      )}
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {foro.map((foroItem) => (
-          <ForoCard 
-          foro={{
-            ...foroItem, 
-            user: typeof foroItem.user === 'object' ? foroItem.user._id : foroItem.user
-          }} 
-          key={foroItem._id} 
-        />
-        
-
-        ))}
-      </div>
-        {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {foro.map((foroItem) => (
+      ) : (
+        <div className="foro-grid">
+          {forosWithComments.map((foroItem) => (
             <ForoCard
-              foro={{ ...foroItem, user: foroItem.user._id }}
+              foro={foroItem}
+              commentsCount={foroItem.commentsCount}
               key={foroItem._id}
             />
           ))}
-        </div> */}
-    </>
+        </div>
+      )}
+    </div>
   );
 }
