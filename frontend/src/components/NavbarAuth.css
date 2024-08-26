@@ -1,91 +1,125 @@
 /* General navbar styles */
 .navbar {
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 20px;
+  white-space: nowrap;
+}
+.navbar-brand .brand-logo {
+  width: 70px; /* Adjust the logo size as needed */
+  height: auto;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: static;
+  right: 270px;
+}
+
+.navbar-left {
+  display: flex;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-left .navbar-nav {
+  margin-left: 450px;
+}
+
+.navbar-left .nav-item-1,
+.nav-item-2,
+.nav-item-3 {
+  margin-right: 40px;
+}
+
+.navbar-rigth .nav-item-11{
+  display: flex;
+  align-items: center;
+}
+
+.nav-item-11 .profile-pic{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.username {
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+/* Sidebar styles integrated into navbar */
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu li a {
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ddd;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
     display: flex;
-    box-sizing: border-box;
-    margin: 0;
-    width: 100%;
+    position: relative;
     justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    padding: 5px 20px;
-    white-space: nowrap;
   }
+
   .navbar-brand .brand-logo {
-    width: 40px; /* Adjust the logo size as needed */
-    height: auto;
-    margin-left: 2%;
-    display: flex;
+    width: 60px;
+    margin-left: 10px;
+  }
+
+  .navbar-nav {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    position: static;
-    right: 270px;
   }
-  
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-  
+
   .nav-item {
     margin-left: 20px;
-    color: #333;
   }
-  
-  .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
+
+  .navbar-nav.ml-auto {
+    display: flex;
+    flex-direction: column;
   }
-  
-  @media (max-width: 768px){
-    .navbar {
-      padding: 0;
-      display: flex;
-      position: relative;
-      justify-content: center;
-  
-    }
-  
-    .navbar-nav {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    .nav-item {
-      margin-left: 20px;
-    }
-  
-    .navbar-nav.ml-auto {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
-  /* Sidebar styles integrated into navbar */
-  .dropdown-menu {
-    display: none;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-  
-  .dropdown-menu li {
-    padding: 10px;
-    text-align: left;
-    background-color: #f1f1f1;
-  }
-  
-  .dropdown-menu li a {
-    color: #333;
-  }
-  
-  .dropdown-menu li a:hover {
-    background-color: #ddd;
-  }
-  
+}

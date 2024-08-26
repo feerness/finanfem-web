@@ -1,0 +1,139 @@
+.bg-light-gray {
+    background-color: #f0f0f0; 
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  .card {
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body {
+    flex-grow: 1; 
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+  }
+  
+  .custom-img-1 {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .custom-img-2 {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .custom-img-3 {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .custom-btn {
+    background-color: #7e4eab; 
+    border: none;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 20px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.25rem;
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+  }
+  
+  .custom-btn:hover {
+    background-color: #3c3c3b; 
+  }
+  
+  .texto-Y{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    text-align: center;
+    padding: 270px 45px 30px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.2;
+    
+  }
+  
+  .texto-X{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    text-align: center;
+    padding: 50px 45px 30px;
+    position: absolute;
+    color: #3c3c3b;
+    margin: 5px;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .texto-Z{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    text-align: center;
+    padding: 270px 45px 30px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 1.2;
+    
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      max-width: 100%; 
+      max-height: 400px; 
+    }
+  
+    .custom-img-1, .custom-img-2, .custom-img-3 {
+      max-height: 400px;
+      border-radius: 10px 10px 0 0; 
+    }
+  
+    .texto-Y {
+      font-size: 30px; 
+      padding: 240px 80px 10px; 
+    }
+  
+    .texto-X {
+      text-align: center;
+      font-size: 30px; 
+      padding: 60px 80px 10px; 
+    }
+  
+    .texto-Z {
+      font-size: 30px; 
+      padding: 240px 80px 10px; 
+    }
+  
+    .custom-btn {
+      font-size: 1.5rem; 
+      padding: 15px 15px;
+      font-weight: 700; 
+    }
+  }
+  

@@ -28,7 +28,7 @@ export function Navigationbar() {
         <ul className="navbar-nav">
           {isAuthenticated && (
             <>
-              <li className="nav-item dropdown">
+              <li className="nav-item-1 dropdown ">
                 <Link to="#" className="nav-link dropdown-toggle" id="recursosDropdown"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {t('Recursos')}
@@ -39,7 +39,7 @@ export function Navigationbar() {
                   <Link className="dropdown-item" to="./Videos">{t('Videos')}</Link>
                 </div>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item-2 dropdown">
                 <Link to="#" className="nav-link dropdown-toggle" id="herramientasDropdown"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {t('Herramientas')}
@@ -49,7 +49,7 @@ export function Navigationbar() {
                   <Link className="dropdown-item" to="./Noticias">{t('Noticias')}</Link>
                 </div>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item-3 dropdown">
                 <Link to="#" className="nav-link dropdown-toggle" id="comunidadDropdown"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {t('Comunidad')}
@@ -59,7 +59,7 @@ export function Navigationbar() {
                   <Link className="dropdown-item" to="./perfilesCliente">{t('Actividad')}</Link>
                 </div>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item-4 dropdown">
                 <Link to="#" className="nav-link dropdown-toggle" id="consultoriaDropdown"
                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {t('Consultoría')}
@@ -77,14 +77,14 @@ export function Navigationbar() {
         {isAuthenticated ? (
           <>
             <ul className="navbar-nav">
-              <li className="nav-item">
+              <li className="nav-item-11">
                 <Link to="/profile" className="nav-link" id="profile-nav"
                   role="button" aria-haspopup="true" aria-expanded="false">
                   <img src="/images/profile-icon.png" alt="Foto de perfil" className="profile-pic" />
-                  {user.username}
+                  <span className="username">{user.username}</span>
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item-2">
                 <Link onClick={toggleTheme} className="btn dl-mode">
                   <img
                     src={theme === 'light' ? '/images/dark-mode.png' : '/images/light-mode.png'}
@@ -93,12 +93,12 @@ export function Navigationbar() {
                   />
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item-3">
                 <button onClick={toggleLanguage} className="btn btn-outline-secondary">
                   {i18n.language === 'en' ? 'SP' : 'EN'}
                 </button>
               </li>
-              <li className="nav-item">
+              <li className="nav-item-4">
                 <Link to="/" onClick={() => logout()} className="logout-link">
                   <img src="/images/logout.png" alt="Logout" className="logout-pic" />
                   <span className="logout-text">{t('Logout')}</span>
