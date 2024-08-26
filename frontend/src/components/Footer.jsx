@@ -1,5 +1,6 @@
 
 import "./Footer.css";
+import { Link } from 'react-router-dom';
 
 
 const MyFooter = () => {
@@ -21,17 +22,17 @@ const MyFooter = () => {
           <div className="col-md-2">
             <h5>Links de Ayuda</h5>
             <ul className="list-unstyled">
-              <li>Indicadores Financieros</li>
-              <li>Recursos</li>
-              <li>Archivos</li>
+              <Link to="/indicadores"><li>Indicadores Financieros</li></Link>
+              <Link to="/Articulos"><li>Recursos</li></Link>
+              <Link to="/Pdf"><li>Archivos</li></Link>
             </ul>
           </div>
           <div className="col-md-2">
             <h5>Nuestros Servicios</h5>
             <ul className="list-unstyled">
-              <li>Perfil</li>
-              <li>Foro</li>
-              <li>Noticias</li>
+              <Link to="/Profile"><li>Perfil</li></Link>
+              <Link to="/foro"><li>Foro</li></Link>
+              <Link to="/Noticias"><li>Noticias</li></Link>
             </ul>
           </div>
           <div className="col-md-3">
