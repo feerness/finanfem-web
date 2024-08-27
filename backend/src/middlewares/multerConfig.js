@@ -1,10 +1,15 @@
 import multer from "multer";
 import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Configuración de almacenamiento de multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Asegúrate de que esta ruta es correcta
+    cb(null, path.join(__dirname, '../uploads')); // Asegúrate de que esta ruta es correcta
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}-${file.originalname}`); // Asegúrate de que el archivo se nombre correctamente
@@ -29,3 +34,4 @@ export const upload = multer({
   fileFilter: fileFilter,
   limits: { fileSize: 1024 * 1024 * 5 }, // Limita el tamaño del archivo a 5MB
 });
+export default upload;

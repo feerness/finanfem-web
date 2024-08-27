@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, verifyTokenRequest, getProfile as fetchProfile, updateProfile as saveProfile } from "../api/auth";
+import { registerRequest, loginRequest, verifyTokenRequest, getProfileRequest, updateProfileRequest } from "../api/auth";
 import PropTypes from 'prop-types';
 import Cookies from "js-cookie";
 
@@ -91,26 +91,14 @@ export const AuthProvider = ({ children }) => {
 
     // Funciones de perfil
     const getProfile = async () => {
-        try {
-            const profile = await fetchProfile();
-            setUser(profile);
-            return profile;
-        } catch (error) {
-            console.error("Error al obtener el perfil:", error);
-            throw error;
-        }
-    };
-
-    const updateProfile = async (profileData) => {
-        try {
-            const updatedProfile = await saveProfile(profileData);
-            setUser(updatedProfile);
-            return updatedProfile;
-        } catch (error) {
-            console.error("Error al actualizar el perfil:", error);
-            throw error;
-        }
-    };
+        return await getProfileRequest();
+      };
+    
+      const updateProfile = async (profileData) => {
+        const updatedUser = await updateProfileRequest(profileData);
+        setUser(updatedUser);
+        return updatedUser;
+      };
 
     return (
         <AuthContext.Provider

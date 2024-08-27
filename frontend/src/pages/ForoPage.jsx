@@ -4,7 +4,7 @@ import { ForoCard } from "../components/PostCard";
 import { ButtonLink } from "../components/ui/ButtonLink";
 import { ImFileEmpty } from "react-icons/im";
 import { getCommentsCountRequest } from "../api/foro.js";
-import "./Foro.css"; // Asegúrate de importar el CSS
+import "./Foro.css"; 
 
 export function ForoPage() {
   const { foro, getForo } = useForo();

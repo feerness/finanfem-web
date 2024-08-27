@@ -20,6 +20,7 @@ import ReportesCliente from "./components/Consultoria/Reportes";
 import Terminos from "./components/Consultoria/Terminos";
 import { ForoDetailPage } from "./pages/ForoDetails"; // Asegúrate de que el nombre sea correcto
 import { ForoEditPage } from "./pages/ForoEditPage";
+import TestComponent from './pages/TestComponent.jsx';
 import "./App.css";
 
 function App() {
@@ -51,6 +52,8 @@ function App() {
                 <Route path="/Noticias" element={<Noticias />} />
                 <Route path="/Reportes" element={<ReportesCliente />} />
                 <Route path="/Terminos" element={<Terminos />} />
+                {/* Agrega la siguiente línea temporalmente */}
+                <Route path="/test" element={<TestComponent />} />
               </Route>
             </Routes>
             <MyFooter />

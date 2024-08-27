@@ -21,9 +21,9 @@ router.post("/login", validateSchema(loginSchema), login);
 router.get("/verify", verifyToken);
 router.post("/logout", logout);
 router.get("/profile", verifyToken, getProfile);
-router.put("/profile", verifyToken, updateProfile);
-router.get("/user-comments", verifyToken, getUserComments);
-router.get("/user-posts", verifyToken, getUserPosts);
 router.put("/profile", auth, upload.single("photo"), updateProfile);
+router.get("/user-comments", auth, getUserComments);
+router.get("/user-posts", auth, getUserPosts);
+
 
 export default router;

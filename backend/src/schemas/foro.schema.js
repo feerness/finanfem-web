@@ -21,3 +21,9 @@ export const createCommentSchema = z.object({
     required_error: "El usuario es requerido",
   }),
 });
+
+export const createLikeSchema = z.object({
+  user: z.string({
+    required_error: "El usuario es requerido",
+  }),
+});

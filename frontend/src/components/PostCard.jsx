@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import { useForo } from "../context/foroContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FaComment } from "react-icons/fa";
-import { useState } from "react";
+import { FaComment, } from "react-icons/fa"; 
+import { useState, } from "react"; 
 import "./PostCard.css";
 
-export function ForoCard({ foro, commentsCount }) {
+
+export function ForoCard({ foro, commentsCount }) { 
   const { deleteForo } = useForo();
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -38,7 +39,7 @@ export function ForoCard({ foro, commentsCount }) {
             className="foro-card-avatar"
           />
           <div>
-            <h2 className="foro-card-user">{foro.user?.name || "Usuario"}</h2>
+            <h2 className="foro-card-user">{foro.user?.name || foro.user?.username || "Usuario desconocido"}</h2>
             <p className="foro-card-date">
               {new Date(foro.date).toLocaleDateString()} -{" "}
               {new Date(foro.date).toLocaleTimeString()}
@@ -75,7 +76,15 @@ export function ForoCard({ foro, commentsCount }) {
 
 ForoCard.propTypes = {
   foro: PropTypes.shape({
-    user: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    user: PropTypes.oneOfType([
+      PropTypes.shape({
+        _id: PropTypes.string,
+        name: PropTypes.string,
+        username: PropTypes.string,
+        profileImage: PropTypes.string,
+      }),
+      PropTypes.string,
+    ]),
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,

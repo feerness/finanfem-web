@@ -1,115 +1,163 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { getProfileRequest, updateProfileRequest, getUserCommentsRequest, getUserPostsRequest } from "../api/auth";
 import { useAuth } from "../context/AuthContext";
-import { useForm } from "react-hook-form";
-import { getUserComments, getUserPosts } from "../api/auth";
 import "./Profile.css";
 
-export function ProfilePage() {
-  const { user, setUser, getProfile, updateProfile } = useAuth();
-  const { register, handleSubmit, setValue } = useForm();
-  const [activity, setActivity] = useState({ posts: [], comments: [] });
-  const [profileLoaded, setProfileLoaded] = useState(false);
+function ProfilePage() {
+  const { setUser } = useAuth();
+  const [profileData, setProfileData] = useState({
+    username: "",
+    description: "",
+    photo: null,
+  });
+  const [comments, setComments] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   useEffect(() => {
-    if (user && user.id && !profileLoaded) {
-      getProfile()
-        .then((profile) => {
-          setValue("username", profile.username);
-          setValue("description", profile.description);
-          setUser(profile);
-          setProfileLoaded(true);
-        })
-        .catch((error) => {
-          console.error("Error al cargar el perfil:", error);
-        });
+    const loadUserProfile = async () => {
+      try {
+        const profile = await getProfileRequest();
+        console.log("Profile loaded:", profile);
+        // Asegúrate de que el perfil contiene un id válido
+        if (profile && profile.id) {
+          setProfileData({
+            username: profile.username,
+            description: profile.description || "",
+            photo: profile.photo || null,
+          });
+          console.log("Requesting comments for userId:", profile.id);
+          // Obtén los comentarios y publicaciones del usuario
+          const userComments = await getUserCommentsRequest(profile.id);
+          const userPosts = await getUserPostsRequest(profile.id);
+          
+          // Actualiza los estados con los comentarios y publicaciones obtenidas
+          setComments(userComments);
+          setPosts(userPosts);
+        } else {
+          throw new Error("Invalid profile data");
+        }
+      } catch (error) {
+        console.error("Error loading profile, comments, or posts:", error);
+        setError("No se pudo cargar el perfil, comentarios, o publicaciones.");
+      }
+    };
 
-      getUserPosts(user.id)
-        .then((posts) => {
-          setActivity((prevActivity) => ({
-            ...prevActivity,
-            posts,
-          }));
-        })
-        .catch((error) => {
-          console.error("Error al obtener los posts del usuario:", error);
-        });
+    loadUserProfile();
+  }, []);
 
-      getUserComments(user.id)
-        .then((comments) => {
-          setActivity((prevActivity) => ({
-            ...prevActivity,
-            comments,
-          }));
-        })
-        .catch((error) => {
-          console.error("Error al obtener los comentarios del usuario:", error);
-        });
-    }
-  }, [user, setValue, setUser, profileLoaded, getProfile]);
+  const handleInputChange = (e) => {
+    setProfileData({
+      ...profileData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const onSubmit = async (data) => {
+  const handleFileChange = (e) => {
+    setProfileData({
+      ...profileData,
+      photo: e.target.files[0],
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("username", data.username);
-      formData.append("description", data.description);
-      if (data.photo && data.photo.length > 0) {
-        formData.append("photo", data.photo[0]); // Asegúrate de que el archivo se esté adjuntando
+      formData.append("username", profileData.username);
+      formData.append("description", profileData.description);
+      if (profileData.photo) {
+        formData.append("photo", profileData.photo);
       }
+      // Revisar el contenido del FormData
+      Array.from(formData.entries()).forEach(([key, value]) => {
+        console.log(key, value);
+      });
 
-      const updatedUser = await updateProfile(formData);
-      setUser(updatedUser);
+      const updatedProfile = await updateProfileRequest(formData);
+      console.log("Perfil actualizado:", updatedProfile);
+      setUser(updatedProfile);
+      setSuccess("Perfil actualizado exitosamente.");
+      setError("");
     } catch (error) {
-      console.error("Error al actualizar el perfil:", error);
+      console.error("Error updating profile:", error);
+      setError("No se pudo actualizar el perfil.");
+      setSuccess("");
     }
   };
 
   return (
-    <div className="profile">
-      <div className="profileHeader">
-        <h1>Perfil de Usuario</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label>Username:</label>
-          <input {...register("username")} />
-
-          <label>Foto:</label>
-          <input type="file" {...register("photo")} className="fileInput" />
-          <label htmlFor="photo" className="customFileUpload">
-            Subir Foto
-          </label>
-
-          <label>Descripción:</label>
-          <textarea {...register("description")} />
-
-          <button type="submit">Guardar Cambios</button>
-        </form>
-      </div>
-
-      <div className="profilePosts">
-        <h2>Actividad Reciente</h2>
-
-        <h3>Posts Subidos</h3>
-        {activity.posts.length > 0 ? (
-          activity.posts.map((post) => (
-            <div key={post._id} className="post">
-              <h4>{post.title}</h4>
-              <p>{post.content}</p>
+    <div className="container mt-5">
+      <div className="row">
+        <div className="col-md-4">
+          <h4>Perfil de Usuario</h4>
+          <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                className="form-control"
+                name="username"
+                value={profileData.username}
+                onChange={handleInputChange}
+              />
             </div>
-          ))
-        ) : (
-          <p>No has subido ningún post.</p>
-        )}
-
-        <h3>Posts Comentados</h3>
-        {activity.comments.length > 0 ? (
-          activity.comments.map((comment) => (
-            <div key={comment._id} className="post reply">
-              <p>{comment.content}</p>
-              <small>{comment.createdAt}</small>
+            <div className="form-group">
+              <label>Foto</label>
+              <input
+                type="file"
+                className="form-control"
+                name="photo"
+                onChange={handleFileChange}
+              />
             </div>
-          ))
-        ) : (
-          <p>No has comentado en ningún post.</p>
-        )}
+            <div className="form-group">
+              <label>Descripción</label>
+              <textarea
+                className="form-control"
+                name="description"
+                value={profileData.description}
+                onChange={handleInputChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary btn-block">
+              Guardar Cambios
+            </button>
+          </form>
+          {error && <div className="alert alert-danger mt-3">{error}</div>}
+          {success && <div className="alert alert-success mt-3">{success}</div>}
+        </div>
+        <div className="col-md-8">
+          <h4>Actividad Reciente</h4>
+          <div className="recent-activity">
+            <h5>Posts Subidos</h5>
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <div key={post._id} className="card mb-3">
+                  <div className="card-body">
+                    <h5 className="card-title">{post.title}</h5>
+                    <p className="card-text">{post.description}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p>No has subido ningún post.</p>
+            )}
+            <h5>Posts Comentados</h5>
+            {comments.length > 0 ? (
+              comments.map((comment) => (
+                <div key={comment._id} className="card mb-3">
+                  <div className="card-body">
+                    <p className="card-text">{comment.text}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p>No has comentado en ningún post.</p>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
