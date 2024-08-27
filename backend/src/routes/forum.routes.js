@@ -1,15 +1,39 @@
-import { Router } from 'express';
-import { getForo, createForo, getPost, deleteForo, updatePost, getAllPost } from '../controllers/foro.controller.js';
+import { Router } from "express";
+import {
+  getForo,
+  createForo,
+  getPost,
+  deleteForo,
+  updatePost,
+  getAllPost,
+  addComment,
+  getComments,
+  getCommentsCount,
+} from "../controllers/foro.controller.js";
 import { auth } from "../middlewares/validateTokens.js";
-import { validateSchema } from '../middlewares/validateMiddlewares.js';
-import { createForoSchema } from '../schemas/foro.schema.js';
+import { validateSchema } from "../middlewares/validateMiddlewares.js";
+import {
+  createForoSchema,
+  createCommentSchema,
+} from "../schemas/foro.schema.js";
+
 const router = Router();
 
-router.get('/:id', auth, getForo);
-router.get('/:id', auth, getPost);
-router.get('/', auth, getAllPost);
-router.post('/', auth, validateSchema(createForoSchema), createForo);
-router.delete('/:id', auth, deleteForo);
-router.put('/:id', auth, updatePost);
+router.get("/:id", auth, getPost); // Obtener un foro específico
+router.get("/", auth, getAllPost); // Obtener todos los foros
+router.post("/", auth, validateSchema(createForoSchema), createForo); // Crear un nuevo foro
+router.delete("/:id", auth, deleteForo); // Eliminar un foro
+router.put("/:id", auth, updatePost); // Actualizar un foro
+
+// Rutas de comentarios
+router.post(
+  "/:id/comments",
+  auth,
+  validateSchema(createCommentSchema),
+  addComment
+); // Añadir un comentario a un foro específico
+router.get("/:id/comments", auth, getComments); // Obtener todos los comentarios de un foro específico
+// Rutas de comentarios
+router.get("/:id/comments/count", auth, getCommentsCount); // Obtener el número de comentarios de un foro específico
 
 export default router;

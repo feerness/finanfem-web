@@ -1,114 +1,122 @@
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #333;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 30px;
-  }
-  
-  button {
-    background-color: #7e4eab;
-    border-color: #7e4eab;
-    padding: 10px 20px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #4e3670;
-  }
-  
-  .newsItem {
-    display: flex;
-    align-items: center;
-    margin-top: 40px;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 20px;
-  }
-  
-  .newsItem:last-child {
-    border-bottom: none;
-  }
-  
-  .newsImage {
-    flex: 1;
-    max-width: 320px;
-  }
-  
-  .newsImage img {
-    max-width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-  }
-  
-  .newsImage:hover img {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-  
-  .newsContent {
-    flex: 2;
-    margin-left: 20px;
-  }
-  
-  .newsContent .info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #888;
-    margin-bottom: 8px;
-  }
-  
-  .newsContent .info h5 {
-    margin: 0px;
-    font-weight: 400;
-  }
-  
-  .newsContent h2 {
-    font-size: 18px;
-    color: #7130cb;
-    margin-top: 0;
-    max-height: 52px;
-    overflow: hidden;
-  }
-  
-  .newsContent p {
-    color: #777;
-    margin: 0px 0px 12px;
-    font-size: 12px;
-    max-height: 400px;
-    overflow: hidden;
-    text-justify: newspaper;
-  }
-  
-  .newsContent a {
-    background-color: #7e4eab;
-    border-color: #7e4eab;
-    padding: 6px 6px;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s ease;
-  }
-  .newsContent a:hover {
-    background-color: #4e3670;
-  }
-  
-  #loadMoreContainer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-  
-  #loadMoreButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
+/* Noticias.css */
+
+.container01 {
+  max-width: 1100px;
+  margin: 60px auto; /* Margen superior agregado para separar del navbar */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title01 {
+  text-align: center;
+  font-size: 2em;
+  color: #7130cb;
+  margin-bottom: 20px;
+}
+
+.newsItem01 {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20px;
+}
+
+.newsImage01 {
+  flex: 1;
+  max-width: 320px;
+  margin-right: 20px;
+}
+
+.newsImage01 img {
+  max-width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.newsImage01:hover img {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.newsContent01 {
+  flex: 2;
+}
+
+.info01 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.info01 h5 {
+  margin: 0px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.newsContent01 h2 {
+  font-size: 18px;
+  color: #7130cb;
+  margin-top: 0;
+  margin-bottom: 10px;
+  max-height: 3.6em; /* Ajuste para limitar el título a 2 líneas */
+  line-height: 1.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newsContent01 p {
+  color: #777;
+  margin: 0px 0px 12px;
+  font-size: 14px;
+  max-height: 400px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.newsContent01 a {
+  background-color: #7e4eab;
+  border-color: #7e4eab;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.newsContent01 a:hover {
+  background-color: #4e3670;
+}
+
+.loadMoreButton {
+  background-color: #7e4eab; /* Color de fondo principal */
+  border: none; /* Sin bordes */
+  color: white; /* Color de texto */
+  padding: 12px 24px; /* Padding para darle un tamaño adecuado */
+  text-align: center; /* Alinear el texto al centro */
+  text-decoration: none; /* Quitar subrayado del texto */
+  display: inline-block; /* Asegurar que se comporta como un botón */
+  font-size: 16px; /* Tamaño de fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+  cursor: pointer; /* Mostrar un cursor de mano para indicar que es clickeable */
+  margin: 20px auto; /* Centrar el botón */
+  display: block; /* Hacer que el botón ocupe el 100% de su contenedor */
+}
+
+.loadMoreButton:hover {
+  background-color: #4e3670; /* Color de fondo al pasar el mouse */
+}
+
+.loadMoreButton:disabled {
+  background-color: #ccc; /* Color cuando está deshabilitado */
+  cursor: not-allowed; /* Cursor no permitido cuando está deshabilitado */
+}

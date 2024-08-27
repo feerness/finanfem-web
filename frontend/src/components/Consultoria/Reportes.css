@@ -1,5 +1,17 @@
-.content,
-.contact-form {
+/* Reportes.css */
+
+/* Contenedor principal centrado */
+.container02 {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Alinear los elementos verticalmente */
+  min-height: 100vh; /* Asegurar que ocupe al menos el 100% de la altura de la ventana */
+  padding: 20px;
+  margin-top: 20px; /* Reducir el margen superior */
+}
+
+.content02,
+.contact-form02 {
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -10,35 +22,53 @@
   width: 600px; /* Ajuste de ancho */
 }
 
-.content:hover,
-.contact-form:hover {
+.content02:hover,
+.contact-form02:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.content h2,
-.contact-form h3 {
+.content02 h2,
+.contact-form02 h3 {
   font-size: 1.5em;
   margin-bottom: 15px;
   color: #7130cb;
   text-align: center;
 }
 
-ul.list-group-item {
+ul.list-group-item02 {
   font-size: 1em;
   margin-bottom: 15px;
   color: #333;
 }
 
-.contact-form label {
+.contact-form02 label {
   color: #7130cb;
   font-weight: bold;
 }
 
-.contact-form .form-control {
+.contact-form02 .form-control02 {
   margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #7130cb;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  color: #333;
 }
 
-.btn-primary {
+.contact-form02 .form-control02:focus {
+  border-color: #4e3670;
+  outline: none;
+  box-shadow: 0 0 5px rgba(78, 54, 112, 0.5);
+}
+
+.contact-form02 textarea.form-control02 {
+  resize: vertical; /* Permitir solo el cambio de tamaño vertical */
+  height: 150px; /* Altura predeterminada del textarea */
+}
+
+.btn-primary02 {
   background-color: #7e4eab;
   border-color: #7e4eab;
   padding: 10px 20px;
@@ -48,26 +78,95 @@ ul.list-group-item {
   transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-primary02:hover {
   background-color: #4e3670;
 }
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
-  .content,
-  .contact-form {
+  .content02,
+  .contact-form02 {
     margin: 5px;
     width: calc(100% - 10px); /* Ajuste de ancho para pantallas pequeñas */
   }
 
-  .content h2,
-  .contact-form h3 {
+  .content02 h2,
+  .contact-form02 h3 {
     font-size: 1.2em;
     color: #7e4eab;
   }
 
-  ul.list-group-item {
+  ul.list-group-item02 {
     font-size: 0.85em;
     color: rgb(111, 111, 111);
   }
+}
+/*logo insta*/
+/* Estilos para el logo de Instagram */
+.instagram-link02 {
+  display: inline-block;
+}
+
+.instagram-logo02 {
+  width: 40px; /* Ancho del logo */
+  height: 40px; /* Altura del logo */
+  transition: transform 0.3s ease; /* Transición suave para el efecto hover */
+}
+
+.instagram-logo02:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+/* Reportes.css */
+
+/* Estilos para el contenedor */
+.content02 {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px;
+  margin: 10px;
+  transition: box-shadow 0.3s ease;
+  text-align: center; /* Centramos todo el contenido */
+  width: 600px; /* Ajuste de ancho */
+}
+
+.content02:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.content02 h2 {
+  font-size: 1.8em; /* Aumentar el tamaño de la fuente del título */
+  margin-bottom: 20px;
+  color: #7130cb;
+}
+
+ul.list-group02 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+ul.list-group-item02 {
+  font-size: 1.2em; /* Aumentar el tamaño de la fuente para una mejor lectura */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Estilos para el ícono de Instagram */
+.instagram-link02 {
+  display: inline-block;
+  color: #7130cb; /* Color del ícono */
+  font-size: 2.5em; /* Tamaño del ícono aumentado */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transición para el efecto hover */
+}
+
+.instagram-link02:hover {
+  color: #4e3670; /* Cambio de color al hacer hover */
+  transform: scale(1.2); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+/* Estilos específicos para centrar el ícono */
+.instagram-container02 {
+  margin-top: 20px; /* Separar del contenido superior */
 }

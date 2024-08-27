@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { Button } from "../components/ui/Button";
@@ -12,54 +11,32 @@ import { useForm } from "react-hook-form";
 dayjs.extend(utc);
 
 export function ForoFormPage() {
-  const { createForo, getPost, updatePost } = useForo();
+  const { createForo } = useForo();
   const navigate = useNavigate();
-  const params = useParams();
   const {
     register,
-    setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      title: "",
+      description: "",
+      date: "",
+    },
+  });
 
   const onSubmit = async (data) => {
     try {
-      if (params.id) {
-        updatePost(params.id, {
-          ...data,
-          date: dayjs.utc(data.date).format(),
-        });
-      } else {
-        createForo({
-          ...data,
-          date: dayjs.utc(data.date).format(),
-        });
-      }
-
+      await createForo({
+        ...data,
+        date: dayjs.utc(data.date).format(),
+      });
       navigate("/foro");
     } catch (error) {
-      console.log(error);
-      window.location.href = "/";
+      console.error(error);
+      alert("Hubo un problema al guardar la publicación. Intenta de nuevo.");
     }
   };
-
-  useEffect(() => {
-    const loadForo = async () => {
-      if (params.id) {
-        const foro = await getPost(params.id);
-        setValue("title", foro.title);
-        setValue("description", foro.description);
-        setValue(
-          "date",
-          foro.date ? dayjs(foro.date).utc().format("YYYY-MM-DD") : ""
-        );
-        setValue("completed", foro.completed);
-      }
-    };
-    loadForo();
-  }, []);
-
-  
 
   return (
     <Card>
@@ -69,11 +46,11 @@ export function ForoFormPage() {
           type="text"
           name="title"
           placeholder="Title"
-          {...register("title")}
+          {...register("title", { required: "Please enter a title." })}
           autoFocus
         />
         {errors.title && (
-          <p className="text-red-500 text-xs italic">Please enter a title.</p>
+          <p className="text-red-500 text-xs italic">{errors.title.message}</p>
         )}
 
         <Label htmlFor="description">Description</Label>
@@ -87,7 +64,7 @@ export function ForoFormPage() {
 
         <Label htmlFor="date">Date</Label>
         <Input type="date" name="date" {...register("date")} />
-        <Button>Save</Button>
+        <Button type="submit">Save</Button>
       </form>
     </Card>
   );
