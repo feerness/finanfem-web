@@ -1,120 +1,125 @@
 /* Estilo base para el contenedor */
 .containerB {
-    display: flex; 
-    flex-direction: column; /* Alinea el título y los datos en una columna */
-    align-items: center;
-    background-color: #994d96;
-    padding: 15px; /* Ajusta el padding para hacer la barra más delgada */
-    box-sizing: border-box;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  
-  /* Estilo para el título */
-  .tituloB {
-    margin-bottom: 10px; /* Espacio debajo del título */
-    font-size: 20px;
-    color: #ffffff;
-    text-align: center; /* Centra el título */
-  }
-  
-  /* Estilo para el contenedor de datos */
-  .Datos {
-    display: flex;
-    justify-content: space-around; /* Distribuye los elementos horizontalmente */
-    align-items: center;
-    width: 100%; /* Ocupar todo el ancho disponible */
-    flex-direction: row; /* Alinea los contadores en fila horizontalmente */ 
+  display: flex;
+  flex-direction: column; /* Alinea el título y los datos en una columna */
+  align-items: center;
+  background-color: #994d96;
+  padding: 15px; /* Ajusta el padding para hacer la barra más delgada */
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
+
+/* Estilo para el título */
+.tituloB {
+  padding: 15px 0 0;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center; /* Centra el título */
+  font-weight: 450;
+  font-style: italic;
+}
+
+/* Estilo para el contenedor de datos */
+.Datos {
+  display: flex;
+  justify-content: space-around; /* Distribuye los elementos horizontalmente */
+  align-items: center;
+  width: 100%; /* Ocupar todo el ancho disponible */
+  flex-direction: row; /* Alinea los contadores en fila horizontalmente */
+}
+
+/* Estilo para cada contador */
+.contador-miembros,
+.contador-comentarios,
+.contador-noticias,
+.contador-socios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* Inicialmente oculto */
+  transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+  animation: appear 1s forwards; /* Aplicar animación */
+}
+
+/* Estilo para el contador numérico */
+.contador-miembros p:nth-child(1),
+.contador-comentarios p:nth-child(1),
+.contador-noticias p:nth-child(1),
+.contador-socios p:nth-child(1) {
+  padding: 10px 0 0;
+  font-size: 30px; /* Tamaño del texto del contador */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Estilo para la etiqueta del contador */
+.contador-miembros p:nth-child(2),
+.contador-comentarios p:nth-child(2),
+.contador-noticias p:nth-child(2),
+.contador-socios p:nth-child(2) {
+  font-size: 15px; /* Tamaño del texto de la etiqueta */
+  color: #ffffff;
+  font-weight: 450;
   
-  /* Estilo para cada contador */
-  .contador-miembros,
-  .contador-comentarios,
-  .contador-noticias,
-  .contador-socios {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0; /* Inicialmente oculto */
-    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
-    animation: appear 1s forwards; /* Aplicar animación */
+}
+
+/* Animación para hacer aparecer los contadores */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  /* Estilo para el contador numérico */
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Retrasos para cada contador */
+.contador-miembros {
+  animation-delay: 0.2s;
+}
+
+.contador-comentarios {
+  animation-delay: 0.4s;
+}
+
+.contador-noticias {
+  animation-delay: 0.6s;
+}
+
+.contador-socios {
+  animation-delay: 0.8s;
+}
+
+
+@media (max-width: 768px) {
+  .containerB {
+    padding: 10px; /* Reducir el padding en pantallas más pequeñas */
+  }
+
+  .tituloB {
+    font-size: 16px; /* Reducir el tamaño del título en pantallas más pequeñas */
+  }
+
   .contador-miembros p:nth-child(1),
   .contador-comentarios p:nth-child(1),
   .contador-noticias p:nth-child(1),
   .contador-socios p:nth-child(1) {
-    font-size: 24px; /* Tamaño del texto del contador */
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 20px; /* Reducir el tamaño del contador en pantallas más pequeñas */
   }
-  
-  /* Estilo para la etiqueta del contador */
+
   .contador-miembros p:nth-child(2),
   .contador-comentarios p:nth-child(2),
   .contador-noticias p:nth-child(2),
   .contador-socios p:nth-child(2) {
-    font-size: 14px; /* Tamaño del texto de la etiqueta */
-    color: #ffffff;
+    font-size: 12px; /* Reducir el tamaño de la etiqueta en pantallas más pequeñas */
   }
-  
-  /* Animación para hacer aparecer los contadores */
-  @keyframes appear {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .datosContainer {
+    flex-direction: column; /* En pantallas más pequeñas, apilar los contadores verticalmente */
+    align-items: center;
   }
-  
-  /* Retrasos para cada contador */
-  .contador-miembros {
-    animation-delay: 0.2s;
-  }
-  
-  .contador-comentarios {
-    animation-delay: 0.4s;
-  }
-  
-  .contador-noticias {
-    animation-delay: 0.6s;
-  }
-  
-  .contador-socios {
-    animation-delay: 0.8s;
-  }
-  
-  /* Media queries para mejor responsividad */
-  @media (max-width: 768px) {
-    .containerB {
-      padding: 10px; /* Reducir el padding en pantallas más pequeñas */
-    }
-    
-    .tituloB {
-      font-size: 18px; /* Reducir el tamaño del título en pantallas más pequeñas */
-    }
-  
-    .contador-miembros p:nth-child(1),
-    .contador-comentarios p:nth-child(1),
-    .contador-noticias p:nth-child(1),
-    .contador-socios p:nth-child(1) {
-      font-size: 20px; /* Reducir el tamaño del contador en pantallas más pequeñas */
-    }
-    
-    .contador-miembros p:nth-child(2),
-    .contador-comentarios p:nth-child(2),
-    .contador-noticias p:nth-child(2),
-    .contador-socios p:nth-child(2) {
-      font-size: 12px; /* Reducir el tamaño de la etiqueta en pantallas más pequeñas */
-    }
-  
-    .datosContainer {
-      flex-direction: column; /* En pantallas más pequeñas, apilar los contadores verticalmente */
-      align-items: center;
-    }
-  }
+}

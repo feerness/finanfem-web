@@ -68,19 +68,22 @@ export function ProfilePage() {
       <div className="profileHeader">
         <h1>Perfil de Usuario</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label>Username:</label>
+          <label>Nombre:   
           <input {...register("username")} />
-
+          </label>
+          <p>
           <label>Foto:</label>
           <input type="file" {...register("photo")} className="fileInput" />
+          </p>
           <label htmlFor="photo" className="customFileUpload">
             Subir Foto
           </label>
-
+          <p>
           <label>Descripción:</label>
           <textarea {...register("description")} />
 
           <button type="submit">Guardar Cambios</button>
+          </p>
         </form>
       </div>
 

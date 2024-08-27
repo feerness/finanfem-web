@@ -13,7 +13,7 @@
   text-align: center;
   margin-bottom: 40px;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px; /* Reducir el ancho */
   padding: 30px;
   background-color: #ffffff;
   border-radius: 15px;
@@ -27,14 +27,15 @@
 }
 
 .profileHeader label {
-  font-size: 18px;
-  color: #555;
-  margin-right: 10px;
+  font-size: 19px;
+  margin-bottom: 10px;
 }
 
 .profileHeader input[type="text"],
 .profileHeader textarea {
-  width: calc(100% - 150px);
+  display: flex;
+  justify-content: start;
+  align-items: center;
   padding: 10px;
   margin: 10px 0;
   font-size: 16px;
@@ -49,9 +50,9 @@
 }
 
 .customFileUpload {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-bottom: 10px;
+  display: flex;
+  padding: 10px 10px;
+
   background-color: #7e4eab;
   color: #fff;
   font-size: 16px;
@@ -75,6 +76,8 @@
   border: none;
   outline: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px; /* Ajuste para margen entre botones */
+  width: 100%; /* Aumentar el ancho de los botones */
 }
 
 .profileHeader button:hover {
@@ -82,10 +85,43 @@
   transform: scale(1.05);
 }
 
+.fileUploadContainer {
+  border: 1px solid #c3acd0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar elementos */
+}
+
+.fileUploadContainer input[type="file"] {
+  display: none; /* Ocultar el input de archivo original */
+}
+
+.fileUploadContainer label {
+  font-size: 16px;
+  color: #555;
+  margin-right: 10px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #7e4eab;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px; /* Margen entre botones */
+}
+
+.fileUploadContainer label:hover {
+  background-color: #5b376e;
+}
+
 /* Profile posts container */
 .profilePosts {
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin-top: 40px;
   padding: 20px;
   background-color: #ffffff;
@@ -145,3 +181,4 @@
   margin-top: 5px;
   color: #777;
 }
+

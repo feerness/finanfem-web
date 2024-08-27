@@ -1,107 +1,123 @@
 :root {
-    font-size: 16px;
-    --primary-color: #994d96;
-    --secondary-color: #ffffff;
-    --accent-color: #8d54a3;
-    --background-color: #f2f2f2;
-    }
+  font-size: 16px;
+  --primary-color: #994d96;
+  --secondary-color: #ffffff;
+  --accent-color: #4e3670;
+  --background-color: #f2f2f2;
+}
+
+.containerf {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem;
+}
+
+.ContenedorMujer {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-mujer {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.brand-logo {
+  max-width: 8rem;
+}
+
+.containerQS {
+  flex: 1 1 50%;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  margin-left: 2rem;
+}
+
+.containerQS .titulo h2 {
+  display: flex;
+  justify-content: center;
+  color: #3c3c3b;
+  font-weight: 550;
+  font-size: 2rem;
+  padding: 5px 0 50px;
+  letter-spacing: -1.5px;
+}
+
+.texto-informativo p {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.5;
+  padding: 0px 30px 10px;
+  margin-bottom: 1rem;
+  text-align: justify;
+  font-weight: 480;
   
+}
+
+.boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.botoncito {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 15px 0 0;
+}
+
+.botoncito:hover {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
   .containerf {
-    display: flex;
-    flex-wrap: nowrap;
-    background-color: var(--secondary-color);
-    padding: 2rem;
-    border-radius: 12px;
-    margin: 2rem;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
   }
-  
-  .ContenedorMujer {
-    flex: 1 1 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .img-mujer {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-  
-  .logo {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    z-index: 10;
-  }
-  
-  .brand-logo {
-    max-width: 8rem;
-  }
-  
+
   .containerQS {
-    flex: 1 1 50%;
-    padding: 2rem;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-    margin-left: 2rem;
+    margin-left: 0;
+    padding: 1rem;
   }
-  
-  .titulo p {
-    font-size: 2rem;
-    color: #3c3c3b;
-    font-weight: bold;
-    margin-bottom: 1rem;
+
+  .containerQS .titulo h2 {
+    font-size: 1.5rem;
+    padding: 10px 10px 13px;
   }
-  
+
   .texto-informativo p {
-    font-size: 1rem;
-    color: #333333;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    padding: 0px 0px 5px;
   }
-  
+
   .boton {
-    margin-top: 2rem;
+    margin-top: 15px;
   }
-  
+
   .botoncito {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
   }
-  
-  .botoncito:hover {
-    background-color: var(--accent-color);
-  }
-  
-  @media (max-width: 768px) {
-    .containerf {
-      flex-direction: column;
-      margin: 1rem;
-      padding: 1rem;
-    }
-  
-    .containerQS {
-      margin-left: 0;
-      padding: 1rem;
-    }
-  
-    .titulo p {
-      font-size: 1.5rem;
-    }
-  
-    .texto-informativo p {
-      font-size: 0.875rem;
-    }
-  
-    .botoncito {
-      padding: 0.5rem 1.5rem;
-      font-size: 0.875rem;
-    }
-  }
-  
+}

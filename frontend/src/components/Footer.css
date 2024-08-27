@@ -1,105 +1,103 @@
-
 .footer {
-    background-color: #4e3670;
-    color: #ffffff;
-    display: flex;
-    box-sizing: border-box;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-   }
-  
-  
-  .footer .container {
-    display: flex;
-    margin-bottom: 2px;
-    width: 100%;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
-  
-  
-  }
-  
-  
-  .footer h2{
-    color: #ffffff;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 27px;
-    margin-bottom: 20px;
-  }
-  
-  
-  .footer h5, .footer p, .footer a {
-    color: #ffffff;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 18px;
-  
-  }
-  
-  
-  .footer ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  
-  .footer .list-unstyled li {
-    margin-bottom: 10px;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 13px;
-   
-  }
-  
-  
-  .footer .contact-info i {
-    margin-right: 10px;
-  }
-  
-  
-  .footer .list-inline-item {
-    margin-right: 10px;
-  }
-  
-  
-  .footer .list-inline-item a {
-    color: #fffafa;
-  }
-  
-  
-  .footer .list-inline-item a:hover {
-    color: #ffffff;
-  }
-  
-  
-  .footer hr {
-    border-top: 1px solid #ddd;
-    width: 100%;
-  }
-  .footer .row p {
-    position: relative;
-    top: 0;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 10px;
-    text-align: center;
-    margin: 0 auto; /* Centra horizontalmente el párrafo */
-    width: 100%;
-  }
-  
-  
-  .footer .row {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  
-  .footer .text-center {
-    text-align: center;
-    width: 100%;
-  }
-  
+  background-color: #4e3670;
+  color: #ffffff;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+ }
+
+
+.footer .container {
+  display: flex;
+  margin-bottom: 2px;
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+
+
+}
+
+
+.footer h2{
+  color: #ffffff;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+
+.footer h5, .footer p, .footer a {
+  color: #ffffff;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+
+}
+
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.footer .list-unstyled li {
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 13px;
+ 
+}
+
+
+.footer .contact-info i {
+  margin-right: 10px;
+}
+
+
+.footer .list-inline-item {
+  margin-right: 10px;
+}
+
+
+.footer .list-inline-item a {
+  color: #fffafa;
+}
+
+
+.footer .list-inline-item a:hover {
+  color: #ffffff;
+}
+
+
+.footer hr {
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+.footer .row p {
+  position: relative;
+  top: 0;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 10px;
+  text-align: center;
+  margin: 0 auto; /* Centra horizontalmente el párrafo */
+  width: 100%;
+}
+
+
+.footer .row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.footer .text-center {
+  text-align: center;
+  width: 100%;
+}
