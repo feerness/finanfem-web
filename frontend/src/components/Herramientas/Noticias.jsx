@@ -15,7 +15,7 @@ const NewsComponent = () => {
   }, [currentPage]);
 
   const fetchNews = () => {
-    if (isLoading) return;
+    if (isLoading || noMoreNews) return;
     setIsLoading(true);
 
     const url = `https://newsapi.org/v2/everything?q=finanzas&language=es&apiKey=${API_KEY}&page=${currentPage}&pageSize=${newsLimit}`;
@@ -27,14 +27,20 @@ const NewsComponent = () => {
           (article) => article.urlToImage
         );
 
-        if (articlesWithImage.length === 0) {
+        if (
+          articlesWithImage.length === 0 ||
+          articlesWithImage.length < newsLimit
+        ) {
           setNoMoreNews(true);
-        } else {
-          setArticles((prevArticles) => [
-            ...prevArticles,
-            ...articlesWithImage,
-          ]);
         }
+
+        // Evitar la duplicación de artículos
+        const newArticles = articlesWithImage.filter(
+          (newArticle) =>
+            !articles.some((article) => article.url === newArticle.url)
+        );
+
+        setArticles((prevArticles) => [...prevArticles, ...newArticles]);
 
         setIsLoading(false);
       })
@@ -45,19 +51,22 @@ const NewsComponent = () => {
   };
 
   const loadMoreNews = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
+    if (!noMoreNews && !isLoading) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
   };
 
   return (
-    <div>
-      <div id="newsContainer">
+    <div className="container01">
+      <h1 className="title01">Noticias</h1>
+      <div id="newsContainer01">
         {articles.map((article, index) => (
-          <div key={index} className="newsItem">
-            <div className="newsImage">
+          <div key={index} className="newsItem01">
+            <div className="newsImage01">
               <img src={article.urlToImage} alt={article.title} />
             </div>
-            <div className="newsContent">
-              <div className="info">
+            <div className="newsContent01">
+              <div className="info01">
                 <h5>{article.source.name}</h5>
                 <span>|</span>
                 <h5>{new Date(article.publishedAt).toLocaleDateString()}</h5>
@@ -71,11 +80,15 @@ const NewsComponent = () => {
           </div>
         ))}
       </div>
-      <div id="loadMoreContainer">
+      <div id="loadMoreContainer01">
         {noMoreNews ? (
           <p>No hay más noticias para cargar.</p>
         ) : (
-          <button onClick={loadMoreNews} disabled={isLoading}>
+          <button
+            className="loadMoreButton"
+            onClick={loadMoreNews}
+            disabled={isLoading}
+          >
             {isLoading ? "Cargando..." : "Cargar más noticias"}
           </button>
         )}
