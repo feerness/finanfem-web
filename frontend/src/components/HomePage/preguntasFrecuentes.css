@@ -1,20 +1,21 @@
 .container-preg {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  margin-bottom: 50px
+  margin-bottom: 50px;
+  
 }
 
 .titulo p {
-  font-size: 24px;
+  font-size: 27px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 20px;
+  padding: 40px 0 20px;
 }
 
 .pregunta {
   margin-bottom: 10px;
   cursor: pointer;
-  padding: 15px;
+  padding: 25px;
   border-radius: 5px;
   background-color: #f1f1f1;
   transition: background-color 0.3s ease;
@@ -26,6 +27,7 @@
 
 .pregunta-header {
   display: flex;
+  font-size: 19px;
   justify-content: space-between;
   align-items: center;
 }
@@ -39,7 +41,7 @@
 }
 
 .respuesta {
-  padding: 20px;
+  padding: 22px;
   margin-top: 5px;
   background-color: #fff;
   border-left: 5px solid #7e4eab;

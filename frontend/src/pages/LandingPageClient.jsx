@@ -1,11 +1,11 @@
 import { Saludo } from "../components/LandingPageClient/Saludo";
-import TestComponent from './TestComponent.jsx';
+import CustomCards from "../components/LandingPageClient/cardsTres";
 
 function LandingPageClient() {
     return (
-        <div>
-            <Saludo/>
-            <TestComponent/>
+        <div className="Pagina">
+            <Saludo />
+            <CustomCards />
         </div>
     );
 };

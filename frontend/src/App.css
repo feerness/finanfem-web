@@ -1,3 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+* {
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+  display: flex;
+}
+
+.content {
+  margin: auto;
+  padding: 20px;
+  width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 20px; /* Espacio entre los elementos */
+}
+
+.section {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  flex: 1 1 calc(33.33% - 40px);
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 400px;
+  text-align: center;
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.section.full-width {
+  flex: 1 1 100%;
+  max-width: 100%;
+  overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es demasiado ancho */
+}
+
+.section.full-width table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed; /* Fija el ancho de las columnas */
+  overflow-wrap: break-word; /* Rompe palabras largas */
+}
+
+.section h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section p {
+  font-size: 1em;
+  color: #666;
+}
+
+
 /* Variables para el tema claro */
 :root[data-theme="light"] {
   --background-color: #ffffff;
@@ -16,9 +87,6 @@
   --card-text-color: #f8f9fa;
 }
 
-.navbar {
-  background-color: var(--navbar-background);
-}
 
 .card {
   background-color: var(--card-background);

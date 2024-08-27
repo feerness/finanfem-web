@@ -2,7 +2,7 @@ import "./infoF.css";
 
 const InfoNosotras = () => {
   return (
-    <div className="containerf">
+    <div className="containerf" id="nosotras">
       <div className="ContenedorMujer">
         <img
           src="/images/img3.png"

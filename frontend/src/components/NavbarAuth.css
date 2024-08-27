@@ -1,91 +1,103 @@
 /* General navbar styles */
 .navbar {
-    display: flex;
-    box-sizing: border-box;
-    margin: 0;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    padding: 5px 20px;
-    white-space: nowrap;
-  }
-  .navbar-brand .brand-logo {
-    width: 40px; /* Adjust the logo size as needed */
-    height: auto;
-    margin-left: 2%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    position: static;
-    right: 270px;
-  }
-  
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-  
-  .nav-item {
-    margin-left: 20px;
-    color: #333;
-  }
-  
-  .profile-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  @media (max-width: 768px){
-    .navbar {
-      padding: 0;
-      display: flex;
-      position: relative;
-      justify-content: center;
-  
-    }
-  
-    .navbar-nav {
-      flex-direction: row;
-      align-items: center;
-    }
-  
-    .nav-item {
-      margin-left: 20px;
-    }
-  
-    .navbar-nav.ml-auto {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
-  /* Sidebar styles integrated into navbar */
-  .dropdown-menu {
-    display: none;
-    list-style-type: none;
+  display: flex;
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  white-space: nowrap;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .brand-logo {
+  width: 40px; /* Adjust the logo size as needed */
+  height: auto;
+  margin-right: 20px; /* Space between logo and other left items */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 20px;
+  color: #333;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
     padding: 0;
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .dropdown:hover .dropdown-menu {
-    display: block;
+
+  .navbar-left, .navbar-right {
+    width: 100%;
+    justify-content: center;
   }
-  
-  .dropdown-menu li {
-    padding: 10px;
-    text-align: left;
-    background-color: #f1f1f1;
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .dropdown-menu li a {
-    color: #333;
+
+  .nav-item {
+    margin-left: 0;
+    margin-top: 10px;
   }
-  
-  .dropdown-menu li a:hover {
-    background-color: #ddd;
+
+  .navbar-nav.ml-auto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
-  
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  position: absolute; /* Ensure dropdown is positioned correctly */
+  top: 100%; /* Position dropdown below the trigger element */
+  left: 0;
+  z-index: 1000; /* Ensure dropdown appears above other content */
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu li a {
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #ddd;
+}

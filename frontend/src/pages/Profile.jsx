@@ -88,78 +88,77 @@ function ProfilePage() {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-md-4">
-          <h4>Perfil de Usuario</h4>
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <div className="form-group">
-              <label>Username</label>
-              <input
+ 
+    <div className="profile">
+      <div className="profileHeader">
+        <h1>Perfil de Usuario</h1>
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <label>Nombre:   
+          <input
                 type="text"
-                className="form-control"
+                className="fileInput"
                 name="username"
                 value={profileData.username}
                 onChange={handleInputChange}
               />
-            </div>
-            <div className="form-group">
-              <label>Foto</label>
-              <input
+          </label>
+          <p>
+          <label>Foto:</label>
+          <input
                 type="file"
-                className="form-control"
+                className="fileInput"
                 name="photo"
                 onChange={handleFileChange}
               />
-            </div>
-            <div className="form-group">
-              <label>Descripción</label>
-              <textarea
+          </p>
+          <label htmlFor="photo" className="customFileUpload">
+            Subir Foto
+          </label>
+          <p>
+          <label>Descripción:</label>
+          <textarea
                 className="form-control"
                 name="description"
                 value={profileData.description}
                 onChange={handleInputChange}
               />
+
+          <button type="submit">Guardar Cambios</button>
+          </p>
+        </form>
+        {error && <div className="alert alert-danger mt-3">{error}</div>}
+        {success && <div className="alert alert-success mt-3">{success}</div>}
+      </div>
+
+      <div className="profilePosts">
+        <h2>Actividad Reciente</h2>
+
+        <h3>Posts Subidos</h3>
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <div key={post._id} className="post">
+              <h4>{post.title}</h4>
+              <p>{post.content}</p>
             </div>
-            <button type="submit" className="btn btn-primary btn-block">
-              Guardar Cambios
-            </button>
-          </form>
-          {error && <div className="alert alert-danger mt-3">{error}</div>}
-          {success && <div className="alert alert-success mt-3">{success}</div>}
-        </div>
-        <div className="col-md-8">
-          <h4>Actividad Reciente</h4>
-          <div className="recent-activity">
-            <h5>Posts Subidos</h5>
-            {posts.length > 0 ? (
-              posts.map((post) => (
-                <div key={post._id} className="card mb-3">
-                  <div className="card-body">
-                    <h5 className="card-title">{post.title}</h5>
-                    <p className="card-text">{post.description}</p>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>No has subido ningún post.</p>
-            )}
-            <h5>Posts Comentados</h5>
-            {comments.length > 0 ? (
+          )) 
+        ) : (
+          
+          <p>No has subido ningún post.</p>
+        )}
+         <h3>Posts Comentados</h3>
+        {comments.length > 0 ? (
               comments.map((comment) => (
-                <div key={comment._id} className="card mb-3">
-                  <div className="card-body">
-                    <p className="card-text">{comment.text}</p>
-                  </div>
-                </div>
+                <div key={comment._id} className="post reply">
+                  <p>{comment.text}</p>
+              <small>{comment.createdAt}</small>
+            </div>
               ))
             ) : (
               <p>No has comentado en ningún post.</p>
             )}
           </div>
         </div>
-      </div>
-    </div>
+
   );
 }
 
