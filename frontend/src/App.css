@@ -68,9 +68,6 @@
   color: #666;
 }
 
-.navbar {
-  z-index: 1100; /* Asegura que la navbar esté encima del sidebar */
-}
 
 /* Variables para el tema claro */
 :root[data-theme="light"] {
@@ -90,9 +87,6 @@
   --card-text-color: #f8f9fa;
 }
 
-.navbar {
-  background-color: var(--navbar-background);
-}
 
 .card {
   background-color: var(--card-background);

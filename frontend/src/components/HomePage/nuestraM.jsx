@@ -11,7 +11,7 @@ const NuestraMision = () => {
         <div className="textoM1">
           <div className="iconos">
             <img
-              src="/images/money.icon.png"
+              src="/images/coin.png"
               alt="Icono independencia económica"
               className="icon1"
             />

@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 import "./UI.css";
 
 export const ButtonLink = ({ to, children }) => (
-<<<<<<< HEAD
-  <Link to={to} className="">
-=======
+
   <Link to={to} className="replyBtn">
->>>>>>> master
     {children}
   </Link>
 );

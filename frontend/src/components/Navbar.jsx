@@ -28,190 +28,197 @@ export function Navigationbar() {
             />
           </Link>
         </h1>
-
-        {isAuthenticated && (
-          <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                id="recursosDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {t("Recursos")}
-              </Link>
-              <div className="dropdown-menu" aria-labelledby="recursosDropdown">
-                <Link className="dropdown-item" to="./Articulos">
-                  {t("Artículos")}
+        <button
+          className="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <ul className="navbar-nav">
+          {isAuthenticated && (
+            <>
+              <li className="nav-item dropdown">
+                <Link
+                  to="#"
+                  className="nav-link dropdown-toggle"
+                  id="recursosDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {t("Recursos")}
                 </Link>
-                <Link className="dropdown-item" to="./Pdf">
-                  PDF
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="recursosDropdown"
+                >
+                  <Link className="dropdown-item" to="./Articulos">
+                    {t("Artículos")}
+                  </Link>
+                  <Link className="dropdown-item" to="./Pdf">
+                    PDF
+                  </Link>
+                  <Link className="dropdown-item" to="./Videos">
+                    {t("Videos")}
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item dropdown">
+                <Link
+                  to="#"
+                  className="nav-link dropdown-toggle"
+                  id="herramientasDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {t("Herramientas")}
                 </Link>
-                <Link className="dropdown-item" to="./Videos">
-                  {t("Videos")}
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="herramientasDropdown"
+                >
+                  <Link className="dropdown-item" to="./Recursos">
+                    {t("Indicadores Financieros")}
+                  </Link>
+                  <Link className="dropdown-item" to="./Noticias">
+                    {t("Noticias")}
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item dropdown">
+                <Link
+                  to="#"
+                  className="nav-link dropdown-toggle"
+                  id="comunidadDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {t("Comunidad")}
                 </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                id="herramientasDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {t("Herramientas")}
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="herramientasDropdown"
-              >
-                <Link className="dropdown-item" to="./Recursos">
-                  {t("Indicadores Financieros")}
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="comunidadDropdown"
+                >
+                  <Link className="dropdown-item" to="./foro">
+                    {t("Foro")}
+                  </Link>
+                  <Link className="dropdown-item" to="./perfilesCliente">
+                    {t("Actividad")}
+                  </Link>
+                </div>
+              </li>
+              <li className="nav-item dropdown">
+                <Link
+                  to="#"
+                  className="nav-link dropdown-toggle"
+                  id="consultoriaDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  {t("Consultoría")}
                 </Link>
-                <Link className="dropdown-item" to="./Noticias">
-                  {t("Noticias")}
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                id="comunidadDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {t("Comunidad")}
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="comunidadDropdown"
-              >
-                <Link className="dropdown-item" to="./foro">
-                  {t("Foro")}
-                </Link>
-                <Link className="dropdown-item" to="./perfilesCliente">
-                  {t("Actividad")}
-                </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                id="consultoriaDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                {t("Consultoría")}
-              </Link>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="consultoriaDropdown"
-              >
-                <Link className="dropdown-item" to="./Reportes">
-                  {t("Reportes")}
-                </Link>
-                <Link className="dropdown-item" to="./Terminos">
-                  {t("Reglas")}
-                </Link>
-              </div>
-            </li>
-          </ul>
-        )}
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="consultoriaDropdown"
+                >
+                  <Link className="dropdown-item" to="./Reportes">
+                    {t("Reportes")}
+                  </Link>
+                  <Link className="dropdown-item" to="./Terminos">
+                    {t("Reglas")}
+                  </Link>
+                </div>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
       <div className="navbar-right">
         {isAuthenticated ? (
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link
-                to="/profile"
-                className="nav-link"
-                id="profile-nav"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img
-                  src="/images/profile-icon.png"
-                  alt="Foto de perfil"
-                  className="profile-pic"
-                />
-                {user.username}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link onClick={toggleTheme} className="btn dl-mode">
-                <img
-                  src={
-                    theme === "light"
-                      ? "/images/dark-mode.png"
-                      : "/images/light-mode.png"
-                  }
-                  alt={theme === "light" ? t("Modo Oscuro") : t("Modo Claro")}
-                  className="theme-icon"
-                />
-              </Link>
-            </li>
-            <li className="nav-item">
-              <button
-                onClick={toggleLanguage}
-                className="btn btn-outline-secondary"
-              >
-                {i18n.language === "en" ? "SP" : "EN"}
-              </button>
-            </li>
-            <li className="nav-item">
-              <Link to="/" onClick={() => logout()} className="logout-link">
-                <img
-                  src="/images/logout.png"
-                  alt="Logout"
-                  className="logout-pic"
-                />
-                <span className="logout-text">{t("Logout")}</span>
-              </Link>
-            </li>
-          </ul>
+          <>
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link
+                  to="/profile"
+                  className="nav-link"
+                  id="profile-nav"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="/images/profile-icon.png"
+                    alt="Foto de perfil"
+                    className="profile-pic"
+                  />
+                  {user.username}
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link onClick={toggleTheme} className="btn dl-mode">
+                  <img
+                    src={
+                      theme === "light"
+                        ? "/images/dark-mode.png"
+                        : "/images/light-mode.png"
+                    }
+                    alt={theme === "light" ? t("Modo Oscuro") : t("Modo Claro")}
+                    className="theme-icon"
+                  />
+                </Link>
+              </li>
+              <li className="nav-item">
+                <button
+                  onClick={toggleLanguage}
+                  className="btn btn-outline-secondary"
+                >
+                  {i18n.language === "en" ? "SP" : "EN"}
+                </button>
+              </li>
+              <li className="nav-item">
+                <Link to="/" onClick={() => logout()} className="logout-link">
+                  <img
+                    src="/images/logout.png"
+                    alt="Logout"
+                    className="logout-pic"
+                  />
+                  <span className="logout-text">{t("Logout")}</span>
+                </Link>
+              </li>
+            </ul>
+          </>
         ) : (
           <>
             <ul className="navbar-nav">
               <li className="nav-item">
-              <a className="btn btn-primary custom-margin" href="#ingresar">
-                <ButtonLink to="/login">Ingresar</ButtonLink>
+                <a className="nav-link" href="#home">
+                  Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="btn btn-secondary custom-margin">
-                  <ButtonLink to="/register">Registrarse</ButtonLink>
+                <a className="nav-link" href="#nosotras">
+                  ¿Quiénes somos?
                 </a>
               </li>
+              <li className="nav-item">
+                <ButtonLink to="/login">Login</ButtonLink>
+              </li>
+              <li className="nav-item">
+                <ButtonLink to="/register">Register</ButtonLink>
+              </li>
             </ul>
-            <li className="nav-item">
-              <a className="nav-link" href="#home">
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#nosotras">
-                ¿Quiénes somos?
-              </a>
-            </li>
-            <li className="nav-item">
-              
-                Ingresar
-              
-            </li>
-            <li className="nav-item"></li>
           </>
         )}
       </div>

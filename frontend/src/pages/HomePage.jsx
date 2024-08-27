@@ -10,14 +10,14 @@ import CajaR from "../components/HomePage/formsHome";
 
 function HomePage() {
   return (
-    <div>
-      <div id= "home" ><HomeImage /></div>
-      <div id= "carrusel1" ></div><PrimerCarruselH />
-      <div id= "nosotras" ></div><InfoNosotras />
-      <div id="nuestramision"><NuestraMision /></div>
-      <div id= "contadores" ></div><BarraContadores />
-      <div id= "contacto" ></div><CajaR />
-      <div id= "faq" ></div><PreguntasFrecu />
+    <div id="home" >
+      <HomeImage />
+      <PrimerCarruselH />
+      <InfoNosotras />
+      <NuestraMision />
+      <BarraContadores />
+      <CajaR />
+      <PreguntasFrecu />
     </div>
   );
 }

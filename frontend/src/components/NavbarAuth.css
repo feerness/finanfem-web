@@ -5,97 +5,35 @@
   margin: 0;
   width: 100%;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
   padding: 5px 20px;
   white-space: nowrap;
 }
 
-.navbar-brand .brand-logo {
-  width: 70px;
-  height: auto;
-  margin-left: 2%;
+.navbar-left {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  position: static;
-  right: 270px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand .brand-logo {
+  width: 40px; /* Adjust the logo size as needed */
+  height: auto;
+  margin-right: 20px; /* Space between logo and other left items */
 }
 
 .navbar-nav {
   display: flex;
   align-items: center;
-  margin-left: auto;
 }
 
 .nav-item {
   margin-left: 20px;
-}
-.nav-item .nav-link {
-  font-weight: 500;
-}
-
-.navbar .btn {
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.navbar .btn-primary {
-  background-color: #7e4eab;
-  color: white;
-  font-weight: 500;
-  border: none;
-}
-
-.navbar .btn-primary:hover {
-  background-color: #4e3670;
-  color: white;
-}
-
-.navbar .btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  font-weight: 500;
-  border: none;
-}
-
-.navbar .btn-secondary:hover {
-  background-color: #5a6268;
-  color: white;
-}
-
-.custom-margin {
-  margin-bottom: 8px;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 10px;
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-  }
-
-  .navbar-brand .brand-logo {
-    margin-left: 5px;
-  }
-
-  .navbar-nav {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .nav-item {
-    margin-left: 20px;
-  }
-
-  .navbar-nav.ml-auto {
-    display: flex;
-    flex-direction: column;
-  }
+  color: #333;
 }
 
 .profile-pic {
@@ -108,31 +46,42 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0;
-    display: flex;
-    position: relative;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-left, .navbar-right {
+    width: 100%;
     justify-content: center;
   }
 
   .navbar-nav {
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
   }
 
   .nav-item {
-    margin-left: 20px;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .navbar-nav.ml-auto {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 }
 
-/* Sidebar styles integrated into navbar */
+/* Dropdown menu styles */
 .dropdown-menu {
   display: none;
   list-style-type: none;
   padding: 0;
+  position: absolute; /* Ensure dropdown is positioned correctly */
+  top: 100%; /* Position dropdown below the trigger element */
+  left: 0;
+  z-index: 1000; /* Ensure dropdown appears above other content */
 }
 
 .dropdown:hover .dropdown-menu {

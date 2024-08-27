@@ -26,18 +26,9 @@ export function LoginPage() {
   }, [isAuthenticated, navigate]);
 
   return (
-<<<<<<< HEAD
-    <div className="">
-      <Card>
-        {loginErrors.map((error, i) => (
-          <Message message={error} key={i} />
-        ))}
-        <h1 className="">Login</h1>
-=======
     <main className="login">
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="loginTitle">Inicia sesión</h1>
->>>>>>> master
 
         {/* Usa la clase "error-message" para los mensajes de error */}
         {loginErrors.map(
@@ -75,14 +66,9 @@ export function LoginPage() {
           <p className="error-message">{errors.password?.message}</p>
         )}
 
-<<<<<<< HEAD
-        <p className="">
-          ¿Ya tienes una cuenta? <Link to="/register" className="">Sign up</Link>
-=======
         <button className="loginBtn">INICIA SESIÓN</button>
         <p>
           ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
->>>>>>> master
         </p>
       </form>
     </main>
