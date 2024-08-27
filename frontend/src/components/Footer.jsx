@@ -22,7 +22,7 @@ const MyFooter = () => {
           <div className="col-md-2">
             <h5>Links de Ayuda</h5>
             <ul className="list-unstyled">
-              <Link to="/indicadores"><li>Indicadores Financieros</li></Link>
+              <Link to="/Recursos"><li>Indicadores Financieros</li></Link>
               <Link to="/Articulos"><li>Recursos</li></Link>
               <Link to="/Pdf"><li>Archivos</li></Link>
             </ul>
