@@ -10,7 +10,6 @@ const Indicadores = () => {
       <div className="container">
         <h2 className="tituloI">Indicadores Financieros</h2>
         {ApiFunction()}
-        <ApiFunction />
       </div>
     </section>
   );
