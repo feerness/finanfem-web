@@ -1,0 +1,51 @@
+.containerImagen {
+    text-align: center;
+  }
+  
+  .imagenContainer {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out 0.5s forwards;
+  }
+  
+  .titleImagen {
+    position: absolute;
+    text-align: center;
+    top: 0%;
+    transform: translateX(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #000; /* Asegúrate de que el color contraste bien con la imagen */
+    margin-bottom: 20px;
+    z-index: 2; /* Asegura que el título esté por encima de la imagen */
+    opacity: 1; /* Siempre visible */
+    animation: fadeInUp 1s ease-in-out forwards;
+  }
+  
+  .illustration-image {
+    width: 50%;
+    margin-top: 30px;
+    max-width: 600px;
+    z-index: 1;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+  
+  .imagenContainer:hover .illustration-image {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

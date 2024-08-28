@@ -4,6 +4,7 @@ import PrimerCarruselH from "../components/HomePage/carruselH";
 import InfoNosotras from "../components/HomePage/infoF";
 import NuestraMision from "../components/HomePage/nuestraM";
 import BarraContadores from "../components/HomePage/barraContadores";
+import Ilustracion from "../components/HomePage/ilustracion";
 import PreguntasFrecu from "../components/HomePage/preguntasFrecuentes";
 
 
@@ -15,6 +16,7 @@ function HomePage() {
       <InfoNosotras />
       <NuestraMision />
       <BarraContadores />
+      <Ilustracion />
       <PreguntasFrecu />
     </div>
   );
