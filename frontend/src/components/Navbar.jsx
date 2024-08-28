@@ -199,22 +199,22 @@ export function Navigationbar() {
           ) : (
             <>
               <li className="nav-item">
-                <a className="nav-link" href="#home">
+                <a className="nav-link" href="./#home">
                   Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#nosotras">
+                <a className="nav-link" href="./#nosotras">
                   ¿Quiénes somos?
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#mision">
+                <a className="nav-link" href="./#mision">
                   Nuestra Misión
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#qa">
+                <a className="nav-link" href="./#qa">
                   Preguntas Frecuentes
                 </a>
               </li>
