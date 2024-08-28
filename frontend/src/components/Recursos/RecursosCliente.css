@@ -112,7 +112,7 @@
 
 /* Estilo para el encabezado */
 .header1 h2 {
-  font-size: 1.5em;
+  font-size: 1.9em;
   margin-bottom: 15px;
   color: #7130cb;
   text-align: center;
@@ -120,7 +120,9 @@
 
 /* Estilo para el texto informativo */
 .info-header1 p {
-  font-size: 1em;
+  font-size: 1.2em;
+  text-align: center;
   margin-bottom: 15px;
   color: #333;
+  margin: 20px;
 }
