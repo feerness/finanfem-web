@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+
 .saludo-container {
+   font-family: "Oswald", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: 700;
+   font-style: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,8 +17,9 @@
   }
   
   .saludo-container h1 {
-    font-size: 52px;
-    color: #343a40;
+    font-size: 2.5rem;
+    color: #7e4eab;
+    animation: colorChange 3s infinite;
     margin-bottom: 15px;
   }
   
@@ -33,4 +41,10 @@
   .saludo-button:hover {
     background-color: #0056b3;
   }
+
   
+  @keyframes colorChange {
+    0% { color: #7e4eab; }
+    50% { color: #3c3c3b; }
+    100% { color: #7e4eab; }
+  }

@@ -39,6 +39,7 @@ export function ForoPage() {
   }, [foro]);
 
   return (
+
     <div className="foro-container1">
       {forosWithComments.length === 0 ? (
         <div className="foro-empty">
@@ -52,8 +53,11 @@ export function ForoPage() {
             </div>
           </div>
         </div>
-      ) : (
+      ) : (  
         <div className="foro-grid">
+          <div className="addPost">
+            <ButtonLink to="/add-post">Añadir Post</ButtonLink>
+          </div>
           {forosWithComments.map((foroItem) => (
             <ForoCard
               foro={foroItem}
