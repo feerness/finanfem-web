@@ -1,8 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import "./RecursosCliente.css";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const PdfCard = ({ title, image, description, link }) => {
+  const { t } = useTranslation();
   return (
     <div className="card1">
       <div className="card1-img-container">
@@ -32,7 +35,8 @@ PdfCard.propTypes = {
 };
 
 const PdfCliente = () => {
-  const pdf = [
+const { t } = useTranslation();
+    const pdf = [
     {
       title: "Finanzas empresariales para la pequeña y microempresa",
       image: "images/image.png",
@@ -82,11 +86,11 @@ const PdfCliente = () => {
     <section className="article-content">
       <div className="container1">
         <div className="header1">
-          <h2>E-books y Guías</h2>
+          <h2> {t('E-books y Guías')} </h2>
         </div>
         <div className="info-header1">
           <p>
-            Descarga nuestros e-books y guías para aprender más sobre finanzas.
+            {t('Descarga nuestros e-books y guías para aprender más sobre finanzas.')}
           </p>
         </div>
         <div className="d-flex1">

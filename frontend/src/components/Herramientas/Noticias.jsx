@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Noticias.css";
+import { useTranslation } from "react-i18next";
 
 const NewsComponent = () => {
+  const { t } = useTranslation();
   const API_KEY = "3312930d4a09464495940e0413773fe4";
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,7 +60,7 @@ const NewsComponent = () => {
 
   return (
     <div className="container01">
-      <h1 className="title01">Noticias</h1>
+      <h1 className="title01">{t('Noticias')}</h1>
       <div id="newsContainer01">
         {articles.map((article, index) => (
           <div key={index} className="newsItem01">

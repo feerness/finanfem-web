@@ -1,8 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import "./RecursosCliente.css";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const ArticleCard = ({ title, image, description, link }) => {
+  const { t } = useTranslation();
   return (
     <div className="card1">
       <div className="card1-img-container">
@@ -32,6 +35,7 @@ ArticleCard.propTypes = {
 };
 
 const ArticulosCliente = () => {
+  const { t } = useTranslation();
   const articles = [
     {
       title: "Finanzas empresariales para la pequeña y microempresa",
@@ -83,10 +87,10 @@ const ArticulosCliente = () => {
     <section className="article-content">
       <div className="container1">
         <div className="header1">
-          <h2>Artículos</h2>
+          <h2> {t('Artículos')} </h2>
         </div>
         <div className="info-header1">
-          <p>Encuentra artículos sobre finanzas y empoderamiento económico.</p>
+          <p> {t('Encuentra artículos sobre finanzas y empoderamiento económico.')} </p>
         </div>
         <div className="d-flex1">
           {articles.map((article, index) => (
