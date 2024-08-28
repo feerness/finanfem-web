@@ -1,4 +1,25 @@
-/* Reportes.css */
+
+:root {
+  --container-background: #fff;
+  --container-shadow: rgba(0, 0, 0, 0.2);
+  --title-color: #7130cb;
+  --text-color: #333;
+  --form-border-color: #7130cb;
+  --form-border-focus-color: #4e3670;
+  --button-background: #7e4eab;
+  --button-hover-background: #4e3670;
+}
+
+[data-theme='dark'] {
+  --container-background: #333;
+  --container-shadow: rgba(0, 0, 0, 0.5);
+  --title-color: #9b7bff;
+  --text-color: #f1f1f1;
+  --form-border-color: #9b7bff;
+  --form-border-focus-color: #c9a7ff;
+  --button-background: #4e3670;
+  --button-hover-background: #392750;
+}
 
 /* Contenedor principal centrado */
 .container02 {
@@ -12,8 +33,8 @@
 
 .content02,
 .contact-form02 {
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--container-background);
+  box-shadow: 0 4px 8px var(--container-shadow);
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
@@ -24,41 +45,41 @@
 
 .content02:hover,
 .contact-form02:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px var(--container-shadow);
 }
 
 .content02 h2,
 .contact-form02 h3 {
   font-size: 1.5em;
   margin-bottom: 15px;
-  color: #7130cb;
+  color: var(--title-color);
   text-align: center;
 }
 
 ul.list-group-item02 {
   font-size: 1em;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .contact-form02 label {
-  color: #7130cb;
+  color: var(--title-color);
   font-weight: bold;
 }
 
 .contact-form02 .form-control02 {
   margin-bottom: 15px;
   padding: 10px;
-  border: 1px solid #7130cb;
+  border: 1px solid var(--form-border-color);
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
   font-size: 1em;
-  color: #333;
+  color: var(--text-color);
 }
 
 .contact-form02 .form-control02:focus {
-  border-color: #4e3670;
+  border-color: var(--form-border-focus-color);
   outline: none;
   box-shadow: 0 0 5px rgba(78, 54, 112, 0.5);
 }
@@ -69,8 +90,8 @@ ul.list-group-item02 {
 }
 
 .btn-primary02 {
-  background-color: #7e4eab;
-  border-color: #7e4eab;
+  background-color: var(--button-background);
+  border-color: var(--button-background);
   padding: 10px 20px;
   color: #fff;
   text-decoration: none;
@@ -79,7 +100,7 @@ ul.list-group-item02 {
 }
 
 .btn-primary02:hover {
-  background-color: #4e3670;
+  background-color: var(--button-hover-background);
 }
 
 /* Media Queries para pantallas pequeñas */
@@ -93,7 +114,7 @@ ul.list-group-item02 {
   .content02 h2,
   .contact-form02 h3 {
     font-size: 1.2em;
-    color: #7e4eab;
+    color: var(--title-color);
   }
 
   ul.list-group-item02 {
@@ -101,32 +122,9 @@ ul.list-group-item02 {
     color: rgb(111, 111, 111);
   }
 }
-/*logo insta*/
-/* Estilos para el logo de Instagram */
-.instagram-link02 {
-  display: inline-block;
-}
-
-.instagram-logo02 {
-  width: 40px; /* Ancho del logo */
-  height: 40px; /* Altura del logo */
-  transition: transform 0.3s ease; /* Transición suave para el efecto hover */
-}
-
-.instagram-logo02:hover {
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
-}
-/* Reportes.css */
-
 /* Estilos para el contenedor */
 .content02 {
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
-  padding: 20px;
-  margin: 10px;
-  transition: box-shadow 0.3s ease;
+
   text-align: center; /* Centramos todo el contenido */
   width: 600px; /* Ajuste de ancho */
 }
@@ -152,7 +150,6 @@ ul.list-group-item02 {
   margin-bottom: 10px;
   color: #333;
 }
-
 /* Estilos para el ícono de Instagram */
 .instagram-link02 {
   display: inline-block;

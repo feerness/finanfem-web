@@ -2,6 +2,8 @@
 
 
 .saludo-container {
+  background-color: var(--primary-color);
+  color: var(--text-color);
    font-family: "Oswald", sans-serif;
    font-optical-sizing: auto;
    font-weight: 700;
@@ -9,17 +11,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
   }
   
   .saludo-container h1 {
     font-size: 2.5rem;
-    color: #7e4eab;
-    animation: colorChange 3s infinite;
+    color: var(--secondary-color);
+    animation: colorChange 5s infinite;
     margin-bottom: 15px;
   }
   
@@ -30,8 +28,8 @@
   
   .saludo-button {
     display: inline-block;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--button-background);
+    color: var(--text-color);
     padding: 10px 20px;
     border-radius: 4px;
     text-decoration: none;
@@ -39,12 +37,12 @@
   }
   
   .saludo-button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover);
   }
 
   
   @keyframes colorChange {
-    0% { color: #7e4eab; }
-    50% { color: #3c3c3b; }
-    100% { color: #7e4eab; }
+    0% { color: #4e3670; }
+    50% { color: #000; }
+    100% { color: #4e3670; }
   }
