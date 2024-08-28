@@ -11,22 +11,26 @@ export const verifyTokenRequest = async () => {
   });
 };
 // Funciones de perfil
-export const getProfile = async () => {
+export const getProfileRequest = async () => {
   const res = await axios.get(`/auth/profile`);
   return res.data;
 };
 
-export const updateProfile = async (profileData) => {
-  const res = await axios.put(`/auth/profile`, profileData);
+export const updateProfileRequest = async (profileData) => {
+  const res = await axios.put(`/auth/profile`, profileData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
   return res.data;
 };
 //Funciones de actividad del usuario
-export const getUserComments = async (userId) => {
-  const res = await axios.get('/api/user-comments', { params: { userId } });
+export const getUserCommentsRequest = async (userId) => {
+  const res = await axios.get('/auth/profile', { params: { userId } });
   return res.data;
 };
 
-export const getUserPosts = async (userId) => {
-  const res = await axios.get('/api/user-posts', { params: { userId } });
+export const getUserPostsRequest = async (userId) => {
+  const res = await axios.get('/auth/profile', { params: { userId } });
   return res.data;
 };

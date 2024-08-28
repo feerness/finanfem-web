@@ -42,7 +42,7 @@ export function ForoProvider({ children }) {
       if (!isAuthenticated) {
         console.error("El usuario no está autenticado.");
         return;
-      }
+      };
 
       const userId = user?.id;
       if (!userId) {
@@ -133,7 +133,7 @@ export function ForoProvider({ children }) {
       console.error(error);
     }
   };
-  //ayuda, no funcionaAAAAAAAAAA
+  
   const getCommentsCount = async (postId) => {
     try {
       const res = await getCommentsCountRequest(postId);
@@ -143,6 +143,8 @@ export function ForoProvider({ children }) {
       return 0;
     }
   };
+
+
 
   return (
     <ForoContext.Provider
@@ -156,7 +158,7 @@ export function ForoProvider({ children }) {
         getAllPost,
         getComments,
         addComment,
-        getCommentsCount, // Añadir la función para obtener el contador de comentarios al contexto
+        getCommentsCount, 
       }}
     >
       {children}

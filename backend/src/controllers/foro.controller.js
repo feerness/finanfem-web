@@ -75,32 +75,25 @@ export const getAllPost = async (req, res) => {
   }
 };
 
-//Funciones de comentarios: Agregar comentarios:
+//Funciones de comentarios: 
 export const addComment = async (req, res) => {
   try {
     const { text } = req.body;
-
     const foro = await Foro.findById(req.params.id);
-
     if (!foro) {
       return res.status(404).json({ message: "Foro no encontrado" });
     }
-
     const newComment = {
       _id: new mongoose.Types.ObjectId(),
       text,
       user: req.user.id,
     };
-
     foro.comments.push(newComment);
     await foro.save();
-
-    // Popula el usuario del comentario recién añadido antes de devolverlo
     const populatedComment = await Foro.populate(newComment, {
       path: "user",
       select: "username",
     });
-
     return res.json(populatedComment);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -120,7 +113,7 @@ export const getComments = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-//este no funciona
+
 export const getCommentsCount = async (req, res) => {
   try {
     const foro = await Foro.findById(req.params.id);
@@ -130,5 +123,39 @@ export const getCommentsCount = async (req, res) => {
     return res.json({ count: commentsCount });
   } catch (error) {
     return res.status(500).json({ message: error.message });
+  }
+};
+
+//Funciones de me gustas:
+export const getLike = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const userId = req.query.userId;
+
+    const post = await Foro.findById(postId);
+    const userHasLiked = post.likes.includes(userId);
+
+    res.json({ likes: post.likes.length, userHasLiked });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener los likes' });
+  }
+};
+
+export const addLike = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const userId = req.body.userId;
+
+    const post = await Foro.findById(postId);
+
+    if (!post.likes.includes(userId)) {
+      post.likes.push(userId);
+      await post.save();
+      res.json({ likes: post.likes.length });
+    } else {
+      res.status(400).json({ message: 'Ya has dado me gusta a este post' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Error al dar like' });
   }
 };

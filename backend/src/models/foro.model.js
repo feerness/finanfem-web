@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 
+// Esquema likes
+const likeSchema = new mongoose.Schema({
+  content: String,
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] // Array de IDs de usuarios
+});
+
+
 // Esquema de comentarios
 const commentSchema = new mongoose.Schema({
   text: {
@@ -42,6 +49,7 @@ const foroSchema = new mongoose.Schema(
       required: true,
     },
     comments: [commentSchema], // Array de subdocumentos de comentarios
+    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   },
   {
     timestamps: true, // Añade createdAt y updatedAt automáticamente

@@ -17,6 +17,7 @@ const app = express();
 app.use(
   cors({
     origin: "http://localhost:5173",
+    methods: 'GET,POST,PUT,DELETE',
     credentials: true,
   })
 );
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 // Sirve archivos estáticos desde la carpeta "uploads"
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/foro", foroRoutes);
