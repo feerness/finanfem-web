@@ -8,7 +8,6 @@ const Indicadores = () => {
       {/*Hacer css de api*/}
       <div className="container">
         <h2>Indicadores Financieros</h2>
-        {ApiFunction()}
         <ApiFunction />
       </div>
     </section>

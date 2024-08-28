@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./infoF.css";
 
 const InfoNosotras = () => {
@@ -30,7 +31,9 @@ const InfoNosotras = () => {
           </p>
         </div>
         <div className="boton">
+          <Link to="/register">
           <button className="botoncito">Únete a nuestra Comunidad</button>
+          </Link>
         </div>
       </div>
     </div>
