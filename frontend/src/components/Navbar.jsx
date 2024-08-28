@@ -213,6 +213,16 @@ export function Navigationbar() {
                 </a>
               </li>
               <li className="nav-item">
+                <a className="nav-link" href="#mision">
+                  Nuestra Misión
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#qa">
+                  Preguntas Frecuentes
+                </a>
+              </li>
+              <li className="nav-item">
                 <ButtonLink to="/login">Login</ButtonLink>
               </li>
               <li className="nav-item">
