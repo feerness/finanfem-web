@@ -20,10 +20,11 @@ router.post("/register", validateSchema(registerSchema), register);
 router.post("/login", validateSchema(loginSchema), login);
 router.get("/verify", verifyToken);
 router.post("/logout", logout);
-router.get("/profile", verifyToken, getProfile);
+router.get("/profile", verifyToken, auth, getProfile);
 router.put("/profile", auth, upload.single("photo"), updateProfile);
-router.get("/user-comments", auth, getUserComments);
-router.get("/user-posts", auth, getUserPosts);
+router.get("/profile", auth, updateProfile);
+router.get("/activity", auth, getUserComments);
+router.get("/activity", auth, getUserPosts);
 
 
 export default router;

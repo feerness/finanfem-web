@@ -90,15 +90,28 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     // Funciones de perfil
-    const getProfile = async () => {
-        return await getProfileRequest();
-      };
-    
-      const updateProfile = async (profileData) => {
-        const updatedUser = await updateProfileRequest(profileData);
-        setUser(updatedUser);
-        return updatedUser;
-      };
+const getProfile = async () => {
+    try {
+        const profile = await getProfileRequest();
+        setUser(profile);  // Actualizamos el estado del usuario con los datos obtenidos
+        return profile;
+    } catch (error) {
+        console.error("Error getting profile:", error);
+        throw error;
+    }
+};
+
+const updateProfile = async (profileData) => {
+    try {
+        await updateProfileRequest(profileData);
+        const refreshedProfile = await getProfile();
+        setUser(refreshedProfile);  // Actualizamos el estado del usuario con los datos actualizados
+        return refreshedProfile;
+    } catch (error) {
+        console.error("Error updating profile:", error);
+        throw error;
+    }
+};
 
     return (
         <AuthContext.Provider

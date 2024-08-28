@@ -117,11 +117,17 @@ export const logout = async (req, res) => {
 export const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
-    if (!user) return res.status(404).json({ message: "User not found" });
-
-    res.status(200).json(user);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    
+    res.json({
+      username: user.username,
+      description: user.description,
+      photo: user.photo,
+    });
   } catch (error) {
-    res.status(400).json({ message: "Error fetching profile", error });
+    res.status(500).json({ message: 'Error al obtener el perfil' });
   }
 };
 
