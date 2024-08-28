@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import ApiFunction from "./apiFunction";
+import "./indicadores.css";
 
 const Indicadores = () => {
   return (
@@ -7,7 +8,7 @@ const Indicadores = () => {
       {" "}
       {/*Hacer css de api*/}
       <div className="container">
-        <h2>Indicadores Financieros</h2>
+        <h2 className="tituloI">Indicadores Financieros</h2>
         {ApiFunction()}
         <ApiFunction />
       </div>

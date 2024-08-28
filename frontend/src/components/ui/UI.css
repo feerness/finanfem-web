@@ -1,14 +1,16 @@
 .replyBtn {
   align-self: flex-end;
   padding: 8px 16px;
-  background-color: #674188;
+  background-color: #c3acd0;
   color: #fffbf5;
-  
-  font-size: 14px;
+  font-size: 18px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: 500;
 }
+
+
 
 .replyBtn:hover {
   background-color: #5b376e;

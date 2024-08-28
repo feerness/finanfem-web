@@ -56,7 +56,7 @@ export function ForoPage() {
       ) : (  
         <div className="foro-grid">
           <div className="addPost">
-            <ButtonLink to="/add-post">Añadir Post</ButtonLink>
+            <ButtonLink className="botonPost" to="/add-post">Añadir Post</ButtonLink>
           </div>
           {forosWithComments.map((foroItem) => (
             <ForoCard
