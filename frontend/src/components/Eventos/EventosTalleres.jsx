@@ -53,21 +53,21 @@ const EventosTalleres = () => {
     },
     {
       title: "Prodemu lanzó talleres gratuitos para 45 mil mujeres del país este 2024",
-      image: "frontend\public\images\card-eventos-3.jpg",
+      image: "frontend/public/images/card-eventos-3.jpg",
       description:
         "Se trata de cursos que abordan distintas áreas, tales como el empoderamiento, la autonomía económica y el ejercicio de derechos, en 56 provincias y 16 regiones a lo largo de todo el territorio nacional.",
       link: "https://minmujeryeg.gob.cl/?p=53173",
     },
     {
       title: "Talleres Abiertos para el Crecimiento Personal",
-      image: "frontend\public\images\card-eventos-4.jpg",
+      image: "frontend/public/images/card-eventos-4.jpg",
       description:
         "Si tienes interés por desarrollar el conocimento sobre tí misma, saber cómo nos afecta la educación de género y participar junto con otras mujeres en desmontar todas las ideas que nos mantienen atadas a la dependencia, la inseguridad, la sobrecarga, la falta de asertidad, etc… Los Talleres Abiertos para el Crecimento Personal de Mujeres para la Salud te proponen esta sugerente posibilidad.",
       link: "https://www.mujeresparalasalud.org/category/servicios-de-mujeres-para-la-salud/talleres-abiertos-para-el-crecimiento-personal/",
     },
     {
       title: "Calendario de eventos económicos",
-      image: "frontend\public\images\card-eventos-5.jpg",
+      image: "frontend/public/images/card-eventos-5.jpg",
       description:
         "Calendario oficial de Banco Central de Chile, con las fechas de todos los eventos económicos.",
       link: "https://www.bcentral.cl/es/web/banco-central/noticias-y-publicaciones/prensa/calendario-eventos-economicos",
@@ -75,7 +75,7 @@ const EventosTalleres = () => {
     {
       title:
         "Chile Fintech Forum 2024",
-      image: "frontend\public\images\card-eventos-6.jpg",
+      image: "frontend/public/images/card-eventos-6.jpg",
       description:
         "Chile Fintech Forum 2024, es una plataforma que genera y promueve el intercambio de conocimientos, experiencias y tecnologías que permiten al sector público y privado alcanzar nuevos niveles de innovación, competencia e inclusión financiera en el país, posicionando a su vez a Chile como referente en estos temas.",
       link: "https://www.chilefintechforum.com",

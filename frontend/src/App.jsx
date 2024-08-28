@@ -15,6 +15,7 @@ import { ForoDetailPage } from "./components/Foro/ForoDetails";
 import { ForoEditPage } from "./components/Foro/ForoEditPage";
 import { ForoFormPage } from "./components/Foro/ForoFormPage";
 import { ForoPage } from "./components/Foro/ForoPage";
+import EventosTalleres from "./components/Eventos/EventosTalleres";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
@@ -28,6 +29,7 @@ const VideosCliente = lazy(() => import("./components/Recursos/Videos"));
 const Noticias = lazy(() => import("./pages/Noticias"));
 const ReportesCliente = lazy(() => import("./components/Consultoria/Reportes"));
 const Terminos = lazy(() => import("./components/Consultoria/Terminos"));
+
 
 
 function App() {
@@ -56,6 +58,7 @@ function App() {
                   <Route path="/Articulos" element={<ArticulosCliente />} />
                   <Route path="/Pdf" element={<PdfCliente />} />
                   <Route path="/Videos" element={<VideosCliente />} />
+                  <Route path="/EventosTalleres" element={<EventosTalleres />} />
                   <Route path="/Noticias" element={<Noticias />} />
                   <Route path="/Reportes" element={<ReportesCliente />} />
                   <Route path="/Terminos" element={<Terminos />} />
