@@ -1,0 +1,103 @@
+:root {
+    --container-background: #f9f9f9;
+    --title-color: #333;
+    --card-background: #fff;
+    --text-color: #333;
+    --value-color: #007bff;
+    --date-color: #888;
+    --generic-div-background: #eaeaea;
+  }
+  
+  [data-theme='dark'] {
+    --container-background: #333;
+    --title-color: #f1f1f1;
+    --card-background: #444;
+    --text-color: #f1f1f1;
+    --value-color: #4db8ff;
+    --date-color: #aaaaaa;
+    --generic-div-background: #555;
+  }
+  
+  /* Estilos para todos los divs dentro del contenedor principal, si no tienen clase */
+  .indicadores-container div {
+    background-color: var(--generic-div-background);
+    color: var(--text-color);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para el contenedor principal */
+  .indicadores-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--container-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  /* Estilos para los títulos */
+  .indicadores-title {
+    font-size: 2rem;
+    color: var(--title-color);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilos para las tarjetas de indicadores */
+  .indicador-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .indicador-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Estilos para los textos de los indicadores */
+  .indicador-text {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+  }
+  
+  .indicador-value {
+    font-size: 1.5rem;
+    color: var(--value-color);
+    font-weight: bold;
+  }
+  
+  /* Estilos para las fechas */
+  .indicador-date {
+    font-size: 0.9rem;
+    color: var(--date-color);
+  }
+  
+  /* Media Queries para responsividad */
+  @media (max-width: 768px) {
+    .indicadores-container {
+      padding: 10px;
+    }
+  
+    .indicador-card {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .indicadores-title {
+      font-size: 1.5rem;
+    }
+  }
+  

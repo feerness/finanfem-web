@@ -1,39 +1,59 @@
-/* ArticulosCliente.css */
+:root {
+  --article-background: #f9f9f9;
+  --card-background: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: rgba(0, 0, 0, 0.3);
+  --title-color: #7130cb;
+  --text-color: #333;
+  --btn-background: #7e4eab;
+  --btn-hover-background: #4e3670;
+}
+
+[data-theme='dark'] {
+  --article-background: #333;
+  --card-background: #444;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --card-hover-shadow: rgba(0, 0, 0, 0.7);
+  --title-color: #9b7bff;
+  --text-color: #f1f1f1;
+  --btn-background: #4e3670;
+  --btn-hover-background: #392750;
+}
 
 /* Estilo para la sección de contenido */
 .article-content {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  background-color: #f9f9f9;
+  background-color: var(--article-background);
 }
 
 /* Estilo para las tarjetas */
 .card1 {
   margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--card-shadow);
   border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--card-background);
   transition: box-shadow 0.3s ease;
-  flex: 1 1 300px; /* Ajuste para que todas las tarjetas tengan un tamaño flexible */
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
 }
 
 .card1:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px var(--card-hover-shadow);
 }
 
 /* Asegura que la imagen no se desborde del contenedor */
 .card1-img-container {
   position: relative;
-  height: 200px; /* Ajusta la altura de la imagen para que todas sean consistentes */
+  height: 200px;
 }
 
 .card1-img-top {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+  object-fit: cover;
   display: block;
 }
 
@@ -44,26 +64,26 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  flex-grow: 1; /* Permite que el cuerpo de la tarjeta ocupe todo el espacio disponible */
+  flex-grow: 1;
 }
 
 .card1-title {
   font-size: 1.5em;
   margin-bottom: 15px;
-  color: #7130cb;
+  color: var(--title-color);
 }
 
 .card1-text {
   font-size: 1em;
   margin-bottom: 15px;
-  color: #333;
-  flex-grow: 1; /* Permite que la descripción ocupe el espacio disponible */
+  color: var(--text-color);
+  flex-grow: 1;
 }
 
 /* Estilo para el botón */
 .btn-primary1 {
-  background-color: #7e4eab;
-  border-color: #7e4eab;
+  background-color: var(--btn-background);
+  border-color: var(--btn-background);
   padding: 10px 20px;
   color: #fff;
   text-decoration: none;
@@ -72,7 +92,7 @@
 }
 
 .btn-primary1:hover {
-  background-color: #4e3670;
+  background-color: var(--btn-hover-background);
 }
 
 /* Media Queries para pantallas pequeñas */
@@ -88,12 +108,12 @@
 
   .card1-title {
     font-size: 1.2em;
-    color: #7e4eab;
+    color: var(--title-color);
   }
 
   .card1-text {
     font-size: 0.85em;
-    color: rgb(111, 111, 111);
+    color: var(--text-color);
   }
 }
 
@@ -106,7 +126,7 @@
 .d-flex1 {
   display: flex;
   justify-content: space-between;
-  align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+  align-items: stretch;
   flex-wrap: wrap;
 }
 
@@ -114,7 +134,7 @@
 .header1 h2 {
   font-size: 1.9em;
   margin-bottom: 15px;
-  color: #7130cb;
+  color: var(--title-color);
   text-align: center;
 }
 
@@ -123,6 +143,6 @@
   font-size: 1.2em;
   text-align: center;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text-color);
   margin: 20px;
 }

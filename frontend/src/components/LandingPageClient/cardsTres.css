@@ -1,3 +1,20 @@
+:root {
+  --primary-color: #fcfaff;
+  --secondary-color: #3c3c3b;
+  --button-background: #4e3670;
+  --button-hover: #7e4eab;
+
+}
+
+[data-theme='dark'] {
+  --primary-color: #333;
+  --secondary-color: #7e4eab;
+  --button-background: #7e4eab;
+  --button-hover: #4e3670;
+
+}
+
+
 /* Efecto de zoom en las tarjetas */
 .card {
   border-radius: 20px;
@@ -8,6 +25,8 @@
   transition: transform 0.3s ease-in-out;
   margin: 15px; /* Añade un pequeño margen entre las tarjetas */
   max-width: 100%; /* Asegura que la tarjeta no sobrepase el ancho del contenedor */
+  background-color: var(--primary-color); /* Usar variable para el fondo */
+  color: var(--text-color); /* Usar variable para el texto */
 }
 
 .card:hover {
@@ -42,17 +61,18 @@
 
 /* Botón personalizado */
 .custom-btn {
-  background-color: #7e4eab;
+  background-color: var(--button-background); /* Usar variable para el botón */
   border: none;
   border-radius: 0 0 20px 20px;
   padding: 15px 20px;
   width: 100%;
   font-weight: bold;
   font-size: 1.25rem;
+  color: var(--text-color); /* Usar variable para el texto */
 }
 
 .custom-btn:hover {
-  background-color: #3c3c3b;
+  background-color: var(--button-hover); /* Usar variable para el hover */
 }
 
 /* Texto en las tarjetas */
@@ -62,7 +82,7 @@
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%); 
-  color: white;
+  color:#fcfaff; /* Usar variable para el texto */
   margin: 0;
   font-size: 2rem;
   font-weight: 600;

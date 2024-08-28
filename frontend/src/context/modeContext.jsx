@@ -1,34 +1,32 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-
 const ThemeContext = createContext();
 
-export const useTheme = () => useContext(ThemeContext);
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState('light');
 
-// Creamos y exportamos el proveedor de tema personalizado
-export const CustomThemeProvider = ({ children }) => {
-    // Estado para el tema, por defecto 'light'
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-  
-    // Efecto para actualizar el atributo 'data-theme' y el localStorage cuando cambia el tema
-    useEffect(() => {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-    }, [theme]);
-  
-    // Función para alternar entre 'light' y 'dark'
-    const toggleTheme = () => {
-      setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-    };
-  
-    // Proporcionamos el valor del contexto
-    return (
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        {children}
-      </ThemeContext.Provider>
-    );
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
-CustomThemeProvider.propTypes = {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export default ThemeContext;
+
+ThemeProvider.propTypes = {
     children: PropTypes.node.isRequired,
   };
