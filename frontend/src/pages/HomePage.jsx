@@ -4,8 +4,8 @@ import PrimerCarruselH from "../components/HomePage/carruselH";
 import InfoNosotras from "../components/HomePage/infoF";
 import NuestraMision from "../components/HomePage/nuestraM";
 import BarraContadores from "../components/HomePage/barraContadores";
+import Ilustracion from "../components/HomePage/ilustracion";
 import PreguntasFrecu from "../components/HomePage/preguntasFrecuentes";
-import CajaR from "../components/HomePage/formsHome";
 
 
 function HomePage() {
@@ -16,7 +16,7 @@ function HomePage() {
       <InfoNosotras />
       <NuestraMision />
       <BarraContadores />
-      <CajaR />
+      <Ilustracion />
       <PreguntasFrecu />
     </div>
   );

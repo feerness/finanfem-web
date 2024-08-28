@@ -1,13 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/modeContext";
 import { useTranslation } from "react-i18next";
-import { ButtonLink } from "./ui/ButtonLink";
 import "./NavbarAuth.css";
 
 export function Navigationbar() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
   const { isAuthenticated, logout, user } = useAuth();
-  console.log(isAuthenticated, user);
   const { theme, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
 
@@ -16,8 +16,16 @@ export function Navigationbar() {
     i18n.changeLanguage(newLang);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+      className={`navbar navbar-expand-lg navbar-light bg-light ${
+        isMenuOpen ? "active" : ""
+      }`}
+    >
       <div className="navbar-left">
         <h1 className="navbar-brand">
           <Link to={isAuthenticated ? "/LandingPageClient" : "/"}>
@@ -31,16 +39,14 @@ export function Navigationbar() {
         <button
           className="navbar-toggler custom-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          onClick={toggleMenu}
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon">&#9776;</span>
         </button>
+      </div>
+      <div className={`navbar-right ${isMenuOpen ? "active" : ""}`}>
         <ul className="navbar-nav">
-          {isAuthenticated && (
+          {isAuthenticated ? (
             <>
               <li className="nav-item dropdown">
                 <Link
@@ -141,14 +147,6 @@ export function Navigationbar() {
                   </Link>
                 </div>
               </li>
-            </>
-          )}
-        </ul>
-      </div>
-      <div className="navbar-right">
-        {isAuthenticated ? (
-          <>
-            <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
                   to="/profile"
@@ -197,40 +195,42 @@ export function Navigationbar() {
                   <span className="logout-text">{t("Logout")}</span>
                 </Link>
               </li>
-            </ul>
-          </>
-        ) : (
-          <>
-            <ul className="navbar-nav">
+            </>
+          ) : (
+            <>
               <li className="nav-item">
-                <a className="nav-link" href="#home">
+                <a className="nav-link" href="./#home">
                   Inicio
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#nosotras">
+                <a className="nav-link" href="./#nosotras">
                   ¿Quiénes somos?
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#mision">
+                <a className="nav-link" href="./#mision">
                   Nuestra Misión
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#qa">
+                <a className="nav-link" href="./#qa">
                   Preguntas Frecuentes
                 </a>
               </li>
               <li className="nav-item">
-                <ButtonLink to="/login">Login</ButtonLink>
+                <Link to="/login">
+                  <button className="btn-1">Login</button>
+                </Link>
               </li>
               <li className="nav-item">
-                <ButtonLink to="/register">Register</ButtonLink>
+                <Link to="/register">
+                  <button className="btn-2">Register</button>
+                </Link>
               </li>
-            </ul>
-          </>
-        )}
+            </>
+          )}
+        </ul>
       </div>
     </nav>
   );
