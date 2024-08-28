@@ -27,6 +27,7 @@ const ArticleCard = ({ title, image, description, link }) => {
   );
 };
 
+
 ArticleCard.propTypes = {
   title: PropTypes.string.isRequired, // Aquí se cambia a string
   description: PropTypes.string.isRequired, // Aquí se cambia a string
