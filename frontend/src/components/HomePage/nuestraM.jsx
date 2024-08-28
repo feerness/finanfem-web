@@ -1,9 +1,8 @@
-import React from "react";
 import "./nuestraM.css";
 
 const NuestraMision = () => {
   return (
-    <div className="containerM">
+    <div className="containerM" id="mision">
       <div className="titulo-mision">
         <p>Nuestra Misión</p>
       </div>

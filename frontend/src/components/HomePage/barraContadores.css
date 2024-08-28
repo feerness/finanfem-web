@@ -8,7 +8,7 @@
   box-sizing: border-box;
   width: 100%;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 /* Estilo para el título */
@@ -62,7 +62,6 @@
   font-size: 15px; /* Tamaño del texto de la etiqueta */
   color: #ffffff;
   font-weight: 450;
-  
 }
 
 /* Animación para hacer aparecer los contadores */
@@ -93,7 +92,6 @@
 .contador-socios {
   animation-delay: 0.8s;
 }
-
 
 @media (max-width: 768px) {
   .containerB {
