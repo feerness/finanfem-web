@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import ThemeContext from "../context/modeContext";
+import { useAuth } from "../../context/AuthContext";
+import ThemeContext from "../../context/modeContext";
 import { useTranslation } from "react-i18next";
 import "./NavbarAuth.css";
 

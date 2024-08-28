@@ -1,8 +1,8 @@
-import { Saludo } from "../components/LandingPageClient/Saludo";
+import { Saludo } from "./Saludo";
 import  { Suspense, lazy } from "react";
 
 // Lazy load del componente CustomCards
-const CustomCards = lazy(() => import("../components/LandingPageClient/cardsTres"));
+const CustomCards = lazy(() => import("./cardsTres"));
 
 function LandingPageClient() {
     return (

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import { useForo } from "../context/foroContext";
+import { useForo } from "../../context/foroContext";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { FaComment, } from "react-icons/fa"; 
 import { useState, } from "react"; 
 import "./PostCard.css";

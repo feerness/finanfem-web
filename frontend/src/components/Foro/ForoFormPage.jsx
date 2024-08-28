@@ -1,13 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import { Button } from "../components/ui/Button";
-import { Card } from "../components/ui/Card";
-import { Input } from "../components/ui/Input";
-import { Label } from "../components/ui/Label";
-import { useForo } from "../context/foroContext";
-import { Textarea } from "../components/ui/Textarea";
+import { Button } from "../ui/Button";
+import { Card } from "../ui/Card";
+import { Input } from "../ui/Input";
+import { Label } from "../ui/Label";
+import { useForo } from "../../context/foroContext";
+import { Textarea } from "../ui/Textarea";
 import { useForm } from "react-hook-form";
+import './ForoForm.css';
+
 dayjs.extend(utc);
 
 export function ForoFormPage() {

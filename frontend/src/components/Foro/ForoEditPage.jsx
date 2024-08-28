@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useForo } from "../context/foroContext";
+import { useForo } from "../../context/foroContext";
 
 export function ForoEditPage() {
   const { id } = useParams(); // Obtener el ID desde la URL

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useForo } from "../context/foroContext";
-import { Textarea } from "../components/ui/Textarea";
-import { Button } from "../components/ui/Button";
-import { Input } from "../components/ui/Input";
-import { Label } from "../components/ui/Label";
-import { useAuth } from "../context/AuthContext";
+import { useForo } from "../../context/foroContext";
+import { Textarea } from "../ui/Textarea";
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input";
+import { Label } from "../ui/Label";
+import { useAuth } from "../../context/AuthContext";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import "./Foro.css";
