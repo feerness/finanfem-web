@@ -59,6 +59,10 @@ export function ForoDetailPage() {
       }
     }
   };
+  
+  const handleBackClick = () => {
+    navigate('/foro'); // Redirige al foro
+  };
 
   const handleEditChange = (e) => {
     setEditData({ ...editData, [e.target.name]: e.target.value });
@@ -154,6 +158,9 @@ export function ForoDetailPage() {
           rows="3"
           className="comment-textarea"
         />
+        <Button className="back-to-foro-btn" onClick={handleBackClick}>
+          Volver al Foro
+        </Button>
         <Button onClick={handleAddComment} className="comment-btn">
           Añadir Comentario
         </Button>

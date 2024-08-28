@@ -36,3 +36,5 @@ export const getCommentsCountRequest = async (postId) => {
     return { count: 0 }; // Devuelve un objeto con 'count' en caso de error
   }
 };
+
+

@@ -48,17 +48,22 @@ export function ForoCard({ foro, commentsCount }) {
         </div>
         {isOwner && (
           <div className="foro-card-buttons">
-            <button
-              onClick={handleDelete}
-              className="btn btn-danger"
-              disabled={isDeleting}
-            >
-              {isDeleting ? "Eliminando..." : "Eliminar"}
-            </button>
-            <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
-              Editar
-            </Link>
-          </div>
+          <button
+            onClick={handleDelete}
+            className="btn btn-danger"
+            disabled={isDeleting}
+          >
+            {isDeleting ? (
+              "Eliminando..."
+            ) : (
+              <img src="/images/delete.png" alt="Eliminar" className="icon-button" />
+            )}
+          </button>
+          <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
+            <img src="/images/edit.png" alt="Editar" className="icon-button" />
+          </Link>
+        </div>
+        
         )}
       </header>
       <div className="foro-card-content">

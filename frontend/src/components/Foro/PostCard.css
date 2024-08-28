@@ -1,26 +1,47 @@
-/* Contenedor que envuelve las tarjetas */
-.foro-container1 {
-  display: flex;
-  justify-content: center; /* Centrará el contenido horizontalmente */
-  align-items: center; /* Opcional, centrará el contenido verticalmente */
-  flex-direction: column; /* Asegura que las tarjetas estén en columna */
-  margin-top: 20px; /* Espaciado superior */
+:root {
+  --background-light: #ffffff;
+  --background-dark: #333333;
+  --text-light: #333333;
+  --text-dark: #f1f1f1;
+  --subtext-light: #555555;
+  --subtext-dark: #cccccc;
+  --card-background-light: #ffffff;
+  --card-background-dark: #444444;
+  --card-hover-shadow-light: rgba(0, 0, 0, 0.15);
+  --card-hover-shadow-dark: rgba(0, 0, 0, 0.5);
+  --border-radius: 8px;
 }
 
-/* Tarjeta del foro */
+[data-theme="dark"] {
+  --background-light: var(--background-dark);
+  --text-light: var(--text-dark);
+  --subtext-light: var(--subtext-dark);
+  --card-background-light: var(--card-background-dark);
+  --card-hover-shadow-light: var(--card-hover-shadow-dark);
+}
+
+.foro-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: var(--background-light);
+}
+
 .foro-card {
-  max-width: 800px; /* Ancho máximo de la tarjeta */
-  width: 100%; /* Ocupa todo el ancho disponible */
-  background-color: #ffffff;
-  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  background-color: var(--card-background-light);
+  border-radius: var(--border-radius);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin-bottom: 16px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .foro-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--card-hover-shadow-light);
 }
 
 .foro-card-header {
@@ -46,7 +67,7 @@
   font-size: 1.1em;
   font-weight: bold;
   margin: 0;
-  color: #333333;
+  color: var(--text-light);
 }
 
 .foro-card-date {
@@ -55,16 +76,43 @@
   margin: 0;
 }
 
+.foro-card-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre los botones */
+}
+
+.foro-card-buttons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: none; /* Elimina el fondo predeterminado */
+  border: none; /* Elimina el borde predeterminado */
+}
+
+.foro-card-buttons .btn img.icon-button {
+  width: 24px; /* Tamaño responsivo del icono */
+  height: 24px;
+}
+
+.foro-card-content {
+  margin-bottom: 12px;
+}
+
 .foro-card-title {
   font-size: 1.25em;
   font-weight: bold;
-  color: #333333;
+  color: var(--text-light);
   margin-bottom: 8px;
 }
 
 .foro-card-description {
   font-size: 1em;
-  color: #555555;
+  color: var(--subtext-light);
   margin-bottom: 12px;
 }
 
@@ -75,33 +123,16 @@
 
 .foro-card-comments {
   font-size: 0.9em;
-  color: #666666;
+  color: var(--subtext-light);
   text-decoration: none;
   display: flex;
   align-items: center;
 }
 
 .foro-card-comments:hover {
-  color: #333333;
+  color: var(--text-light);
 }
 
 .foro-card-comments svg {
   margin-right: 4px;
-}
-
-.foro-card-buttons .btn {
-  padding: 6px 12px;
-  font-size: 0.9em;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.foro-card-buttons .btn-primary {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-.foro-card-buttons .btn-danger {
-  background-color: #dc3545;
-  color: #ffffff;
 }

@@ -126,36 +126,3 @@ export const getCommentsCount = async (req, res) => {
   }
 };
 
-//Funciones de me gustas:
-export const getLike = async (req, res) => {
-  try {
-    const postId = req.params.id;
-    const userId = req.query.userId;
-
-    const post = await Foro.findById(postId);
-    const userHasLiked = post.likes.includes(userId);
-
-    res.json({ likes: post.likes.length, userHasLiked });
-  } catch (error) {
-    res.status(500).json({ error: 'Error al obtener los likes' });
-  }
-};
-
-export const addLike = async (req, res) => {
-  try {
-    const postId = req.params.id;
-    const userId = req.body.userId;
-
-    const post = await Foro.findById(postId);
-
-    if (!post.likes.includes(userId)) {
-      post.likes.push(userId);
-      await post.save();
-      res.json({ likes: post.likes.length });
-    } else {
-      res.status(400).json({ message: 'Ya has dado me gusta a este post' });
-    }
-  } catch (error) {
-    res.status(500).json({ error: 'Error al dar like' });
-  }
-};
