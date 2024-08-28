@@ -118,9 +118,8 @@ export function Navigationbar() {
                   <Link className="dropdown-item" to="./foro">
                     {t("Foro")}
                   </Link>
-                  <Link className="dropdown-item" to="./perfilesCliente">
-                    {t("Actividad")}
-                  </Link>
+                  <Link className="dropdown-item" to="./EventosTalleres"> 
+                    Eventos </Link>
                 </div>
               </li>
               <li className="nav-item dropdown">
