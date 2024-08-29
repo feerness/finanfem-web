@@ -9,7 +9,6 @@ import { useAuth } from "../../context/AuthContext";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 import "./Foro.css";
 import { deleteCommentRequest } from "../../api/foro.js";
 
@@ -160,10 +159,21 @@ export function ForoDetailPage() {
         <ul className="comments-list">
           {comments.map((comment, index) => (
             <li key={comment._id || index} className="comment-item">
-              <strong className="comment-author">
-                {comment.user.username}
-              </strong>
+              <strong className="comment-author">{comment.user.username}</strong>
               : <span className="comment-text">{comment.text}</span>
+              {user?.id === comment.user._id && ( // Verificar que el usuario actual sea el dueño del comentario
+                <Button
+                  onClick={() => handleDeleteComment(comment._id)}
+                  className="btn btn-danger"
+                  disabled={isDeleting} // Deshabilitar el botón si está eliminando
+                >
+                  <img
+                        src="/images/delete.png"
+                        alt="Eliminar"
+                        className="icon-button"
+                      />
+                </Button>
+              )}
             </li>
           ))}
         </ul>
