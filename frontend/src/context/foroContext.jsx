@@ -10,6 +10,7 @@ import {
   getCommentsRequest,
   addCommentRequest,
   getCommentsCountRequest,
+  getUserPostsRequest,
 } from "../api/foro";
 import { useAuth } from "./AuthContext";
 
@@ -23,6 +24,8 @@ export const useForo = () => {
 
 export function ForoProvider({ children }) {
   const [foro, setForo] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
+
   const { user, isAuthenticated } = useAuth();
 
   // Función para obtener los comentarios de un post específico
@@ -69,6 +72,15 @@ export function ForoProvider({ children }) {
     } catch (error) {
       console.error("Error al obtener los datos del foro:", error);
       setForo([]); // En caso de error, mantener `foro` como un array vacío
+    }
+  }, []);
+
+  const getUserPosts = useCallback(async () => {
+    try {
+      const response = await getUserPostsRequest();
+      setUserPosts(response.data);
+    } catch (error) {
+      console.error("Error loading user posts", error);
     }
   }, []);
 
@@ -159,6 +171,8 @@ export function ForoProvider({ children }) {
         getComments,
         addComment,
         getCommentsCount, 
+        getUserPosts,
+        userPosts,
       }}
     >
       {children}

@@ -14,6 +14,11 @@ export const getPostRequest = async (id) => axios.get(`/foro/${id}`);
 
 export const getCollectionRequest = async (id) => axios.get(`/foro/${id}`);
 
+export const getUserPostsRequest = async () => {
+  return axios.get(`/perfil/profile`);
+};
+
+
 // Obtener comentarios de un post específico
 export const getCommentsRequest = async (id) => {
   return axios.get(`/foro/${id}/comments`);

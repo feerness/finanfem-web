@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  getForo,
   createForo,
   getPost,
   deleteForo,
@@ -20,7 +19,7 @@ import {
 
 const router = Router();
 
-router.get("/:id", auth, getPost); // Obtener un foro específico
+router.get("/:id", auth, getPost); // Obtener un post específico
 router.get("/", auth, getAllPost); // Obtener todos los foros
 router.post("/", auth, validateSchema(createForoSchema), createForo); // Crear un nuevo foro
 router.delete("/:id", auth, deleteForo); // Eliminar un foro

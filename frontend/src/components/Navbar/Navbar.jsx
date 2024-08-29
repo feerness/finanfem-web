@@ -156,7 +156,7 @@ export function Navigationbar() {
                   aria-expanded="false"
                 >
                   <img
-                    src="/images/profile-icon.png"
+                    src="/images/default-profile-pic.png"
                     alt="Foto de perfil"
                     className="profile-pic"
                   />
