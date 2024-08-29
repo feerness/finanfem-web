@@ -1,3 +1,30 @@
+:root {
+  --navbar-background: #fff;
+  --navbar-border: #ddd;
+  --nav-link-color: #333;
+  --nav-link-hover-background: #f1f1f1;
+  --profile-pic-border: none;
+  --btn-1-background: #674188;
+  --btn-1-hover: #4f3066;
+  --btn-2-background: #f1f1f1;
+  --btn-2-hover: #e1e1e1;
+  --btn-2-border: #cccccc;
+}
+
+[data-theme='dark'] {
+  --navbar-background: #4e3670;
+  --navbar-border: #444;
+  --nav-link-color: #f1f1f1;
+  --nav-link-hover-background: #555;
+  --profile-pic-border: 2px solid #555;
+  --btn-1-background: #4f3066;
+  --btn-1-hover: #3b2452;
+  --btn-2-background: #555;
+  --btn-2-hover: #444;
+  --btn-2-border: #666;
+}
+
+
 /* General navbar styles */
 .navbar {
   display: flex;
@@ -5,8 +32,8 @@
   align-items: center;
   width: 100%;
   padding: 10px 20px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--navbar-background);
+  border-bottom: 1px solid var(--navbar-border);
   box-sizing: border-box;
 }
 
@@ -37,14 +64,14 @@
 }
 
 .nav-link {
-  color: #333;
+  color: var(--nav-link-color);
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
 }
 
 .nav-link:hover {
-  background-color: #f1f1f1;
+  background-color: var(--nav-link-hover-background);
 }
 
 .profile-pic {
@@ -52,6 +79,7 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+  border: var(--profile-pic-border);
 }
 
 /* Para asegurar que el logo no se vea distorsionado */

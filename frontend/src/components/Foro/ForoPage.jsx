@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useForo } from "../context/foroContext";
-import { ForoCard } from "../components/PostCard";
-import { ButtonLink } from "../components/ui/ButtonLink";
+import { useForo } from "../../context/foroContext.jsx";
+import { ForoCard } from "./PostCard.jsx";
+import { ButtonLink } from "../ui/ButtonLink.jsx";
 import { ImFileEmpty } from "react-icons/im";
-import { getCommentsCountRequest } from "../api/foro.js";
+import { getCommentsCountRequest } from "../../api/foro.js";
 import "./Foro.css"; 
 
 export function ForoPage() {

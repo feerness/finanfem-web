@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import { useForo } from "../context/foroContext";
+import { useForo } from "../../context/foroContext";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { FaComment, } from "react-icons/fa"; 
 import { useState, } from "react"; 
 import "./PostCard.css";
@@ -48,17 +48,22 @@ export function ForoCard({ foro, commentsCount }) {
         </div>
         {isOwner && (
           <div className="foro-card-buttons">
-            <button
-              onClick={handleDelete}
-              className="btn btn-danger"
-              disabled={isDeleting}
-            >
-              {isDeleting ? "Eliminando..." : "Eliminar"}
-            </button>
-            <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
-              Editar
-            </Link>
-          </div>
+          <button
+            onClick={handleDelete}
+            className="btn btn-danger"
+            disabled={isDeleting}
+          >
+            {isDeleting ? (
+              "Eliminando..."
+            ) : (
+              <img src="/images/delete.png" alt="Eliminar" className="icon-button" />
+            )}
+          </button>
+          <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
+            <img src="/images/edit.png" alt="Editar" className="icon-button" />
+          </Link>
+        </div>
+        
         )}
       </header>
       <div className="foro-card-content">

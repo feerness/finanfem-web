@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { useTheme } from "../context/modeContext";
+import { useAuth } from "../../context/AuthContext";
+import ThemeContext from "../../context/modeContext";
 import { useTranslation } from "react-i18next";
 import "./NavbarAuth.css";
 
 export function Navigationbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const { isAuthenticated, logout, user } = useAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = () => {
@@ -22,7 +22,7 @@ export function Navigationbar() {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-light ${
+      className={`navbar navbar-expand-lg ${
         isMenuOpen ? "active" : ""
       }`}
     >
@@ -118,9 +118,8 @@ export function Navigationbar() {
                   <Link className="dropdown-item" to="./foro">
                     {t("Foro")}
                   </Link>
-                  <Link className="dropdown-item" to="./perfilesCliente">
-                    {t("Actividad")}
-                  </Link>
+                  <Link className="dropdown-item" to="./EventosTalleres"> 
+                    Eventos </Link>
                 </div>
               </li>
               <li className="nav-item dropdown">

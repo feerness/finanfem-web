@@ -1,0 +1,102 @@
+:root {
+    --background-light: #f9f9f9;
+    --background-dark: #333;
+    --text-color-light: #333;
+    --text-color-dark: #f1f1f1;
+    --input-background-light: #fff;
+    --input-background-dark: #444;
+    --button-background: #674188;
+    --button-hover-background: #5b376e;
+    --border-color-light: #ccc;
+    --border-color-dark: #555;
+  }
+  
+  [data-theme="dark"] {
+    --background-light: var(--background-dark);
+    --text-color-light: var(--text-color-dark);
+    --input-background-light: var(--input-background-dark);
+    --border-color-light: var(--border-color-dark);
+  }
+  
+  /* Contenedor principal centrado */
+  .foro-edit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--background-light);
+  }
+  
+  /* Título del formulario */
+  .foro-edit-title {
+    font-size: 2rem;
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+  }
+  
+  /* Formulario */
+  .foro-edit-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--input-background-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Grupo de formulario */
+  .foro-edit-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Label */
+  .foro-edit-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text-color-light);
+  }
+  
+  /* Input */
+  .foro-edit-input,
+  .foro-edit-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-light);
+    background-color: var(--input-background-light);
+    color: var(--text-color-light);
+    box-sizing: border-box;
+  }
+  
+  /* Textarea */
+  .foro-edit-textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  /* Acciones (botones) */
+  .foro-edit-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .foro-edit-back-btn,
+  .foro-edit-save-btn {
+    padding: 10px 20px;
+    background-color: var(--button-background);
+    color: #fffbf5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .foro-edit-back-btn:hover,
+  .foro-edit-save-btn:hover {
+    background-color: var(--button-hover-background);
+  }
+  

@@ -1,18 +1,41 @@
-/* Noticias.css */
+:root {
+  --container-background: #f9f9f9;
+  --container-shadow: rgba(0, 0, 0, 0.1);
+  --title-color: #7130cb;
+  --news-item-border: #e0e0e0;
+  --info-color: #888;
+  --news-title-color: #7130cb;
+  --news-text-color: #777;
+  --news-button-background: #7e4eab;
+  --news-button-hover-background: #4e3670;
+}
 
+[data-theme='dark'] {
+  --container-background: #333;
+  --container-shadow: rgba(0, 0, 0, 0.5);
+  --title-color: #9b7bff;
+  --news-item-border: #555;
+  --info-color: #aaaaaa;
+  --news-title-color: #c9a7ff;
+  --news-text-color: #cccccc;
+  --news-button-background: #4e3670;
+  --news-button-hover-background: #392750;
+}
+
+/* Noticias.css */
 .container01 {
   max-width: 1100px;
-  margin: 60px auto; /* Margen superior agregado para separar del navbar */
+  margin: 60px auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: var(--container-background);
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px var(--container-shadow);
 }
 
 .title01 {
   text-align: center;
   font-size: 2em;
-  color: #7130cb;
+  color: var(--title-color);
   margin-bottom: 20px;
 }
 
@@ -20,7 +43,7 @@
   display: flex;
   align-items: center;
   margin-top: 40px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--news-item-border);
   padding-bottom: 20px;
 }
 
@@ -51,7 +74,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #888;
+  color: var(--info-color);
   margin-bottom: 8px;
 }
 
@@ -63,17 +86,17 @@
 
 .newsContent01 h2 {
   font-size: 18px;
-  color: #7130cb;
+  color: var(--news-title-color);
   margin-top: 0;
   margin-bottom: 10px;
-  max-height: 3.6em; /* Ajuste para limitar el título a 2 líneas */
+  max-height: 3.6em;
   line-height: 1.8em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .newsContent01 p {
-  color: #777;
+  color: var(--news-text-color);
   margin: 0px 0px 12px;
   font-size: 14px;
   max-height: 400px;
@@ -82,8 +105,8 @@
 }
 
 .newsContent01 a {
-  background-color: #7e4eab;
-  border-color: #7e4eab;
+  background-color: var(--news-button-background);
+  border-color: var(--news-button-background);
   padding: 6px 12px;
   color: #fff;
   font-size: 12px;
@@ -93,30 +116,30 @@
 }
 
 .newsContent01 a:hover {
-  background-color: #4e3670;
+  background-color: var(--news-button-hover-background);
 }
 
 .loadMoreButton {
-  background-color: #7e4eab; /* Color de fondo principal */
-  border: none; /* Sin bordes */
-  color: white; /* Color de texto */
-  padding: 12px 24px; /* Padding para darle un tamaño adecuado */
-  text-align: center; /* Alinear el texto al centro */
-  text-decoration: none; /* Quitar subrayado del texto */
-  display: inline-block; /* Asegurar que se comporta como un botón */
-  font-size: 16px; /* Tamaño de fuente */
-  border-radius: 5px; /* Bordes redondeados */
-  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
-  cursor: pointer; /* Mostrar un cursor de mano para indicar que es clickeable */
-  margin: 20px auto; /* Centrar el botón */
-  display: block; /* Hacer que el botón ocupe el 100% de su contenedor */
+  background-color: var(--news-button-background);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
 }
 
 .loadMoreButton:hover {
-  background-color: #4e3670; /* Color de fondo al pasar el mouse */
+  background-color: var(--news-button-hover-background);
 }
 
 .loadMoreButton:disabled {
-  background-color: #ccc; /* Color cuando está deshabilitado */
-  cursor: not-allowed; /* Cursor no permitido cuando está deshabilitado */
+  background-color: #ccc;
+  cursor: not-allowed;
 }

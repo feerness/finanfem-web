@@ -1,10 +1,34 @@
+:root {
+  --carrusel-background: #ffffff;
+  --carrusel-border: #ddd;
+  --carrusel-shadow: rgba(0, 0, 0, 0.1);
+  --indicador-background: #fff;
+  --indicador-border: #ddd;
+  --indicador-shadow: rgba(0, 0, 0, 0.1);
+  --indicador-title-color: #333;
+  --indicador-value-color: #d663be;
+  --indicador-date-color: #888;
+}
+
+[data-theme='dark'] {
+  --carrusel-background: #333;
+  --carrusel-border: #555;
+  --carrusel-shadow: rgba(0, 0, 0, 0.5);
+  --indicador-background: #444;
+  --indicador-border: #555;
+  --indicador-shadow: rgba(0, 0, 0, 0.5);
+  --indicador-title-color: #ffffff;
+  --indicador-value-color: #f48fb1;
+  --indicador-date-color: #aaaaaa;
+}
+
 /* Contenedor principal */
 .carrusel4 {
   overflow: hidden;
   width: 100%;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--carrusel-background);
+  border: 1px solid var(--carrusel-border);
+  box-shadow: 0 4px 8px var(--carrusel-shadow);
   margin-top: 50px;
 }
 
@@ -14,10 +38,10 @@
 }
 
 .contenedor4 .indicador4 {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: var(--indicador-background);
+  border: 1px solid var(--indicador-border);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--indicador-shadow);
   padding: 20px;
   width: 200px;
   text-align: center;
@@ -36,7 +60,7 @@
 /* Estilo para el título del indicador */
 .contenedor4 .indicador4 h5 {
   margin-bottom: 10px;
-  color: #333;
+  color: var(--indicador-title-color);
   font-size: large;
 }
 
@@ -45,20 +69,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px; /* Espacio entre el signo y el valor */
+  gap: 5px;
 }
 
 /* Estilo para el valor del indicador */
 .contenedor4 .indicador4 .valor4,
 .contenedor4 .indicador4 .signo4 {
   font-size: 1.5em;
-  color: #d663be;
+  color: var(--indicador-value-color);
 }
 
 /* Estilo para la fecha del indicador */
 .contenedor4 .indicador4 .fecha4 {
   font-size: 0.9em;
-  color: #888;
+  color: var(--indicador-date-color);
 }
 
 @keyframes carrusel4 {

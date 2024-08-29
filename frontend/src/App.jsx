@@ -1,25 +1,27 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navigationbar } from "./components/Navbar";
-import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "./routes";
+
+import { AuthProvider } from "./context/AuthContext";
 import { ForoProvider } from "./context/foroContext";
-import MyFooter from "./components/Footer";
+
 import "./App.css";
-import { ForoDetailPage } from "./pages/ForoDetails"; // Asegúrate de que el nombre sea correcto
-import { ForoEditPage } from "./pages/ForoEditPage";
-import { ForoFormPage } from "./pages/ForoFormPage";
-import { ForoPage } from "./pages/ForoPage";
-// En tu archivo index.js o App.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { Navigationbar } from "./components/Navbar/Navbar";
+import MyFooter from "./components/Footer/Footer";
 
-// Lazy load de las páginas
+import { ForoDetailPage } from "./components/Foro/ForoDetails"; 
+import { ForoEditPage } from "./components/Foro/ForoEditPage";
+import { ForoFormPage } from "./components/Foro/ForoFormPage";
+import { ForoPage } from "./components/Foro/ForoPage";
+import EventosTalleres from "./components/Eventos/EventosTalleres";
+
 const HomePage = lazy(() => import("./pages/HomePage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
-const LandingPageClient = lazy(() => import("./pages/LandingPageClient"));
-const Profile = lazy(() => import("./pages/Profile"));
+const LandingPageClient = lazy(() => import("./components/LandingPageClient/LandingPageClient"));
+const Profile = lazy(() => import("./components/Profile/Profile"));
 const Recursos = lazy(() => import("./pages/Recursos"));
 const ArticulosCliente = lazy(() => import("./components/Recursos/Articulos"));
 const PdfCliente = lazy(() => import("./components/Recursos/Pdf"));
@@ -27,6 +29,7 @@ const VideosCliente = lazy(() => import("./components/Recursos/Videos"));
 const Noticias = lazy(() => import("./pages/Noticias"));
 const ReportesCliente = lazy(() => import("./components/Consultoria/Reportes"));
 const Terminos = lazy(() => import("./components/Consultoria/Terminos"));
+
 
 
 function App() {
@@ -55,6 +58,7 @@ function App() {
                   <Route path="/Articulos" element={<ArticulosCliente />} />
                   <Route path="/Pdf" element={<PdfCliente />} />
                   <Route path="/Videos" element={<VideosCliente />} />
+                  <Route path="/EventosTalleres" element={<EventosTalleres />} />
                   <Route path="/Noticias" element={<Noticias />} />
                   <Route path="/Reportes" element={<ReportesCliente />} />
                   <Route path="/Terminos" element={<Terminos />} />

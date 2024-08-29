@@ -2,8 +2,11 @@ import ReactPlayer from "react-player";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./RecursosCliente.css";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const VideoCard = ({ title, description, videoUrl }) => {
+const { t } = useTranslation();   
   return (
     <div className="card1">
       <div className="card1-img-container">
@@ -30,9 +33,11 @@ VideoCard.propTypes = {
 };
 
 const VideosCliente = () => {
+  const { t } = useTranslation();
   const videos = [
+  
     {
-      title: "La Manera Más Fácil para Entender las Finanzas",
+      title:"La Manera Más Fácil para Entender las Finanzas",
       description:
         "Explora los conceptos clave de la economía y las finanzas en este completo diccionario.",
       videoUrl: "https://www.youtube.com/watch?v=dUiZ5is-Chw",
@@ -76,8 +81,8 @@ const VideosCliente = () => {
         <div className="header1">
           <h2>Videos</h2>
         </div>
-        <div className="info-header1">
-          <p>Encuentra videos sobre finanzas y empoderamiento económico.</p>
+        <div className="info-header1"> 
+        <p> {t('Encuentra videos sobre finanzas y empoderamiento económico.')}</p>
         </div>
         <div className="d-flex1">
           {videos.map((video, index) => (
@@ -93,5 +98,6 @@ const VideosCliente = () => {
     </section>
   );
 };
+
 
 export default VideosCliente;
