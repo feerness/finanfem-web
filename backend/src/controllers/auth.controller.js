@@ -2,7 +2,7 @@ import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { TOKEN_SECRET } from "../config.js";
-import { createAccessToken } from "../libs/jwt.js";
+import { createAccessToken, createRefreshToken } from "../libs/jwt.js";
 
 export const register = async (req, res) => {
   try {
@@ -66,17 +66,34 @@ export const login = async (req, res) => {
       });
     }
 
-    const token = await createAccessToken({
+    // Crear el Access Token
+    const accessToken = await createAccessToken({
       id: userFound._id,
       username: userFound.username,
     });
 
-    res.cookie("token", token, {
+    // Crear el Refresh Token
+    const refreshToken = await createRefreshToken({
+      id: userFound._id,
+      username: userFound.username,
+    });
+
+    // Guardar el Access Token en una cookie
+    res.cookie("token", accessToken, {
       httpOnly: process.env.NODE_ENV !== "development",
       secure: true,
       sameSite: "none",
     });
 
+    // Guardar el Refresh Token en una cookie
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true, // Asegura que la cookie solo sea accesible por el servidor
+      secure: process.env.NODE_ENV === "production", // solo enviar en https en producción
+      sameSite: "strict",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 días en milisegundos
+    });
+
+    // Enviar la respuesta con los datos del usuario
     res.json({
       id: userFound._id,
       username: userFound.username,
@@ -87,6 +104,21 @@ export const login = async (req, res) => {
   }
 };
 
+export function refreshToken(req, res) {
+  const { refreshToken } = req.cookies;
+  if (!refreshToken) return res.status(401).json({ message: "No refresh token, authorization denied" });
+
+  jwt.verify(refreshToken, process.env.TOKEN_SECRET, async (err, user) => {
+    if (err) return res.status(403).json({ message: "Invalid refresh token" });
+
+    // Verifica si el usuario todavía existe
+    const dbUser = await User.findById(user.id);
+    if (!dbUser) return res.status(403).json({ message: "User not found" });
+
+    const newAccessToken = await createAccessToken({ id: user.id });
+    res.json({ accessToken: newAccessToken });
+  });
+}
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token) return res.send(false);

@@ -7,6 +7,7 @@ import { fileURLToPath } from "url";
 
 import authRoutes from "./routes/auth.routes.js";
 import foroRoutes from "./routes/forum.routes.js";
+import profileRoutes from "./routes/profile.routes.js";
 
 // Solución para `__dirname` en módulos ES
 const __filename = fileURLToPath(import.meta.url);
@@ -31,5 +32,6 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/foro", foroRoutes);
+app.use("/api/perfil", profileRoutes);
 
 export default app;

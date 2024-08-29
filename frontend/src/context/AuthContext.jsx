@@ -43,6 +43,11 @@ export const AuthProvider = ({ children }) => {
     const signin = async (user) => {
         try {
             const res = await loginRequest(user);
+            const accessToken = res.data.token;
+
+            // Almacena el token en localStorage
+            localStorage.setItem('token', accessToken);
+
             setUser(res.data);
             setIsAuthenticated(true);
         } catch (error) {
