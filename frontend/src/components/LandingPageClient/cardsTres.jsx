@@ -12,7 +12,7 @@ const CustomCards = () => {
 
 
   return (
-    <Container fluid className="foro-container1">
+    <Container fluid className="foro-contenido1">
       <Row className="justify-content-center">
         <Col xs={12} sm={6} md={4} lg={3} className="mb-4">
           <Card className="h-100">

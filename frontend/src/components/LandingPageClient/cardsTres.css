@@ -34,7 +34,7 @@
 }
 
 /* Fondo dinámico con GIF */
-.foro-container1 {
+.foro-contenido1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -92,7 +92,7 @@
 
 /* Responsividad y centrado */
 @media screen and (max-width: 992px) {
-  .foro-container1 {
+  .foro-contenido1 {
     flex-direction: column;
     align-items: center;
   }
