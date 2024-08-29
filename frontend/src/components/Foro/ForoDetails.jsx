@@ -8,11 +8,14 @@ import { Label } from "../ui/Label";
 import { useAuth } from "../../context/AuthContext";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import "./Foro.css";
 
 dayjs.extend(utc);
 
 export function ForoDetailPage() {
+  const { t } = useTranslation();
   const { getPost, updatePost, addComment, getComments } = useForo();
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -89,7 +92,7 @@ export function ForoDetailPage() {
       {isEditing ? (
         <form onSubmit={handleEditSubmit} className="foro-edit-form">
           <Label htmlFor="title" className="foro-label">
-            Title
+            {t('Título')}
           </Label>
           <Input
             type="text"
@@ -100,7 +103,7 @@ export function ForoDetailPage() {
             className="foro-input"
           />
           <Label htmlFor="description" className="foro-label">
-            Description
+            {t('Descripción')}
           </Label>
           <Textarea
             name="description"
@@ -120,7 +123,7 @@ export function ForoDetailPage() {
             className="foro-input"
           />
           <Button type="submit" className="foro-btn">
-            Guardar cambios
+            {t('Guardar cambios')}
           </Button>
         </form>
       ) : (
@@ -132,14 +135,14 @@ export function ForoDetailPage() {
           </p>
           {user?.id === post.user?._id && (
             <Button onClick={() => setIsEditing(true)} className="foro-btn">
-              Editar
+              {t('Editar')}
             </Button>
           )}
         </div>
       )}
 
       <div className="comments-section">
-        <h3 className="comments-title">Comentarios</h3>
+        <h3 className="comments-title">{t('Comentarios')}</h3>
         <ul className="comments-list">
           {comments.map((comment, index) => (
             <li key={comment._id || index} className="comment-item">
@@ -159,10 +162,10 @@ export function ForoDetailPage() {
           className="comment-textarea"
         />
         <Button className="back-to-foro-btn" onClick={handleBackClick}>
-          Volver al Foro
+          {t('Volver al Foro')}
         </Button>
         <Button onClick={handleAddComment} className="comment-btn">
-          Añadir Comentario
+          {t('Añadir Comentario')}
         </Button>
       </div>
     </div>

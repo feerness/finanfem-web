@@ -104,14 +104,40 @@ i18n
             "Las decisiones de los moderadores son finales y deben ser respetadas.": "The decisions of the moderators are final and must be respected.",
             "Las violaciones a estas normas pueden resultar en advertencias, suspensión temporal o expulsión definitiva del foro.": "Violations of these rules may result in warnings, temporary suspension or permanent expulsion from the forum.",
             "La gravedad de la infracción determinará la medida disciplinaria aplicada.": "The seriousness of the infraction will determine the disciplinary measure applied.",
-            "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente.": "We reserve the right to modify these rules at any time. Changes will be communicated in a timely manner."
-
-
-
-
-
-
-
+            "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente.": "We reserve the right to modify these rules at any time. Changes will be communicated in a timely manner.",
+            "Eventos y Talleres": "Events and Workshops",
+            "Encuentra eventos y talleres sobre finanzas y empoderamiento económico.": "Find events and workshops on finance and economic empowerment.",
+            "Reportes Cliente FinamFem": "FinamFem Client Reports",
+            "Email: contacto@ejemplo.com": "Email: contacto@ejemplo.com",
+            "Teléfono: +123456789": "Phone: +123456789",
+            "Envíanos un mensaje": "Send us a message",
+            "Nombre": "Name",
+            "Email": "Email",
+            "Mensaje": "Message",
+            "Enviar Mensaje": "Send Message",
+            "Perfil de Usuario": "User Profile",
+            "Nombre: ": "Name: ",
+            "Descripción: ": "Description: ",
+            "Guardar Cambios": "Guardar Cambios",
+            "Cancelar": "Cancel",
+            "Editar Perfil": "Edit Profile",
+            "Comentarios": "Coments",
+            "Añadir Comentario": "Add Comment",
+            "Volver al Foro": "Back to Forum",
+            "Editar": "Edit",
+            "Guardar cambios": "Save changes",
+            "Leer más": "Read more",
+            "Editar Publicación": "Edit Post",
+            "Título:": "Title:",
+            "Descripción:": "Description:",
+            "Volver": "Return",
+            "Añadir Post": "Add Post",
+            "No hay publicaciones aún, por favor añade una nueva": "There are no posts yet, please add a new one",
+            "comentarios": "comments",
+            "Título": "Title",
+            "Descripción": "Description",
+            "Guardar Cambios": "Save Changes",
+            "Leer más": "Read more"
 
           }
         },
@@ -198,8 +224,16 @@ i18n
           "Las decisiones de los moderadores son finales y deben ser respetadas.": "Las decisiones de los moderadores son finales y deben ser respetadas.",
           "Las violaciones a estas normas pueden resultar en advertencias, suspensión temporal o expulsión definitiva del foro.": "Las violaciones a estas normas pueden resultar en advertencias, suspensión temporal o expulsión definitiva del foro.",
           "La gravedad de la infracción determinará la medida disciplinaria aplicada.": "La gravedad de la infracción determinará la medida disciplinaria aplicada.",
-          "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente.": "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente."
-
+          "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente.": "Nos reservamos el derecho de modificar estas normas en cualquier momento. Los cambios serán comunicados oportunamente.",
+          "Eventos y Talleres": "Events and Workshops",
+          "Encuentra eventos y talleres sobre finanzas y empoderamiento económico.": "Encuentra eventos y talleres sobre finanzas y empoderamiento económico.",
+          "Reportes Cliente FinamFem": "Reportes Cliente FinamFem",
+          "Email: contacto@ejemplo.com": "Email: contacto@ejemplo.com",
+          "Teléfono: +123456789": "Teléfono: +123456789",
+          "Envíanos un mensaje": "Envíanos un mensaje",
+          "Nombre": "Nombre",
+          "Email": "Email",
+          "Mensaje": "Mensaje"
 
 
 

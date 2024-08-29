@@ -20,7 +20,7 @@ const ArticleCard = ({ title, image, description, link }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Leer más
+          {t('Leer más')}
         </a>
       </div>
     </div>

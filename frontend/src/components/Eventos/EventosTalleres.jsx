@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import "./EventosTalleres.css";
-// import { useTranslation } from "react-i18next";
-// import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const EventsCard = ({ title, image, description, link }) => {
-//   const { t } = useTranslation();
+const { t } = useTranslation();
   return (
     <div className="custom-card">
       <div className="custom-card-img-container">
@@ -19,7 +19,7 @@ const EventsCard = ({ title, image, description, link }) => {
           className="btn-primary1"
           target="_blank"
           rel="noopener noreferrer">
-          Leer más
+          {t('Leer más')}
         </a>
       </div>
     </div>
@@ -34,7 +34,7 @@ EventsCard.propTypes = {
 };
 
 const EventosTalleres = () => {
-//   const { t } = useTranslation();
+const { t } = useTranslation();
   const events = [
     {
       title: "Programa Mujeres Jefas de Hogar",
@@ -86,10 +86,10 @@ const EventosTalleres = () => {
     <section className="events-content">
       <div className="custom-container">
         <div className="custom-header">
-          <h2>Eventos y Talleres</h2>
+          <h2>{t('Eventos y Talleres')}</h2>
         </div>
         <div className="info-custom-header">
-          <p>Encuentra eventos y talleres sobre finanzas y empoderamiento económico.</p>
+          <p>{t('Encuentra eventos y talleres sobre finanzas y empoderamiento económico.')}</p>
         </div>
         <div className="custom-flex">
             {events.map((events, index) => (

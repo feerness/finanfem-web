@@ -4,9 +4,12 @@ import { ForoCard } from "./PostCard.jsx";
 import { ButtonLink } from "../ui/ButtonLink.jsx";
 import { ImFileEmpty } from "react-icons/im";
 import { getCommentsCountRequest } from "../../api/foro.js";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import "./Foro.css"; 
 
 export function ForoPage() {
+  const { t } = useTranslation();
   const { foro, getForo } = useForo();
   const [forosWithComments, setForosWithComments] = useState([]);
 
@@ -46,17 +49,17 @@ export function ForoPage() {
           <div className="foro-empty-content">
             <ImFileEmpty className="foro-empty-icon" />
             <h1 className="foro-empty-title">
-              No hay publicaciones aún, por favor añade una nueva
+              {t('No hay publicaciones aún, por favor añade una nueva')}
             </h1>
             <div className="foro-empty-button">
-              <ButtonLink to="/add-post">Añadir Post</ButtonLink>
+              <ButtonLink to="/add-post">{t('Añadir Post')}</ButtonLink>
             </div>
           </div>
         </div>
       ) : (  
         <div className="foro-grid">
           <div className="addPost">
-            <ButtonLink className="botonPost" to="/add-post">Añadir Post</ButtonLink>
+            <ButtonLink className="botonPost" to="/add-post">{t('Añadir Post')}</ButtonLink>
           </div>
           {forosWithComments.map((foroItem) => (
             <ForoCard

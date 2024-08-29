@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import "./Profile.css";
 
 function ProfilePage() {
@@ -10,6 +12,7 @@ function ProfilePage() {
     description: user?.description || "", // Lo mismo para la descripción
   });
 
+  const { t } = useTranslation();
   // Estado para almacenar una copia del perfil original, útil para la función de cancelar
   const [originalProfileData, setOriginalProfileData] = useState(profileData); 
   // Estado para manejar si el usuario está en modo de edición
@@ -101,11 +104,11 @@ function ProfilePage() {
   return (
     <div className="profile">
       <div className="profileHeader">
-        <h1>Perfil de Usuario</h1>
+        <h1>{t('Perfil de Usuario')}</h1>
         {isEditing ? (
           // Muestra el formulario de edición si isEditing es true
           <form onSubmit={handleSubmit}>
-            <label>Nombre:   
+            <label>{t('Nombre: ')} 
               <input
                 type="text"
                 className="fileInput"
@@ -115,7 +118,7 @@ function ProfilePage() {
               />
             </label>
             <p>
-            <label>Descripción:</label>
+            <label>{t('Descripción: ')}</label>
             <textarea
               className="form-control"
               name="description"
@@ -123,8 +126,8 @@ function ProfilePage() {
               onChange={handleInputChange}
             />
              </p>
-            <button type="submit">Guardar Cambios</button>
-            <button type="button" onClick={handleCancelClick}>Cancelar</button>
+            <button type="submit">{t('Guardar Cambios')}</button>
+            <button type="button" onClick={handleCancelClick}>{t('Cancelar')}</button>
           </form>
         ) : (
           // Muestra los datos del perfil si no estamos en modo de edición
@@ -135,7 +138,7 @@ function ProfilePage() {
             <h1>{profileData.username}</h1>
             <p>{profileData.description}</p>
           
-          <button onClick={handleEditClick}>Editar Perfil</button>
+          <button onClick={handleEditClick}>{t('Editar Perfil')}</button>
           {error && <div className="alert alert-danger mt-3">{error}</div>}
           {success && <div className="alert alert-success mt-3">{success}</div>}
           </>

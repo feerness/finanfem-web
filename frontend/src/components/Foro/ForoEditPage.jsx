@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForo } from "../../context/foroContext";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 import "./ForoEditPage.css"; // Importa el nuevo CSS
 
 export function ForoEditPage() {
+  const { t } = useTranslation();
   const { id } = useParams(); // Obtener el ID desde la URL
   const { getPost, updatePost } = useForo();
   const navigate = useNavigate();
@@ -49,10 +52,10 @@ export function ForoEditPage() {
 
   return (
     <div className="foro-edit-container">
-      <h1 className="foro-edit-title">Editar Publicación</h1>
+      <h1 className="foro-edit-title">{t('Editar Publicación')}</h1>
       <form onSubmit={handleSubmit} className="foro-edit-form">
         <div className="foro-edit-group">
-          <label htmlFor="title" className="foro-edit-label">Título:</label>
+          <label htmlFor="title" className="foro-edit-label">{t('Título:')}</label>
           <input
             type="text"
             id="title"
@@ -64,7 +67,7 @@ export function ForoEditPage() {
           />
         </div>
         <div className="foro-edit-group">
-          <label htmlFor="description" className="foro-edit-label">Descripción:</label>
+          <label htmlFor="description" className="foro-edit-label">{t('Descripción:')}</label>
           <textarea
             id="description"
             name="description"
@@ -76,9 +79,9 @@ export function ForoEditPage() {
         </div>
         <div className="foro-edit-actions">
           <button type="button" onClick={handleBackClick} className="foro-edit-back-btn">
-            Volver
+            {t('Volver')}
           </button>
-          <button type="submit" className="foro-edit-save-btn">Guardar Cambios</button>
+          <button type="submit" className="foro-edit-save-btn">{t('Guardar Cambios')}</button>
         </div>
       </form>
     </div>

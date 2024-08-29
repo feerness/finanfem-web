@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { FaComment, } from "react-icons/fa"; 
 import { useState, } from "react"; 
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
+
 import "./PostCard.css";
 
 
 export function ForoCard({ foro, commentsCount }) { 
+  const { t } = useTranslation();
   const { deleteForo } = useForo();
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -72,7 +76,7 @@ export function ForoCard({ foro, commentsCount }) {
       </div>
       <div className="foro-card-footer">
         <Link to={`/foro/${foro._id}`} className="foro-card-comments">
-          <FaComment /> {commentsCount || 0} comentarios
+          <FaComment /> {commentsCount || 0} {t('comentarios')}
         </Link>
       </div>
     </div>
