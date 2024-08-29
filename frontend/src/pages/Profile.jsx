@@ -7,7 +7,6 @@ function ProfilePage() {
   const [profileData, setProfileData] = useState({
     username: user?.username || "", // Si user existe, toma el username, si no, inicializa como string vacío
     description: user?.description || "", // Lo mismo para la descripción
-    photo: user?.photo || null, // Y para la foto
   });
 
   // Estado para almacenar una copia del perfil original, útil para la función de cancelar
@@ -32,7 +31,6 @@ function ProfilePage() {
           const initialProfileData = {
             username: profile.username,
             description: profile.description || "", // Si no hay descripción, usa un string vacío
-            photo: profile.photo ? `http://localhost:4000/uploads/${profile.photo}` : null, // Si hay foto, crea la URL de la misma
           };
           console.log('Datos iniciales del perfil:', initialProfileData);
 
@@ -62,14 +60,6 @@ function ProfilePage() {
     });
   };
 
-  // Maneja el cambio en el input de archivo (foto)
-  const handleFileChange = (e) => {
-    setProfileData({
-      ...profileData,
-      photo: e.target.files[0], // Actualiza la foto en profileData
-    });
-  };
-
   // Función que se ejecuta cuando el usuario presiona "Editar Perfil"
   const handleEditClick = () => {
     setIsEditing(true); // Activa el modo de edición
@@ -89,9 +79,6 @@ function ProfilePage() {
       const formData = new FormData();
       formData.append("username", profileData.username);
       formData.append("description", profileData.description);
-      if (profileData.photo) {
-        formData.append("photo", profileData.photo); 
-      }
   
       // Llama a updateProfile desde el contexto para actualizar el perfil en el servidor
       await updateProfile(formData);
@@ -116,7 +103,7 @@ function ProfilePage() {
         <h1>Perfil de Usuario</h1>
         {isEditing ? (
           // Muestra el formulario de edición si isEditing es true
-          <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <form onSubmit={handleSubmit}>
             <label>Nombre:   
               <input
                 type="text"
@@ -125,18 +112,6 @@ function ProfilePage() {
                 value={profileData.username}
                 onChange={handleInputChange}
               />
-            </label>
-            <p>
-            <label>Foto:</label>
-            <input
-              type="file"
-              className="fileInput"
-              name="photo"
-              onChange={handleFileChange}
-            />
-            </p>
-            <label htmlFor="photo" className="customFileUpload">
-              Subir Foto
             </label>
             <p>
             <label>Descripción:</label>
@@ -153,11 +128,12 @@ function ProfilePage() {
         ) : (
           // Muestra los datos del perfil si no estamos en modo de edición
           <>
-          <div>
-            <img src={profileData.photo} alt="Foto de perfil" className="profile-photo" />
+          <div className="fotoPerfil">
+            <img src="./images/default-profile-pic.png" alt="Foto de perfil" className="profile-photo" />
+            </div>
             <h1>{profileData.username}</h1>
             <p>{profileData.description}</p>
-          </div>
+          
           <button onClick={handleEditClick}>Editar Perfil</button>
           {error && <div className="alert alert-danger mt-3">{error}</div>}
           {success && <div className="alert alert-success mt-3">{success}</div>}

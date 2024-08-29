@@ -33,7 +33,7 @@ export function ForoCard({ foro, commentsCount }) {
             src={
               foro.user?.profileImage
                 ? `/uploads/${foro.user.profileImage}`
-                : "https://via.placeholder.com/40"
+                : "/images/default-profile-pic.png"
             }
             alt="Perfil"
             className="foro-card-avatar"

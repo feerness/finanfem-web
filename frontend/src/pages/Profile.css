@@ -9,6 +9,8 @@
   min-height: 100vh;
 }
 
+
+
 .profileHeader {
   text-align: center;
   margin-bottom: 40px;
@@ -183,8 +185,14 @@
 }
 
 .profile-photo {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 10px;
+  width: 100px; /* Ajusta según tus necesidades */
+  height: 100px; /* Ajusta según tus necesidades */
+  border-radius: 50%; /* Opcional, si quieres que la imagen sea circular */
+  object-fit: cover; /* Opcional, para que la imagen se ajuste al contenedor */
+}
+
+.fotoPerfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
