@@ -6,7 +6,7 @@ const Ilustracion = () => {
       <div className="imagenContainer">
         <h2 className="titleImagen">Únete a nuestra comunidad</h2>
         <img
-          src="/images/login-ilustracion.webp"
+          src="/images/1724895747391.png"
           alt="Ilustración"
           className="illustration-image"
         />
