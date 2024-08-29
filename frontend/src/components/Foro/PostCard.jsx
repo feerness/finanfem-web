@@ -2,12 +2,11 @@ import PropTypes from "prop-types";
 import { useForo } from "../../context/foroContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { FaComment, } from "react-icons/fa"; 
-import { useState, } from "react"; 
+import { FaComment } from "react-icons/fa";
+import { useState } from "react";
 import "./PostCard.css";
 
-
-export function ForoCard({ foro, commentsCount }) { 
+export function ForoCard({ foro, commentsCount }) {
   const { deleteForo } = useForo();
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
@@ -39,7 +38,9 @@ export function ForoCard({ foro, commentsCount }) {
             className="foro-card-avatar"
           />
           <div>
-            <h2 className="foro-card-user">{foro.user?.name || foro.user?.username || "Usuario desconocido"}</h2>
+            <h2 className="foro-card-user">
+              {foro.user?.name || foro.user?.username || "Usuario desconocido"}
+            </h2>
             <p className="foro-card-date">
               {new Date(foro.date).toLocaleDateString()} -{" "}
               {new Date(foro.date).toLocaleTimeString()}
@@ -48,22 +49,29 @@ export function ForoCard({ foro, commentsCount }) {
         </div>
         {isOwner && (
           <div className="foro-card-buttons">
-          <button
-            onClick={handleDelete}
-            className="btn btn-danger"
-            disabled={isDeleting}
-          >
-            {isDeleting ? (
-              "Eliminando..."
-            ) : (
-              <img src="/images/delete.png" alt="Eliminar" className="icon-button" />
-            )}
-          </button>
-          <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
-            <img src="/images/edit.png" alt="Editar" className="icon-button" />
-          </Link>
-        </div>
-        
+            <button
+              onClick={handleDelete}
+              className="btn btn-danger"
+              disabled={isDeleting}
+            >
+              {isDeleting ? (
+                "Eliminando..."
+              ) : (
+                <img
+                  src="/images/delete.png"
+                  alt="Eliminar"
+                  className="icon-button"
+                />
+              )}
+            </button>
+            <Link to={`/foro/edit/${foro._id}`} className="btn btn-primary">
+              <img
+                src="/images/edit.png"
+                alt="Editar"
+                className="icon-button"
+              />
+            </Link>
+          </div>
         )}
       </header>
       <div className="foro-card-content">

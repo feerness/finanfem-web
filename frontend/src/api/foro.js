@@ -37,4 +37,7 @@ export const getCommentsCountRequest = async (postId) => {
   }
 };
 
-
+// Eliminar un comentario de un post específico
+export const deleteCommentRequest = async (foroId, commentId) => {
+  return axios.delete(`/foro/${foroId}/comments/${commentId}`);
+};
