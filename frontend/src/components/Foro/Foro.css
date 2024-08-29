@@ -1,5 +1,5 @@
 :root {
-  --background-light: #f9f9f9;
+  --background-light: #ffffff;
   --background-dark: #333;
   --card-background-light: #ffffff;
   --card-background-dark: #444;
@@ -180,7 +180,6 @@
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px;
   background-color: var(--background-light);
 }
 
@@ -189,6 +188,10 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .foro-container1 .flex {
@@ -224,26 +227,7 @@
   background-color: var(--button-link-hover-background);
 }
 
-/* Foro.css */
-.foro-container1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: 20px;
-  background-color: var(--background-light);
-}
 
-.foro-grid {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
 
 .foro-empty {
   display: flex;

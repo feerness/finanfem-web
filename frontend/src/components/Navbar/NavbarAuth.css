@@ -194,3 +194,62 @@
   background-color: #e1e1e1; /* Un tono más oscuro para el hover */
   transform: scale(1.05); /* Un ligero aumento de tamaño */
 }
+/* CSS para la lista de íconos de navegación */
+.nav-icons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.nav-link, 
+.btn, 
+.logout-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover, 
+.btn:hover, 
+.logout-link:hover {
+  background-color: #bdabd4;
+  border-radius: 5px;
+}
+
+.profile-pic, 
+.theme-icon, 
+.logout-pic {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  object-fit: cover;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .nav-icons {
+    margin: 0 5px;
+  }
+
+  .nav-link, 
+  .btn, 
+  .logout-link {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .profile-pic, 
+  .theme-icon, 
+  .logout-pic {
+    width: 20px;
+    height: 20px;
+  }
+}

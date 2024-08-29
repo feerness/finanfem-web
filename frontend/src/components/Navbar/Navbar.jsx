@@ -146,7 +146,7 @@ export function Navigationbar() {
                   </Link>
                 </div>
               </li>
-              <li className="nav-item">
+              <li className="nav-icons">
                 <Link
                   to="/profile"
                   className="nav-link"
@@ -163,20 +163,20 @@ export function Navigationbar() {
                   {user.username}
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-icons">
                 <Link onClick={toggleTheme} className="btn dl-mode">
                   <img
                     src={
                       theme === "light"
                         ? "/images/dark-mode.png"
-                        : "/images/light-mode.png"
+                        : "/images/light.png"
                     }
                     alt={theme === "light" ? t("Modo Oscuro") : t("Modo Claro")}
                     className="theme-icon"
                   />
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-icons">
                 <button
                   onClick={toggleLanguage}
                   className="btn btn-outline-secondary"
@@ -184,14 +184,13 @@ export function Navigationbar() {
                   {i18n.language === "en" ? "SP" : "EN"}
                 </button>
               </li>
-              <li className="nav-item">
+              <li className="nav-icons">
                 <Link to="/" onClick={() => logout()} className="logout-link">
                   <img
                     src="/images/logout.png"
                     alt="Logout"
                     className="logout-pic"
                   />
-                  <span className="logout-text">{t("Logout")}</span>
                 </Link>
               </li>
             </>
