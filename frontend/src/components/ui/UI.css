@@ -9,7 +9,7 @@
   --label-color: #555;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --reply-btn-background: #5b376e;
   --reply-btn-color: #fffbf5;
   --reply-btn-hover-background: #c3acd0;
@@ -65,7 +65,9 @@
 
 .custom-textarea:focus {
   outline: none; /* Elimina el outline por defecto */
-  border-color: var(--input-border-color); /* Mantiene el mismo color de borde en foco */
+  border-color: var(
+    --input-border-color
+  ); /* Mantiene el mismo color de borde en foco */
 }
 
 .custom-label {

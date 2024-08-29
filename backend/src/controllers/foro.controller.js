@@ -75,7 +75,7 @@ export const getAllPost = async (req, res) => {
   }
 };
 
-//Funciones de comentarios: 
+//Funciones de comentarios:
 export const addComment = async (req, res) => {
   try {
     const { text } = req.body;
@@ -126,3 +126,24 @@ export const getCommentsCount = async (req, res) => {
   }
 };
 
+export const deleteComment = async (req, res) => {
+  try {
+    const { foroId, commentId } = req.params;
+    const foro = await Foro.findById(foroId);
+    if (!foro) return res.status(404).json({ message: "Foro no encontrado" });
+
+    // Buscar y eliminar el comentario por su ID
+    const commentIndex = foro.comments.findIndex(
+      (comment) => comment._id.toString() === commentId
+    );
+    if (commentIndex === -1)
+      return res.status(404).json({ message: "Comentario no encontrado" });
+
+    foro.comments.splice(commentIndex, 1); // Eliminar el comentario
+    await foro.save(); // Guardar los cambios en el foro
+
+    return res.sendStatus(204); // Responder con un estado 204 (sin contenido)
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

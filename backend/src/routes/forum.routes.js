@@ -9,7 +9,7 @@ import {
   addComment,
   getComments,
   getCommentsCount,
-
+  deleteComment,
 } from "../controllers/foro.controller.js";
 import { auth } from "../middlewares/validateTokens.js";
 import { validateSchema } from "../middlewares/validateMiddlewares.js";
@@ -27,9 +27,14 @@ router.delete("/:id", auth, deleteForo); // Eliminar un foro
 router.put("/:id", auth, updatePost); // Actualizar un foro
 
 // Rutas de comentarios
-router.post("/:id/comments", auth, validateSchema(createCommentSchema), addComment); // Añadir un comentario a un foro específico
+router.post(
+  "/:id/comments",
+  auth,
+  validateSchema(createCommentSchema),
+  addComment
+); // Añadir un comentario a un foro específico
 router.get("/:id/comments", auth, getComments); // Obtener todos los comentarios de un foro específico
 router.get("/:id/comments/count", auth, getCommentsCount); // Obtener el número de comentarios de un foro específico
+router.delete("/:foroId/comments/:commentId", auth, deleteComment);
 
-
-export default router; 
+export default router;

@@ -19,7 +19,7 @@
   --button-link-hover-background: #0056b3;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --background-light: var(--background-dark);
   --card-background-light: var(--card-background-dark);
   --text-color-light: var(--text-color-dark);
@@ -28,8 +28,6 @@
   --author-date-color-light: var(--author-date-color-dark);
   --icon-color-light: var(--icon-color-dark);
 }
-
-/* ForoDetailPage Styles */
 
 /* Container for Foro Detail */
 .foro-detail-container {
@@ -268,4 +266,235 @@
 
 .foro-empty-button .ButtonLink:hover {
   background-color: var(--button-link-hover-background);
+}
+/* Título y descripción */
+.foro-detail-title {
+  font-size: 1.8rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.foro-detail-description {
+  font-size: 1.2rem;
+  color: var(--subtext-light);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Fecha de la publicación */
+.foro-detail-date {
+  font-size: 0.875rem;
+  color: var(--author-date-color-light);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Sección de comentarios */
+.comments-section {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.comments-title {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+/* Comentario individual */
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: var(--card-background-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px var(--card-hover-shadow-light);
+  border: 1px solid var(--border-color-light);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.comment-author {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-light);
+  margin-right: 5px;
+}
+
+.comment-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--subtext-light);
+}
+
+.comment-item button {
+  background: none;
+  border: none;
+  color: var(--button-background);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.comment-item button:hover {
+  color: var(--button-hover-background);
+}
+
+/* Formulario de comentarios */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.comment-textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color-light);
+  background-color: var(--card-background-light);
+  color: var(--text-light);
+  font-size: 0.875rem;
+  resize: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.comment-textarea:focus {
+  border-color: var(--button-background);
+  outline: none;
+}
+
+/* Botones de acciones */
+.comment-btn {
+  padding: 10px 20px;
+  background-color: var(--button-background);
+  color: #fffbf5;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+.comment-btn:hover {
+  background-color: var(--button-hover-background);
+  box-shadow: 0 4px 12px var(--card-hover-shadow-light);
+}
+
+.comment-btn {
+  margin-left: 10px; /* Espacio entre botones */
+}
+
+.foro-container2 {
+  background-color: var(--card-background-light); /* Fondo claro */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  box-shadow: 0 4px 12px var(--card-hover-shadow-light); /* Sombra sutil */
+  padding: 20px; /* Espaciado interno */
+  width: 100%;
+  max-width: 800px; /* Limita el ancho máximo del contenedor */
+  margin: 20px auto; /* Centra el contenedor horizontalmente y agrega margen vertical */
+  display: flex;
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  align-items: center; /* Centra horizontalmente los elementos */
+}
+
+.back-to-foro-btn {
+  background-color: var(--label-color); /* Color gris */
+  color: var(--reply-btn-color); /* Texto en color blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero al pasar por encima */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+  margin-top: 10px; /* Espaciado superior */
+}
+
+.back-to-foro-btn:hover {
+  background-color: var(
+    --reply-btn-background
+  ); /* Color gris oscuro en hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más prominente en hover */
+}
+
+.ajuste-boton {
+  display: flex; /* Usamos flexbox para alinear el botón */
+  justify-content: flex-start; /* Alinea el botón a la izquierda */
+  width: 100%;
+  padding: 20px 0; /* Agrega padding para separar el botón de otros elementos */
+  margin-left: 150px;
+}
+.foro-detail-author {
+  font-size: 1rem;
+  color: var(--subtext-light); /* Utiliza el color de subtexto */
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.foro-detail-title {
+  font-size: 2rem;
+  color: var(--title-color); /* Usa el color de título */
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+
+.foro-detail-author {
+  font-size: 1.25rem;
+  color: var(--highlight-color); /* Usa el color de énfasis */
+  margin-bottom: 5px;
+  text-align: center;
+  font-style: italic; /* Estilo de letra cursiva */
+}
+
+.foro-detail-date {
+  font-size: 1rem;
+  color: var(--subtext-light); /* Usa el color de subtexto */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.comments-title {
+  font-size: 1.5rem;
+  color: var(--title-color); /* Usa el color de título */
+  margin-bottom: 15px;
+  text-align: left;
+  border-bottom: 2px solid var(--highlight-color); /* Línea inferior de color énfasis */
+  padding-bottom: 5px;
+}
+
+.comment-author {
+  font-size: 1.1rem;
+  color: var(--highlight-color); /* Usa el color de énfasis */
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: var(--subtext-light); /* Usa el color de subtexto */
+}
+
+.comment-textarea {
+  font-size: 1rem;
+  color: var(--text-light); /* Usa el color de texto principal */
+  border: 1px solid var(--subtext-light); /* Borde usando el color de subtexto */
+  border-radius: 5px;
+  padding: 10px;
+}
+.icon-button {
+  width: 24px; /* Ajusta el tamaño del ícono */
+  height: 24px;
+  cursor: pointer; /* Cambia el cursor a pointer para indicar que es clicable */
+  transition: transform 0.2s ease, opacity 0.2s ease; /* Transición suave para transformaciones */
+  opacity: 0.8; /* Hace que el ícono sea un poco translúcido */
+}
+
+.icon-button:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del ícono en hover */
+  opacity: 1; /* Hace que el ícono sea completamente opaco en hover */
 }
