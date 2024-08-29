@@ -11,6 +11,7 @@ import utc from "dayjs/plugin/utc";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 import "./Foro.css";
+import { deleteCommentRequest } from "../../api/foro.js";
 
 dayjs.extend(utc);
 
@@ -24,6 +25,7 @@ export function ForoDetailPage() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false); // Nuevo estado para manejar la eliminación de comentarios
   const [editData, setEditData] = useState({
     title: "",
     description: "",
@@ -62,9 +64,21 @@ export function ForoDetailPage() {
       }
     }
   };
-  
+
+  const handleDeleteComment = async (commentId) => {
+    setIsDeleting(true); // Activa el estado de eliminación
+    try {
+      await deleteCommentRequest(params.id, commentId);
+      setComments(comments.filter((comment) => comment._id !== commentId));
+    } catch (error) {
+      console.error("Error al eliminar el comentario:", error);
+    } finally {
+      setIsDeleting(false); // Desactiva el estado de eliminación
+    }
+  };
+
   const handleBackClick = () => {
-    navigate('/foro'); // Redirige al foro
+    navigate("/foro"); // Redirige al foro
   };
 
   const handleEditChange = (e) => {
@@ -88,6 +102,7 @@ export function ForoDetailPage() {
   if (!post) return <div>Cargando...</div>;
 
   return (
+<<<<<<< HEAD
     <div className="foro-detail-container">
       {isEditing ? (
         <form onSubmit={handleEditSubmit} className="foro-edit-form">
@@ -167,6 +182,109 @@ export function ForoDetailPage() {
         <Button onClick={handleAddComment} className="comment-btn">
           {t('Añadir Comentario')}
         </Button>
+=======
+    <div className="foro-container1">
+      <div className="ajuste-boton">
+        <button className="back-to-foro-btn" onClick={handleBackClick}>
+          Volver al Foro
+        </button>
+      </div>
+      <div className="foro-container2">
+        {isEditing ? (
+          <form onSubmit={handleEditSubmit} className="foro-edit-form">
+            <Label htmlFor="title" className="foro-label">
+              Title
+            </Label>
+            <Input
+              type="text"
+              name="title"
+              value={editData.title}
+              onChange={handleEditChange}
+              autoFocus
+              className="foro-input"
+            />
+            <Label htmlFor="description" className="foro-label">
+              Description
+            </Label>
+            <Textarea
+              name="description"
+              value={editData.description}
+              onChange={handleEditChange}
+              rows="3"
+              className="foro-textarea"
+            />
+            <Label htmlFor="date" className="foro-label">
+              Date
+            </Label>
+            <Input
+              type="date"
+              name="date"
+              value={editData.date}
+              onChange={handleEditChange}
+              className="foro-input"
+            />
+            <Button type="submit" className="foro-btn">
+              Guardar cambios
+            </Button>
+          </form>
+        ) : (
+          <div className="foro-post-detail">
+            <h1 className="foro-detail-title">{post.title}</h1>
+            <p className="foro-detail-description">{post.description}</p>
+            <p className="foro-detail-date">
+              {new Date(post.date).toLocaleDateString()}
+            </p>
+            {user?.id === post.user?._id && (
+              <Button onClick={() => setIsEditing(true)} className="foro-btn">
+                Editar
+              </Button>
+            )}
+          </div>
+        )}
+
+        <div className="comments-section">
+          <h3 className="comments-title">Comentarios</h3>
+          <ul className="comments-list">
+            {comments.map((comment, index) => (
+              <li key={comment._id || index} className="comment-item">
+                <strong className="comment-author">
+                  {comment.user.username}
+                </strong>
+                : <span className="comment-text">{comment.text}</span>
+                {user?.id === comment.user._id && (
+                  <button
+                    onClick={() => handleDeleteComment(comment._id)}
+                    className="btn btn-danger"
+                    disabled={isDeleting}
+                  >
+                    {isDeleting ? (
+                      "Eliminando..."
+                    ) : (
+                      <img
+                        src="/images/delete.png"
+                        alt="Eliminar"
+                        className="icon-button"
+                      />
+                    )}
+                  </button>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <Textarea
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+            placeholder="Escribe un comentario..."
+            rows="3"
+            className="comment-textarea"
+          />
+
+          <Button onClick={handleAddComment} className="comment-btn">
+            Añadir Comentario
+          </Button>
+        </div>
+>>>>>>> ca8722d11f0bf6ff40c878b3024570c28c30e7aa
       </div>
     </div>
   );
