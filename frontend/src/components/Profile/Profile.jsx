@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
+
 import "./Profile.css";
 
 function ProfilePage() {
   const { user, updateProfile, getProfile } = useAuth(); // setUser,
-
   const [profileData, setProfileData] = useState({
     username: user?.username || "", // Si user existe, toma el username, si no, inicializa como string vacío
     description: user?.description || "", // Lo mismo para la descripción
