@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     name: "Adriel Fuentes",
-    company: "Ilustrador ",
+    company: "Ilustradora ",
     text: "Dedicarse al arte ha sido difícil y decidí hacer este proceso más agradable. Por eso decidí aprender sobre ahorro e inversiones y una amiga me recomendó Finanfem. Me uní a su foro y conocí mujeres increíbles de mi misma área en las que me pude apoyar y crecer. Actualmente con una de ellas tenemos un negocio en conjunto y encontramos un espacio para hacer nuestro arte. Todo esto gracias a los consejos financieros y tips de las chicas de la comunidad.",
     image: "/images/mujer-3.jpg"
   },
@@ -51,10 +51,22 @@ const testimonials = [
   }
 ];
 
+const moveCarousel = (direction) => {
+  const wrapper = document.querySelector('.carousel-testimonials-wrapper');
+  const cardWidth = document.querySelector('.carousel-testimonial-card').offsetWidth;
+  wrapper.scrollBy({
+    left: direction * cardWidth,
+    behavior: 'smooth'
+  });
+};
+
 const TestimonialsCarousel = () => {
   return (
     <div className="carousel-testimonials-container">
       <h2 className="carousel-testimonial-titulo">Conviértete en nuestra próxima historia de éxito.</h2>
+      <button className="carousel-arrow left" onClick={() => moveCarousel(-1)}>
+      <img src="/images/flecha-2.png" alt="left arrow" />
+        </button>
       <div className="carousel-testimonials-wrapper">
         {testimonials.map((testimonial, index) => (
           <div className="carousel-testimonial-card" key={index}>
@@ -67,6 +79,9 @@ const TestimonialsCarousel = () => {
           </div>
         ))}
       </div>
+      <button className="carousel-arrow right" onClick={() => moveCarousel(1)}>
+        <img src="/images/flecha-1.png" alt="left arrow" />
+      </button>
     </div>
   );
 };
