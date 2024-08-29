@@ -2,14 +2,24 @@ import PropTypes from "prop-types";
 import { useForo } from "../../context/foroContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { FaComment } from "react-icons/fa";
-import { useState } from "react";
+import { FaComment, } from "react-icons/fa";
+import { useState, } from "react";
+import { useTranslation } from "react-i18next";
+
+
 import "./PostCard.css";
 
+
+
+
 export function ForoCard({ foro, commentsCount }) {
+  const { t } = useTranslation();
+
+
   const { deleteForo } = useForo();
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
+
 
   const handleDelete = async () => {
     setIsDeleting(true);
@@ -22,7 +32,9 @@ export function ForoCard({ foro, commentsCount }) {
     }
   };
 
+
   const isOwner = user?.id === foro.user?._id || user?.id === foro.user;
+
 
   return (
     <div className="foro-card">
@@ -87,6 +99,7 @@ export function ForoCard({ foro, commentsCount }) {
   );
 }
 
+
 ForoCard.propTypes = {
   foro: PropTypes.shape({
     user: PropTypes.oneOfType([
@@ -105,3 +118,5 @@ ForoCard.propTypes = {
   }).isRequired,
   commentsCount: PropTypes.number,
 };
+
+
