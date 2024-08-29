@@ -1,48 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+/* Modo claro */
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #4e3670;
+  --text-color: #333333;
+  --button-background: #4e3670;
+  --button-hover: #3b2858;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] {
+  --primary-color: #1c1c1c;
+  --secondary-color: #a29bfe;
+  --text-color: #e0e0e0;
+  --button-background: #6c5ce7;
+  --button-hover: #4834d4;
+}
 
 .saludo-container {
   background-color: var(--primary-color);
   color: var(--text-color);
-   font-family: "Oswald", sans-serif;
-   font-optical-sizing: auto;
-   font-weight: 700;
-   font-style: normal;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .saludo-container h1 {
-    font-size: 2.5rem;
-    color: var(--secondary-color);
-    animation: colorChange 5s infinite;
-    margin-bottom: 15px;
-  }
-  
-  .saludo-container p {
-    font-size: 18px;
-    color: #495057;
-  }
-  
-  .saludo-button {
-    display: inline-block;
-    background-color: var(--button-background);
-    color: var(--text-color);
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  
-  .saludo-button:hover {
-    background-color: var(--button-hover);
-  }
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
 
-  
-  @keyframes colorChange {
-    0% { color: #4e3670; }
-    50% { color: #000; }
-    100% { color: #4e3670; }
-  }
+.saludo-container h1 {
+  font-size: 2.5rem;
+  color: var(--secondary-color);
+  animation: colorChange 5s infinite;
+
+}
+
+.saludo-container p {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.saludo-button {
+  display: inline-block;
+  background-color: var(--button-background);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.saludo-button:hover {
+  background-color: var(--button-hover);
+}
+
+@keyframes colorChange {
+  0% { color: #4e3670; }
+  50% { color: #000; }
+  100% { color: #4e3670; }
+}
