@@ -2,24 +2,11 @@ import PropTypes from "prop-types";
 import { useForo } from "../../context/foroContext";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-<<<<<<< HEAD
-import { FaComment, } from "react-icons/fa"; 
-import { useState, } from "react"; 
-import { useTranslation } from "react-i18next";
-import { t } from "i18next";
-
-import "./PostCard.css";
-
-
-export function ForoCard({ foro, commentsCount }) { 
-  const { t } = useTranslation();
-=======
 import { FaComment } from "react-icons/fa";
 import { useState } from "react";
 import "./PostCard.css";
 
 export function ForoCard({ foro, commentsCount }) {
->>>>>>> ca8722d11f0bf6ff40c878b3024570c28c30e7aa
   const { deleteForo } = useForo();
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
