@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-
 import { useForo } from "../../context/foroContext";
 import { useNavigate } from 'react-router-dom';  // Correcto import
 

@@ -5,7 +5,6 @@ import { ButtonLink } from "../ui/ButtonLink.jsx";
 import { ImFileEmpty } from "react-icons/im";
 import { getCommentsCountRequest } from "../../api/foro.js";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 import "./Foro.css"; 
 
 export function ForoPage() {

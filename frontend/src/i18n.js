@@ -23,6 +23,7 @@ i18n
     resources: {
         en: {
           translation: {
+            "Actividad Reciente": "Recent Activity",
             "Recursos": "Resources",
             "Artículos": "Articles",
             "Videos": "Videos",
@@ -136,13 +137,12 @@ i18n
             "comentarios": "comments",
             "Título": "Title",
             "Descripción": "Description",
-            "Guardar Cambios": "Save Changes",
-            "Leer más": "Read more"
 
           }
         },
         es: {
           translation: {
+          "Actividad Reciente":"Actividad Reciente",
           "Recursos": "Recursos",
           "Artículos": "Artículos",
           "Videos": "Videos",
