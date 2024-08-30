@@ -16,6 +16,7 @@ export function ForoCard({ foro, commentsCount }) {
   const { user } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
 
+
   const handleDelete = async () => {
     setIsDeleting(true);
     try {
@@ -27,7 +28,9 @@ export function ForoCard({ foro, commentsCount }) {
     }
   };
 
+
   const isOwner = user?.id === foro.user?._id || user?.id === foro.user;
+
 
   return (
     <div className="foro-card">
@@ -92,6 +95,7 @@ export function ForoCard({ foro, commentsCount }) {
   );
 }
 
+
 ForoCard.propTypes = {
   foro: PropTypes.shape({
     user: PropTypes.oneOfType([
@@ -110,3 +114,5 @@ ForoCard.propTypes = {
   }).isRequired,
   commentsCount: PropTypes.number,
 };
+
+
