@@ -11,7 +11,7 @@
   --btn-2-border: #cccccc;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --navbar-background: #4e3670;
   --navbar-border: #444;
   --nav-link-color: #f1f1f1;
@@ -23,7 +23,6 @@
   --btn-2-hover: #444;
   --btn-2-border: #666;
 }
-
 
 /* General navbar styles */
 .navbar {
@@ -203,29 +202,29 @@
   margin: 0 10px;
 }
 
-.nav-link, 
-.btn, 
+.nav-link,
+.btn,
 .logout-link {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.nav-link:hover, 
-.btn:hover, 
+.nav-link:hover,
+.btn:hover,
 .logout-link:hover {
   background-color: #bdabd4;
   border-radius: 5px;
 }
 
-.profile-pic, 
-.theme-icon, 
+.profile-pic,
+.theme-icon,
 .logout-pic {
   width: 24px;
   height: 24px;
@@ -239,15 +238,15 @@
     margin: 0 5px;
   }
 
-  .nav-link, 
-  .btn, 
+  .nav-link,
+  .btn,
   .logout-link {
     font-size: 12px;
     padding: 3px 8px;
   }
 
-  .profile-pic, 
-  .theme-icon, 
+  .profile-pic,
+  .theme-icon,
   .logout-pic {
     width: 20px;
     height: 20px;
